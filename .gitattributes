@@ -1,0 +1,10 @@
+* text=auto
+*.c text
+*.h text
+*.sln text eol=crlf
+*.png binary
+*.jpg binary
+*.dll binary
+*.gif binary
+*.ico binary
+core.autocrlf=true
