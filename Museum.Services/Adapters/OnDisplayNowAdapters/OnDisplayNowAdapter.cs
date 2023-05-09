@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.App.Services.Adapters.OnDisplayNowAdapter
+namespace Museum.App.Services.Adapters
 {
     public class OnDisplayNowAdapter
     {

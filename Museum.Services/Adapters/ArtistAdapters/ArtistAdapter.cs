@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.App.Services.Adapters.ArtistAdapter
+namespace Museum.App.Services.Adapters
 {
-    public class ArtistModel
+    public class ArtistAdapter
     {
         public int ArtistId { get; set; }
         public string? FullName { get; set; }

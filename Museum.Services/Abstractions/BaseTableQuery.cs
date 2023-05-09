@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Museum.App.Services.Abstractions
 {
-    public abstract class BaseTableQuery<T>
+    public abstract class BaseTableQuery<T> : IBasicInterface<T>
     {
         protected readonly string connectionString;
 
@@ -14,15 +14,19 @@ namespace Museum.App.Services.Abstractions
 
         protected abstract string TableName { get; }
 
+
+        #region IBasicRepository
         public abstract void Add(T item);
-
         public abstract void Update(T item);
-
+        public abstract void Delete(int id);
         public abstract void Delete(T item);
-
         public abstract T GetById(int id);
-
+        public abstract IEnumerable<T> Find(Func<T, bool> predicate);
+        public abstract int Count();
+        public abstract bool Any();
+        public abstract IEnumerable<T> Paginate(int pageNumber, int pageSize);
         public abstract IEnumerable<T> GetAll();
+        #endregion
 
         protected virtual SqlConnection OpenConnection()
         {

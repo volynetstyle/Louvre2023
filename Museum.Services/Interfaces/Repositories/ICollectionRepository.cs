@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Museum.App.Services.Abstractions;
+using Museum.Models;
 
 namespace Museum.App.Services.Interfaces.Servises
 {
-    internal interface ICollectionRepository
+    internal interface ICollectionRepository : IBasicInterface<CollectionModel>
     {
     }
 }

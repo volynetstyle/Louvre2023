@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Museum.Models
 {
-    public class Image
+    public class ImageDboModel
     {
         public int ImageID { get; set; }
         public string? ImageLoc { get; set; }

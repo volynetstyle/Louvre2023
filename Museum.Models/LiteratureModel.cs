@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Museum.Models
 {
-    public class Literature
+    public class LiteratureModel
     {
         public int LiteratureID { get; set; }
         public string? Title { get; set; }

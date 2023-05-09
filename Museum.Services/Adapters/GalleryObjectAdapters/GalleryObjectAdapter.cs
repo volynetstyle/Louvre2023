@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace Museum.App.Services.Adapters.GalleryObjectAdapters
+﻿namespace Museum.App.Services.Adapters
 {
-    public class GalleryObject
+    public class GalleryObjectAdapter
     {
         public int ObjectID { get; set; }
         public int? CategoryID { get; set; }

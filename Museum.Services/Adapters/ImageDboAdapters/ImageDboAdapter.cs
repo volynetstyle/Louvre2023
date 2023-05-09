@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.App.Services.Adapters.ImageDboAdapters
+namespace Museum.App.Services.Adapters
 {
-    public class Image
+    public class ImageDboAdapter
     {
         public int ImageID { get; set; }
         public string? ImageLoc { get; set; }

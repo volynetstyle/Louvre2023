@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Museum.App.Services.Abstractions;
+using Museum.App.Services.Adapters;
 
 namespace Museum.App.Services.Interfaces.Repositories
 {
-    internal interface IArtistService
+    internal interface IArtistService : IBasicService<ArtistAdapter>
     {
     }
 }

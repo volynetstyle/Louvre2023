@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.Models
+namespace Museum.App.Services.Adapters
 {
-    public class CollectionModel
+    public class CollectionAdapter
     {
         public int CollectionId { get; set; }
         public string? Department { get; set; }

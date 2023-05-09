@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.App.Services.Adapters.LiteratureAdapter
+namespace Museum.App.Services.Adapters
 {
-    public class Literature
+    public class LiteratureAdapter
     {
         public int LiteratureID { get; set; }
         public string? Title { get; set; }

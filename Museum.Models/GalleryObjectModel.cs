@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Museum.Models
 {
-    public class GalleryObject
+    public class GalleryObjectModel
     {
         public int ObjectID { get; set; }
         public int? CategoryID { get; set; }
