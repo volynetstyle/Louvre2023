@@ -1,4 +1,4 @@
-namespace Museum.App.Models
+namespace Museum.App.ViewModels.Error
 {
     public class ErrorViewModel
     {

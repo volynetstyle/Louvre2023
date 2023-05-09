@@ -10,4 +10,9 @@
     <PackageReference Include="Dapper" Version="2.0.123" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Utilites\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+
 </Project>

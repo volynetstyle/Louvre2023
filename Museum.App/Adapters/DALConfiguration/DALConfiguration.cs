@@ -13,8 +13,7 @@ namespace Dependencies.DALConfiguration
             if (!string.IsNullOrEmpty(connectionString))
             {
                 services.AddSingleton(configuration);
-                //services.AddScoped<ITaskService, TaskService>();
-                //services.AddScoped<ICategoryService, CategoryService>();
+               // services.AddScoped<IA, TaskService>();
                 //services.AddScoped<ITaskRepository, TaskRepository>(provider => new TaskRepository(connectionString));
                 //services.AddScoped<ICategoryRepository, CategoryRepository>(provider => new CategoryRepository(connectionString));
                 return services;

@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Implementation\Repositories\" />
     <Folder Include="Implementation\Servises\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="JsonConverter\" />
     <Folder Include="Utilites\" />
   </ItemGroup>
