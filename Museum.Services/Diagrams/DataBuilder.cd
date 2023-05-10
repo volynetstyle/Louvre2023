@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dommel.DommelMapper" Collapsed="true">
+    <Position X="14.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Il0CEsAoDRkY4QhoAAFDCC3mggGcDEmIGoFDZQICRYk=</HashCode>
+      <FileName>DataBuilder\Dommel\Any.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.ColumnPropertyInfo" Collapsed="true">
+    <Position X="9" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>DataBuilder\Dommel\ColumnPropertyInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.DefaultColumnNameResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultColumnNameResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultForeignKeyPropertyResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultForeignKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultKeyPropertyResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultPropertyResolver" Collapsed="true">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.DefaultTableNameResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultTableNameResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.IgnoreAttribute" Collapsed="true">
+    <Position X="9" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IgnoreAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.MySqlSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\MySqlSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.PostgresSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\PostgresSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Resolvers" Collapsed="true">
+    <Position X="14.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQAAAAAAAgBAQAAAAAAAAAAQAQAAEAADAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\Resolvers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.SqlExpression&lt;TEntity&gt;" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAKAAAQAoAUBAAFAQAEIBAiQEEAAIwCABDAQAgASKQ=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.SqliteSqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqliteSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.SqlServerCeSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlServerCeSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.SqlServerSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlServerSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.DommelJsonMapper" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\DommelJsonMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.DommelJsonOptions" Collapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\DommelJsonOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.SqlServerSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.MySqlSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.PostgresSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.SqliteSqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.SqlServerCeSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.JsonDataAttribute" Collapsed="true">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonDataAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.JsonObjectTypeHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonObjectTypeHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.Json.JsonPropertyResolver" Collapsed="true">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAQAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.JsonSqlExpression&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonSqlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Dommel.QueryCacheKey" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAYAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\Cache.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Interface Name="Dommel.IColumnNameResolver" Collapsed="true">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IColumnNameResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IForeignKeyPropertyResolver" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IForeignKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IKeyPropertyResolver" Collapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IPropertyResolver" Collapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.ISqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ISqlBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.ITableNameResolver" Collapsed="true">
+    <Position X="9" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ITableNameResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.Json.IJsonSqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Dommel.QueryCacheType" Collapsed="true">
+    <Position X="10.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAEAAAAAAAABgAAAACAQAAAUAAAAAAgAABAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\Cache.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Dommel.ForeignKeyRelation" Collapsed="true">
+    <Position X="9" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ForeignKeyRelation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

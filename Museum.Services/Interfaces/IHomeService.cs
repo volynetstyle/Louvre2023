@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Museum.App.Services.Abstractions;
+using Museum.App.ViewModels.Home;
+
 
 namespace Museum.App.Services.Interfaces
 {
-    public interface IHomeService
+    public interface IHomeService : IBasicInterface<HomeViewModel>
     {
-        void Test();
+        
     }
 }

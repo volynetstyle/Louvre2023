@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Museum.App.Services.Adapters.ArtistAdapter" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAIAEAQAAAAAAAAABQAAAAAAAAA=</HashCode>
+      <FileName>Adapters\ArtistAdapters\ArtistAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.CategoryAdapter" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAgAgAAAAAAAAAAACAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Adapters\CategoryAdapters\CategoryAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.CollectionAdapter" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Adapters\CollectionAdapters\CollectionAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.CollectionPartAdapter" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Adapters\CollectionPartAdapters\CollectionPartAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.DirectorAdapter" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\DirectorAdapters\DirectorAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.GalleryAdapter" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAJAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\GalleryAdapters\GalleryAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.GalleryObjectAdapter" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>REAEAAAiBIAgAEAIwAIAAEAACYAAAAAAAAAAIJAACAA=</HashCode>
+      <FileName>Adapters\GalleryObjectAdapters\GalleryObjectAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.HistoryAdapter" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAAAAIAgAAAAhAIAAAAACAAAAAAAAAAAIAAACAA=</HashCode>
+      <FileName>Adapters\HistoryAdapters\HistoryAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.ImageDboAdapter" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAEAAAAAAAAAAAAAgAAAQAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\ImageDboAdapters\ImageDboAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.LevelAdapter" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\LevelAdapters\LevelAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.LiteratureAdapter" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAAQAAAEAAiAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Adapters\LiteratureAdapters\LiteratureAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.MuseumAdapter" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAkAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Adapters\MuseumAdapters\MuseumAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.OnDisplayNowAdapter" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\OnDisplayNowAdapters\OnDisplayNowAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.RatingAdapter" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAIAAAAAAAAAAgAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\RatingAdapters\RatingAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.ThemeAlbumAdapter" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAgAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\ThemeAlbumAdapters\ThemeAlbumAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.UserAdapter" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAEAAwAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Adapters\UserAdapters\UserAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Adapters.WingsFloorsAdapter" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Adapters\WingsFloorsAdapters\WingsFloorsAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

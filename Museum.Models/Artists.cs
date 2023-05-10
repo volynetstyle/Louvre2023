@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Museum.Models
 {
-    public class ArtistModel
+    public class Artists
     {
         public int ArtistId { get; set; }
         public string? FullName { get; set; }

@@ -17,8 +17,7 @@ namespace Museum.App.Adapters.DALConfiguration
             {
                 services.AddSingleton(configuration);
                 services.AddScoped(typeof(IBasicService<,>), typeof(BaseService<,>));
-                services.AddScoped(typeof(IBasicRepository<>), typeof(BaseRepository<>));
-                services.AddScoped(provider => new BaseRepository(connectionString));
+                services.AddScoped<Artists>(connectionString);
                 return services;
             }
             else
@@ -27,12 +26,18 @@ namespace Museum.App.Adapters.DALConfiguration
             }
         }
 
+        public static IServiceCollection AddScoped<TModel>(this IServiceCollection services, string connnenctionString) where TModel : class 
+        {
+            return services.AddScoped(typeof(IBasicRepository<TModel>), provider => new BaseRepository<TModel>(connnenctionString));
+        }
+        
+
         public static MapperConfiguration ConfigureMapper()
         {
             MapperConfiguration mapperConfiguration = new(cfg =>
             {
                 //Main configuration 
-                cfg.CreateMap<ArtistModel, ArtistAdapter>().ReverseMap();
+                cfg.CreateMap<Artists, ArtistAdapter>().ReverseMap();
                 cfg.CreateMap<CategoryModel, CategoryAdapter>().ReverseMap();
                 cfg.CreateMap<CollectionModel, CollectionAdapter>().ReverseMap();
                 cfg.CreateMap<CollectionPartModel, CollectionPartAdapter>().ReverseMap();

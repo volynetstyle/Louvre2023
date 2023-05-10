@@ -12,13 +12,13 @@ namespace Museum.App.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly IBasicService<ArtistModel, ArtistAdapter> _artistService;
-        private readonly IBasicService<ArtistModel, CategoryAdapter> _categoryService;
+        private readonly IBasicService<Artists, ArtistAdapter> _artistService;
+        private readonly IBasicService<Artists, CategoryAdapter> _categoryService;
 
 
         public HomeController(ILogger<HomeController> logger, 
-                              IBasicService<ArtistModel, ArtistAdapter> artistService,
-                              IBasicService<ArtistModel, CategoryAdapter> categoryService)
+                              IBasicService<Artists, ArtistAdapter> artistService,
+                              IBasicService<Artists, CategoryAdapter> categoryService)
         {
             _logger = logger;
             _artistService = artistService;

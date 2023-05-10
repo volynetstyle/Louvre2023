@@ -1,4 +1,4 @@
-using MyToDo.Repositories.DALConfiguration;
+using Museum.App.Adapters.DALConfiguration;
 
 namespace Museum.App
 {
