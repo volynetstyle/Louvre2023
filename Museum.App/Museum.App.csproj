@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Museum.Models\Museum.Models.csproj" />
     <ProjectReference Include="..\Museum.Services\Museum.App.Services.csproj" />
+    <ProjectReference Include="..\Museum.ViewModels\Museum.App.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

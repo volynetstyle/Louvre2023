@@ -1,3 +1,5 @@
+using MyToDo.Repositories.DALConfiguration;
+
 namespace Museum.App
 {
     public class Program
@@ -7,6 +9,9 @@ namespace Museum.App
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSingleton(DALConfiguration.ConfigureMapper().CreateMapper());
+            DALConfiguration.ConfigureDALServices(builder.Services, builder.Configuration);
 
             WebApplication app = builder.Build();
 

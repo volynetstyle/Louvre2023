@@ -7,13 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="JsonConverter\**" />
+    <EmbeddedResource Remove="JsonConverter\**" />
+    <None Remove="JsonConverter\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Implementation\Repositories\" />
     <Folder Include="Implementation\Servises\" />
-    <Folder Include="JsonConverter\" />
     <Folder Include="Utilites\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
   </ItemGroup>
