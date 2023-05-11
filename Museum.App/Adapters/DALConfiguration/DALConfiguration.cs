@@ -4,6 +4,9 @@ using Museum.App.Services.Abstractions;
 using Museum.Models;
 using Museum.App.Services.Adapters;
 using AutoMapper;
+using Museum.App.Services.Interfaces;
+using Museum.App.Services.Implementation.Servises;
+using Museum.App.Services.Implementation;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
@@ -17,7 +20,29 @@ namespace Museum.App.Adapters.DALConfiguration
             {
                 services.AddSingleton(configuration);
                 services.AddScoped(typeof(IBasicService<,>), typeof(BaseService<,>));
+
+                services.AddScoped<IHomeService, HomeService>();
+                services.AddScoped<ICategoryService, CategoryService>();
+                services.AddScoped<IAboutService, AboutService>();
+                services.AddScoped<IGalleryService, GalleryService>();
+
                 services.AddScoped<Artists>(connectionString);
+                services.AddScoped<CategoryModel>(connectionString);
+                services.AddScoped<CollectionModel>(connectionString);
+                services.AddScoped<CollectionPartModel>(connectionString);
+                services.AddScoped<DirectorModel>(connectionString);
+                services.AddScoped<GalleryModel>(connectionString);
+                services.AddScoped<GalleryObjectModel>(connectionString);
+                services.AddScoped<HistoryModel>(connectionString);
+                services.AddScoped<ImageDboModel>(connectionString);
+                services.AddScoped<LevelModel>(connectionString);
+                services.AddScoped<LiteratureModel>(connectionString);
+                services.AddScoped<MuseumModel>(connectionString);
+                services.AddScoped<OnDisplayNowModel>(connectionString);
+                services.AddScoped<RatingModel>(connectionString);
+                services.AddScoped<ThemeAlbumModel>(connectionString);
+                services.AddScoped<UserModel>(connectionString);
+                services.AddScoped<WingsFloorsModel>(connectionString);
                 return services;
             }
             else
@@ -26,11 +51,12 @@ namespace Museum.App.Adapters.DALConfiguration
             }
         }
 
-        public static IServiceCollection AddScoped<TModel>(this IServiceCollection services, string connnenctionString) where TModel : class 
+        public static IServiceCollection AddScoped<TModel>(this IServiceCollection services, string connnenctionString) 
+            where TModel : class 
         {
-            return services.AddScoped(typeof(IBasicRepository<TModel>), provider => new BaseRepository<TModel>(connnenctionString));
-        }
-        
+            return services.AddScoped(typeof(IBasicRepository<TModel>), 
+                                      provider => new BaseRepository<TModel>(connnenctionString));
+        }  
 
         public static MapperConfiguration ConfigureMapper()
         {
