@@ -23,7 +23,7 @@ namespace Museum.App.Services.Abstractions
 
         public void Add(TAdapter item)
         {
-            _repository.Add(_mapper.Map<TModel>(item));
+            Add<TAdapter>(item);
         }
 
         public int Count()
@@ -38,7 +38,8 @@ namespace Museum.App.Services.Abstractions
 
         public IEnumerable<TAdapter> Find(Expression<Func<TAdapter, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var expression = _mapper.Map<Expression<Func<TModel, bool>>>(predicate);
+            return _mapper.Map<IEnumerable<TAdapter>>(_repository.Find(expression));
         }
 
         public IEnumerable<TAdapter> GetAll()
@@ -53,7 +54,7 @@ namespace Museum.App.Services.Abstractions
 
         public IEnumerable<TAdapter> Paginate(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<TAdapter>>(_repository.Paginate(pageNumber, pageSize));
         }
 
         public void Update(TAdapter item)

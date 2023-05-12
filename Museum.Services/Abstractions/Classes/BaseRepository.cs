@@ -1,8 +1,5 @@
-﻿using Dapper;
-using Dommel;
+﻿using Dommel;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
 namespace Museum.App.Services.Abstractions
@@ -63,13 +60,14 @@ namespace Museum.App.Services.Abstractions
             using var sql = new SqlConnection(_db);
             var val = sql.Get<T>(id);
             if (val == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(val), "Item not found");
             return val;
         }
 
         public IEnumerable<T> Paginate(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            using var sql = new SqlConnection(_db);
+            return sql.GetAll<T>().Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
         public void Update(T item)
