@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Museum.App.Services.Interfaces
+namespace Museum.App.Services.Interfaces.Servises
 {
     public interface ICategoryService
     {

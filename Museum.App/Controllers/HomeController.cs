@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Museum.App.Services.Abstractions;
-using Museum.App.Services.Adapters;
+using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.Error;
 using Museum.App.ViewModels.Home;
-using Museum.Models;
 using System.Diagnostics;
 
 namespace Museum.App.Controllers
@@ -11,26 +9,16 @@ namespace Museum.App.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        private readonly IBasicService<Artists, ArtistAdapter> _artistService;
-        private readonly IBasicService<Artists, CategoryAdapter> _categoryService;
-
-
-        public HomeController(ILogger<HomeController> logger, 
-                              IBasicService<Artists, ArtistAdapter> artistService,
-                              IBasicService<Artists, CategoryAdapter> categoryService)
+        private readonly IHomeService _homeService;
+        public HomeController(ILogger<HomeController> logger, IHomeService homeService)
         {
             _logger = logger;
-            _artistService = artistService;
-            _categoryService = categoryService;
+            _homeService = homeService;
         }
 
         public IActionResult Index()
         {
-            var val = _artistService.GetAll();
-            var val1 = _categoryService.GetAll();
-
-            return View(new HomeViewModel { Add = "", Continue = "", Remove = ""});
+            return View();
         }
 
         public IActionResult Privacy()

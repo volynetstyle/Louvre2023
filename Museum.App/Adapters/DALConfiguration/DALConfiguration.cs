@@ -4,9 +4,8 @@ using Museum.App.Services.Abstractions;
 using Museum.Models;
 using Museum.App.Services.Adapters;
 using AutoMapper;
-using Museum.App.Services.Interfaces;
-using Museum.App.Services.Implementation.Servises;
-using Museum.App.Services.Implementation;
+using Museum.App.Services.Implementation.Services;
+using Museum.App.Services.Interfaces.Servises;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
@@ -27,7 +26,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<IGalleryService, GalleryService>();
 
                 services.AddScoped<Artists>(connectionString);
-                services.AddScoped<CategoryModel>(connectionString);
+                services.AddScoped<Categories>(connectionString);
                 services.AddScoped<CollectionModel>(connectionString);
                 services.AddScoped<CollectionPartModel>(connectionString);
                 services.AddScoped<DirectorModel>(connectionString);
@@ -64,7 +63,7 @@ namespace Museum.App.Adapters.DALConfiguration
             {
                 //Main configuration 
                 cfg.CreateMap<Artists, ArtistAdapter>().ReverseMap();
-                cfg.CreateMap<CategoryModel, CategoryAdapter>().ReverseMap();
+                cfg.CreateMap<Categories, CategoryAdapter>().ReverseMap();
                 cfg.CreateMap<CollectionModel, CollectionAdapter>().ReverseMap();
                 cfg.CreateMap<CollectionPartModel, CollectionPartAdapter>().ReverseMap();
                 cfg.CreateMap<DirectorModel, DirectorAdapter>().ReverseMap();
