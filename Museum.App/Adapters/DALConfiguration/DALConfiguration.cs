@@ -6,6 +6,10 @@ using Museum.App.Services.Adapters;
 using AutoMapper;
 using Museum.App.Services.Implementation.Services;
 using Museum.App.Services.Interfaces.Servises;
+using Museum.Models.HomeModels;
+using Museum.App.ViewModels.Home;
+using Museum.App.Services.Interfaces.Repositories;
+using Museum.App.Services.Implementation.Repositories;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
@@ -24,6 +28,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<ICategoryService, CategoryService>();
                 services.AddScoped<IAboutService, AboutService>();
                 services.AddScoped<IGalleryService, GalleryService>();
+                services.AddScoped<IHomeRepository, HomeRepository>(provider => new HomeRepository(connectionString));
 
                 services.AddScoped<Artists>(connectionString);
                 services.AddScoped<Categories>(connectionString);
@@ -80,6 +85,8 @@ namespace Museum.App.Adapters.DALConfiguration
                 cfg.CreateMap<UserModel, UserAdapter>().ReverseMap();
                 cfg.CreateMap<WingsFloorsModel, WingsFloorsAdapter>().ReverseMap();
 
+                //Secondary map
+                cfg.CreateMap<SectionItem, SectionItemModel>().ReverseMap();
                 //Another one ... like New...Adapter
             });
 
