@@ -16,12 +16,12 @@ namespace Museum.App.Services.Implementation.Repositories
             _db = db;
         }
 
-        public IEnumerable<SectionItemModel> GetGalleryObjectsByCollectionID(int collectionID)
+        public IEnumerable<SectionItemModel> GetGalleryObjectsByCategoryID(int categoryID)
         {
-            using var conn = new SqlConnection(_db); 
-            return conn.Query<SectionItem>("GetGalleryObjectsByCollectionID", 
-                new { CollectionID = collectionID }, 
-                commandType: CommandType.StoredProcedure);
+            using var conn = new SqlConnection(_db);
+            return conn.Query<SectionItemModel>("GetGalleryObjectsByCollectionID",
+                                                new { CollectionID = categoryID },
+                                                commandType: CommandType.StoredProcedure);
         }
     }
 }

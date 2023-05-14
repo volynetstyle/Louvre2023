@@ -5,6 +5,6 @@ namespace Museum.App.Services.Interfaces.Repositories
 {
     public interface IHomeRepository
     {
-        IEnumerable<SectionItemModel> GetGalleryObjectsByCollectionID(int collectionID);
+        IEnumerable<SectionItemModel> GetGalleryObjectsByCategoryID(int categoryID);
     }
 }

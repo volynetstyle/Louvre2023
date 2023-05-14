@@ -1,37 +1,29 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
-using Museum.Models;
 using Museum.App.ViewModels.Home;
 using System.Linq.Expressions;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.Services.Interfaces.Repositories;
 using System.Collections;
+using Museum.Models.TableModels;
+using Museum.App.Services.Adapters;
 
 namespace Museum.App.Services.Implementation.Services
 {
     public class HomeService : IHomeService
     {
         private readonly IMapper _mapper;
-        private readonly IBasicRepository<GalleryObjectModel> _ExibitionRepository;
-        private readonly IBasicRepository<CollectionModel> _CollectionRepository;
-        private readonly IBasicRepository<CollectionPartModel> _CollectionPartRepository;
-        private readonly IBasicRepository<Categories> _CategoriesRepository;
-        private readonly IBasicRepository<ImageDboModel> _ImageDboRepository;
+        private readonly IBasicService<Categories, CategoryAdapter> _CategoriesRepository;
+        private readonly IBasicService<ImageDboModel, ImageDboAdapter> _ImageDboRepository;
         private readonly IHomeRepository _HomeRepository;
 
         public HomeService(IMapper Mapper,
                            IHomeRepository HomeRepository,
-                           IBasicRepository<GalleryObjectModel> ExibitionRepository,
-                           IBasicRepository<CollectionModel> CollectionRepository,
-                           IBasicRepository<CollectionPartModel> CollectionPartRepository,
-                           IBasicRepository<Categories> CategoriesRepository,
-                           IBasicRepository<ImageDboModel> ImageDboRepository)
+                           IBasicService<Categories, CategoryAdapter> CategoriesRepository,
+                           IBasicService<ImageDboModel, ImageDboAdapter> ImageDboRepository)
         {
             _mapper = Mapper;
             _HomeRepository = HomeRepository;
-            _ExibitionRepository = ExibitionRepository;
-            _CollectionRepository = CollectionRepository;
-            _CollectionPartRepository = CollectionPartRepository;
             _CategoriesRepository = CategoriesRepository;
             _ImageDboRepository = ImageDboRepository;
         }
@@ -42,7 +34,7 @@ namespace Museum.App.Services.Implementation.Services
             set => throw new NotImplementedException();
         }
 
-        public Section? AlbumSection()
+        public IEnumerable<Section>? AlbumSection()
         {
             throw new NotImplementedException();
         }
@@ -54,7 +46,7 @@ namespace Museum.App.Services.Implementation.Services
 
             foreach (var item in Collection)
             {
-                var tmp_Obj = _HomeRepository.GetGalleryObjectsByCollectionID(item.CategoryId);
+                var tmp_Obj = _HomeRepository.GetGalleryObjectsByCategoryID(item.CategoryId);
                 var tmp_CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(tmp_Obj);
 
                 list.Add(new Section
