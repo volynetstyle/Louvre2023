@@ -103,34 +103,18 @@ namespace Museum.App.Services.Implementation.Servises
         {
             var filteredDepartmentSections = new List<DepartmentSection>();
 
-            foreach (var keyValuePair in departmentSectionsDict)
+            foreach (var (key, value) in departmentSectionsDict)
             {
-                if (keyValuePair.Key.Contains(pattern, StringComparison.OrdinalIgnoreCase))
+                if (key.Contains(pattern, StringComparison.OrdinalIgnoreCase))
                 {
-                    filteredDepartmentSections.AddRange(keyValuePair.Value);
+                    filteredDepartmentSections.AddRange(value);
                     continue;
                 }
 
-                var departmentSections = new List<DepartmentSection>();
-
-                foreach (var ds in keyValuePair.Value)
-                {
-                    if (ds.DepartmentDescription?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true)
-                    {
-                        departmentSections.Add(ds);
-                    }
-                    else if (ds.DepartmentItem != null)
-                    {
-                        foreach (var si in ds.DepartmentItem)
-                        {
-                            if (si.Title?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true)
-                            {
-                                departmentSections.Add(ds);
-                                break;
-                            }
-                        }
-                    }
-                }
+                var departmentSections = value.Where(ds =>
+                    ds.DepartmentDescription?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true ||
+                    ds.DepartmentItem?.Any(si => si.Title?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true) == true)
+                    .ToList();
 
                 filteredDepartmentSections.AddRange(departmentSections);
             }
