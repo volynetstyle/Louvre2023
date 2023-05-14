@@ -46,6 +46,13 @@ namespace Museum.App.Services.Abstractions
         {
             return _mapper.Map<IEnumerable<TAdapter>>(_repository.GetAll());
         }
+        public async Task<IEnumerable<TAdapter>> GetAllAsync()
+        {
+            var entities = await _repository.GetAllAsync();
+            var adapters = _mapper.Map<IEnumerable<TAdapter>>(entities);
+            return adapters;
+        }
+
 
         public TAdapter GetById(int id)
         {

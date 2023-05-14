@@ -38,17 +38,11 @@ namespace Museum.App.Services.Implementation.Servises
 
         public IEnumerable<DepartmentSection>? GetDepartmentSection()
         {
-            var Collection = _collectionService.GetAll();
-            var list = new List<DepartmentSection>();
-
-            foreach (var item in Collection)
+            return _collectionService.GetAll().Select(c => new DepartmentSection
             {
-                var tmp_Obj = _filterRepository.GetGalleryObjectsByCollectionID(item.CollectionId);
-                var tmp_CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(tmp_Obj);
-
-                list.Add(new DepartmentSection { DepartmentName = item.Department, DepartmentItem = tmp_CategoryItem });
-            }
-            return list;
+                DepartmentName = c.Department,
+                DepartmentItem = _mapper.Map<IEnumerable<SectionItem>>(_filterRepository.GetGalleryObjectsByCollectionID(c.CollectionId))
+            });
         }
 
         public IEnumerable<ArtistAdapter> GetArtists() => _artistService.GetAll();
@@ -57,9 +51,96 @@ namespace Museum.App.Services.Implementation.Servises
 
         public IEnumerable<CollectionAdapter> GetDepartmens() => _collectionService.GetAll();
 
-        public IEnumerable<DepartmentSection>? SearchAction(string? pattern = null)
+        public async Task<IEnumerable<DepartmentSection>> SearchActionAsync(string? pattern = null)
         {
-            throw new NotImplementedException();
+            var departmentSectionsDict = await GetDepartmentSectionsDictAsync();
+
+            if (!string.IsNullOrEmpty(pattern))
+            {
+                var filteredDepartmentSections = FilterDepartmentSections(departmentSectionsDict, pattern);
+                return filteredDepartmentSections;
+            }
+            else
+            {
+                var allDepartmentSections = GetAllDepartmentSections(departmentSectionsDict);
+                return allDepartmentSections;
+            }
+        }
+
+        private async Task<Dictionary<string, List<DepartmentSection>>> GetDepartmentSectionsDictAsync()
+        {
+            var collections = await _collectionService.GetAllAsync();
+            var departmentSectionsDict = new Dictionary<string, List<DepartmentSection>>();
+
+            foreach (var c in collections)
+            {
+                var sectionItems = await _filterRepository.GetGalleryObjectsByCollectionIDAsync(c.CollectionId);
+                var departmentItem = _mapper.Map<IEnumerable<SectionItem>>(sectionItems);
+                var departmentSection = new DepartmentSection { DepartmentName = c.Department, DepartmentItem = departmentItem };
+
+                if (departmentSection.DepartmentName != null)
+                {
+                    AddDepartmentSectionToDict(departmentSectionsDict, departmentSection);
+                }
+            }
+
+            return departmentSectionsDict;
+        }
+
+        private void AddDepartmentSectionToDict(Dictionary<string, List<DepartmentSection>> dict, DepartmentSection departmentSection)
+        {
+            if (departmentSection.DepartmentName != null)
+            {
+                if (!dict.ContainsKey(departmentSection.DepartmentName))
+                {
+                    dict[departmentSection.DepartmentName] = new List<DepartmentSection>();
+                }
+                dict[departmentSection.DepartmentName].Add(departmentSection);
+            }
+        }
+
+        private List<DepartmentSection> FilterDepartmentSections(Dictionary<string, List<DepartmentSection>> departmentSectionsDict, string pattern)
+        {
+            var filteredDepartmentSections = new List<DepartmentSection>();
+
+            foreach (var keyValuePair in departmentSectionsDict)
+            {
+                if (keyValuePair.Key.Contains(pattern, StringComparison.OrdinalIgnoreCase))
+                {
+                    filteredDepartmentSections.AddRange(keyValuePair.Value);
+                    continue;
+                }
+
+                var departmentSections = new List<DepartmentSection>();
+
+                foreach (var ds in keyValuePair.Value)
+                {
+                    if (ds.DepartmentDescription?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true)
+                    {
+                        departmentSections.Add(ds);
+                    }
+                    else if (ds.DepartmentItem != null)
+                    {
+                        foreach (var si in ds.DepartmentItem)
+                        {
+                            if (si.Title?.Contains(pattern, StringComparison.OrdinalIgnoreCase) == true)
+                            {
+                                departmentSections.Add(ds);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                filteredDepartmentSections.AddRange(departmentSections);
+            }
+
+            return filteredDepartmentSections;
+        }
+
+        private List<DepartmentSection> GetAllDepartmentSections(Dictionary<string, List<DepartmentSection>> departmentSectionsDict)
+        {
+            return departmentSectionsDict.Values.SelectMany(x => x).ToList();
         }
 
         public IEnumerable<DepartmentSection>? Filter(FilterViewModel viewModel)

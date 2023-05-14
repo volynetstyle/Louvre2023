@@ -12,5 +12,6 @@ namespace Museum.App.Services.Abstractions
         where TModel : class
     {
         void Add<TnewEnity>(TnewEnity item);
+        Task<IEnumerable<TAdapter>> GetAllAsync();
     }
 }

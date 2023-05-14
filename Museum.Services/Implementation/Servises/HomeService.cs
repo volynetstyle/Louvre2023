@@ -28,12 +28,6 @@ namespace Museum.App.Services.Implementation.Services
             _ImageDboRepository = ImageDboRepository;
         }
 
-        public HomeViewModel ViewModel
-        {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
-        }
-
         public IEnumerable<Section>? AlbumSection()
         {
             throw new NotImplementedException();
@@ -41,33 +35,17 @@ namespace Museum.App.Services.Implementation.Services
 
         public IEnumerable<Section>? ExibitSection()
         {
-            var Collection = _CategoriesRepository.GetAll();
-            var list = new List<Section>();
-
-            foreach (var item in Collection)
+            return _CategoriesRepository.GetAll().Select(c => new Section
             {
-                var tmp_Obj = _HomeRepository.GetGalleryObjectsByCategoryID(item.CategoryId);
-                var tmp_CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(tmp_Obj);
-
-                list.Add(new Section
-                {
-                    CategoryName = item.CategoryName,
-                    CategoryDescription = item.Description,
-                    CategoryItem = tmp_CategoryItem
-                });
-            }
-            return list;
+                CategoryName = c.CategoryName,
+                CategoryDescription = c.Description,
+                CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(_HomeRepository.GetGalleryObjectsByCategoryID(c.CategoryId))
+            });
         }
 
         public IEnumerable<GallerySection>? GallerySection()
         {
-            return _ImageDboRepository
-                .GetAll()
-                .Select(x => new GallerySection
-                {
-                    Title = x.AdditionalInfo,
-                    Url = x.ImageLoc
-                });
+            return _ImageDboRepository.GetAll().Select(x => new GallerySection { Title = x.AdditionalInfo, Url = x.ImageLoc });
         }
     }
 }

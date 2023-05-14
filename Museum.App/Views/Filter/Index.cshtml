@@ -298,30 +298,19 @@
                     </form>
                 </div>
                 <div class="single-widget category-widget">
+                    @foreach(var item in Model?.DepartmentCollection)
+                    {
                     <div class="single-element-widget">
                         <h3 class="mb-10">Department</h3>
                         <div class="switch-wrap d-flex justify-content-between">
-                            <p>01. Sample Checkbox (12141)</p>
+                            <p>@item.Label (@item.Count)</p>
                             <div class="confirm-checkbox">
-                                <input type="checkbox" id="category-checkbox-1">
-                                <label for="default-checkbox"></label>
-                            </div>
-                        </div>
-                        <div class="switch-wrap d-flex justify-content-between">
-                            <p>02. Primary Color Checkbox (4124)</p>
-                            <div class="confirm-checkbox">
-                                <input type="checkbox" id="category-checkbox-2">
-                                <label for="primary-checkbox"></label>
-                            </div>
-                        </div>
-                        <div class="switch-wrap d-flex justify-content-between">
-                            <p>03. Confirm Color Checkbox (414)</p>
-                            <div class="confirm-checkbox">
-                                <input type="checkbox" id="category-checkbox-3">
-                                <label for="confirm-checkbox"></label>
+                                <input type="checkbox" id="category-checkbox-@item.Id">
+                                    <label for="category-checkbox-@item.Id"></label>
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 <div class="single-widget category-widget">
                     <div class="single-element-widget">

@@ -55,6 +55,14 @@ namespace Museum.App.Services.Abstractions
             return sql.GetAll<T>();
         }
 
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            using var sql = new SqlConnection(_db);
+            var entities = await sql.GetAllAsync<T>();
+            return entities;
+        }
+
+
         public T GetById(int id)
         {
             using var sql = new SqlConnection(_db);
