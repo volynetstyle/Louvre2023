@@ -28,7 +28,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<IHomeService, HomeService>();
                 services.AddScoped<ICategoryService, CategoryService>();
                 services.AddScoped<IAboutService, AboutService>();
-                services.AddScoped<IGalleryService, GalleryService>();
+                services.AddScoped<IGalleryObjectService, GalleryObjectService>();
                 services.AddScoped<IFilterService, FilterService>();
 
                 services.AddScoped<IFilterRepository, FilterRepository>(provider => new FilterRepository(connectionString));

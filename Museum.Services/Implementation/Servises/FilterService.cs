@@ -55,16 +55,9 @@ namespace Museum.App.Services.Implementation.Servises
         {
             var departmentSectionsDict = await GetDepartmentSectionsDictAsync();
 
-            if (!string.IsNullOrEmpty(pattern))
-            {
-                var filteredDepartmentSections = FilterDepartmentSections(departmentSectionsDict, pattern);
-                return filteredDepartmentSections;
-            }
-            else
-            {
-                var allDepartmentSections = GetAllDepartmentSections(departmentSectionsDict);
-                return allDepartmentSections;
-            }
+            return !string.IsNullOrEmpty(pattern)
+                ? FilterDepartmentSections(departmentSectionsDict, pattern)
+                : (IEnumerable<DepartmentSection>)GetAllDepartmentSections(departmentSectionsDict);
         }
 
         private async Task<Dictionary<string, List<DepartmentSection>>> GetDepartmentSectionsDictAsync()
@@ -129,6 +122,10 @@ namespace Museum.App.Services.Implementation.Servises
 
         public IEnumerable<DepartmentSection>? Filter(FilterViewModel viewModel)
         {
+            var coll = GetDepartmens();
+
+            viewModel.DepartmentCollection.Select(x=>x.)
+
             throw new NotImplementedException();
         }
     }
