@@ -31,6 +31,8 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<IGalleryObjectService, GalleryObjectService>();
                 services.AddScoped<IFilterService, FilterService>();
 
+                services.AddScoped<IEmailSenderService, EmailSenderService>();
+
                 services.AddScoped<IFilterRepository, FilterRepository>(provider => new FilterRepository(connectionString));
                 services.AddScoped<IHomeRepository, HomeRepository>(provider => new HomeRepository(connectionString));
 
@@ -98,4 +100,7 @@ namespace Museum.App.Adapters.DALConfiguration
             return mapperConfiguration;
         }
     }
+
+
+
 }

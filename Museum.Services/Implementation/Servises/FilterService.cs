@@ -124,7 +124,7 @@ namespace Museum.App.Services.Implementation.Servises
         {
             var coll = GetDepartmens();
 
-            viewModel.DepartmentCollection.Select(x=>x.)
+            //viewModel.DepartmentCollection.Selec)
 
             throw new NotImplementedException();
         }
