@@ -18,7 +18,9 @@ namespace Museum.App.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeViewModel(_homeService.ExibitSection(),
+                                          null, 
+                                          null));
         }
 
         public IActionResult Privacy()

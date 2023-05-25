@@ -1,8 +1,248 @@
-﻿@{
+﻿@using Museum.App.ViewModels.Home;
+@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="/FilterPage/Index">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <div class="banner-content col-lg-8">
+                <h6 class="text-white">Openning on 21st February, 2018</h6>
+                <h1 class="text-white">
+                    Exhibition on Modern Era
+                </h1>
+                <p class="pt-20 pb-20 text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim. sed do eiusmod tempor incididunt..
+                </p>
+                <a href="#" class="primary-btn text-uppercase">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start quote Area -->
+<section class="quote-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 quote-left">
+                <h1>
+                    <span>Music</span> gives soul to the universe, <br>
+                    wings to the <span>mind</span>, flight <br>
+                    to the <span>imagination</span>.
+                </h1>
+            </div>
+            <div class="col-lg-6 quote-right">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End quote Area -->
+
+<!-- Start exibition Area -->
+<section class="exibition-area section-gap" id="exhibitions">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Our Exhibitions collection</h1>
+                    <p>Who are in extremely love with eco friendly system.</p>
+                </div>
+                <div class="search-widget">
+                    <form class="example" action="#">
+                        <input type="text" placeholder="Search Posts" name="search2">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @foreach(var i in Model.ExibitSection)
+        {
+        <div class="pb-20">
+            <h1 class="mb-10">@i.CategoryName</h1>
+            <p>@i.CategoryDescription</p>
+            <div class="row">
+                <div class="active-exibition-carusel">
+                    @foreach (var j in i.CategoryItem)
+                    {
+                    <div class="single-exibition item">
+                        <img src="@j.ImageUrl" alt="">
+                        <ul class="tags">
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">Life style</a></li>
+                        </ul>
+                        <a href="#"><h4>@j.Title</h4></a>
+                        <p>
+                            @j.Description
+                        </p>
+                        <h6 class="date">@j.Date</h6>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+<!-- End exibition Area -->
+
+<!-- Theme albums area-->
+<section class="upcoming-event-area section-gap" id="events">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-10 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Checkout our Theme Alboms </h1>
+                    <p>Who are in extremely love with eco friendly system.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 event-left">
+                <div class="single-post">
+                    <img class="img-fluid" src="img/blog/p1.jpg" alt="">
+                    <ul class="tags">
+                        <li><a href="#">Art, </a></li>
+                        <li><a href="#">Technology, </a></li>
+                        <li><a href="#">Fashion</a></li>
+                    </ul>
+                    <a href="blog-single.html"><h1>1. Cartridge Is Better Than Ever A Discount Toner</h1></a>
+                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed MCSE training.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 event-right">
+                <div class="single-post">
+                    <img class="img-fluid" src="img/blog/p1.jpg" alt="">
+                    <ul class="tags">
+                        <li><a href="#">Art, </a></li>
+                        <li><a href="#">Technology, </a></li>
+                        <li><a href="#">Fashion</a></li>
+                    </ul>
+                    <a href="blog-single.html">
+                        <h1>
+                            2. Cartridge Is Better Than Ever
+                            A Discount Toner
+                        </h1>
+                    </a>
+                    <p>
+                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed MCSE training.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End upcoming-event Area -->
+
+<!-- Start blog Area -->
+<section class="blog-area section-gap" id="blog">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Latest From Our Blog</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 single-blog">
+                <div class="thumb">
+                    <img class="img-fluid" src="img/b1.jpg" alt="">
+                </div>
+                <p class="date">10 Jan 2018</p>
+                <a href="#"><h4>Addiction When Gambling
+                    Becomes A Problem</h4></a>
+                <p>
+                    inappropriate behavior ipsum dolor sit amet, consectetur.
+                </p>
+                <div class="meta-bottom d-flex justify-content-between">
+                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 single-blog">
+                <div class="thumb">
+                    <img class="img-fluid" src="img/b2.jpg" alt="">
+                </div>
+                <p class="date">10 Jan 2018</p>
+                <a href="#"><h4>Addiction When Gambling
+                    Becomes A Problem</h4></a>
+                <p>
+                    inappropriate behavior ipsum dolor sit amet, consectetur.
+                </p>
+                <div class="meta-bottom d-flex justify-content-between">
+                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 single-blog">
+                <div class="thumb">
+                    <img class="img-fluid" src="img/b3.jpg" alt="">
+                </div>
+                <p class="date">10 Jan 2018</p>
+                <a href="#"><h4>Addiction When Gambling
+                    Becomes A Problem</h4></a>
+                <p>
+                    inappropriate behavior ipsum dolor sit amet, consectetur.
+                </p>
+                <div class="meta-bottom d-flex justify-content-between">
+                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 single-blog">
+                <div class="thumb">
+                    <img class="img-fluid" src="img/b4.jpg" alt="">
+                </div>
+                <p class="date">10 Jan 2018</p>
+                <a href="#"><h4>Addiction When Gambling
+                    Becomes A Problem</h4></a>
+                <p>
+                    inappropriate behavior ipsum dolor sit amet, consectetur.
+                </p>
+                <div class="meta-bottom d-flex justify-content-between">
+                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog Area -->
+
+<!-- Start gallery Area -->
+<section class="gallery-area section-gap" id="gallery">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10 text-white">Our Exhibition Gallery</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="grid-container" class="row">
+
+            <a class="single-gallery" href="img/g1.jpg"><img class="grid-item" src="img/g1.jpg"></a>
+
+        </div>
+
+    </div>
+</section>
+<!-- End gallery Area -->
+
+

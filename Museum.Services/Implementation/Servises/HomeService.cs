@@ -39,7 +39,7 @@ namespace Museum.App.Services.Implementation.Services
             {
                 CategoryName = c.CategoryName,
                 CategoryDescription = c.Description,
-                CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(_HomeRepository.GetGalleryObjectsByCategoryID(c.CategoryId))
+                CategoryItem = _mapper.Map<IEnumerable<SectionItem>>(_HomeRepository.GetGalleryObjectsByCategoryID(1))
             });
         }
 

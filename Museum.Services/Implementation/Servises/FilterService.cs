@@ -20,13 +20,13 @@ namespace Museum.App.Services.Implementation.Servises
         private readonly IMapper _mapper;
         private readonly IBasicService<Artists ,ArtistAdapter> _artistService;
         private readonly IBasicService<Categories, CategoryAdapter> _categoryService;
-        private readonly IBasicService<CollectionModel, CollectionAdapter> _collectionService;
+        private readonly IBasicService<Collections, CollectionAdapter> _collectionService;
         private readonly IFilterRepository _filterRepository;
 
         public FilterService(IMapper mapper, 
                              IBasicService<Artists, ArtistAdapter> artistService,
                              IBasicService<Categories, CategoryAdapter> categoryService,
-                             IBasicService<CollectionModel, CollectionAdapter> collectionService,
+                             IBasicService<Collections, CollectionAdapter> collectionService,
                              IFilterRepository filterRepository)
         {
             _mapper = mapper;

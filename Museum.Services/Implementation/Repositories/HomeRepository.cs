@@ -19,9 +19,11 @@ namespace Museum.App.Services.Implementation.Repositories
         public IEnumerable<SectionItemModel> GetGalleryObjectsByCategoryID(int categoryID)
         {
             using var conn = new SqlConnection(_db);
-            return conn.Query<SectionItemModel>("GetGalleryObjectsByCollectionID",
-                                                new { CollectionID = categoryID },
+            var a = conn.Query<SectionItemModel>("GetGalleryObjectsByCategoryID",
+                                                new { CategoryID = categoryID },
                                                 commandType: CommandType.StoredProcedure);
+
+            return a;
         }
     }
 }

@@ -38,8 +38,8 @@ namespace Museum.App.Adapters.DALConfiguration
 
                 services.AddScoped<Artists>(connectionString);
                 services.AddScoped<Categories>(connectionString);
-                services.AddScoped<CollectionModel>(connectionString);
-                services.AddScoped<CollectionPartModel>(connectionString);
+                services.AddScoped<Collections>(connectionString);
+                services.AddScoped<CollectionParts>(connectionString);
                 services.AddScoped<DirectorModel>(connectionString);
                 services.AddScoped<GalleryModel>(connectionString);
                 services.AddScoped<GalleryObjectModel>(connectionString);
@@ -75,8 +75,8 @@ namespace Museum.App.Adapters.DALConfiguration
                 //Main configuration 
                 cfg.CreateMap<Artists, ArtistAdapter>().ReverseMap();
                 cfg.CreateMap<Categories, CategoryAdapter>().ReverseMap();
-                cfg.CreateMap<CollectionModel, CollectionAdapter>().ReverseMap();
-                cfg.CreateMap<CollectionPartModel, CollectionPartAdapter>().ReverseMap();
+                cfg.CreateMap<Collections, CollectionAdapter>().ReverseMap();
+                cfg.CreateMap<CollectionParts, CollectionPartAdapter>().ReverseMap();
                 cfg.CreateMap<DirectorModel, DirectorAdapter>().ReverseMap();
                 cfg.CreateMap<GalleryModel, GalleryAdapter>().ReverseMap();
                 cfg.CreateMap<GalleryObjectModel, GalleryObjectAdapter>().ReverseMap();
