@@ -41,7 +41,7 @@ namespace Museum.App.Services.Implementation.Servises
             return _collectionService.GetAll().Select(c => new DepartmentSection
             {
                 DepartmentName = c.Department,
-                DepartmentItem = _mapper.Map<IEnumerable<SectionItem>>(_filterRepository.GetGalleryObjectsByCollectionID(c.CollectionId))
+                DepartmentItem = _mapper.Map<IEnumerable<SectionItem>>(_filterRepository.GetGalleryObjectsByCollectionID(c.Collection_ID))
             });
         }
 
@@ -67,7 +67,7 @@ namespace Museum.App.Services.Implementation.Servises
 
             foreach (var c in collections)
             {
-                var sectionItems = await _filterRepository.GetGalleryObjectsByCollectionIDAsync(c.CollectionId);
+                var sectionItems = await _filterRepository.GetGalleryObjectsByCollectionIDAsync(c.Collection_ID);
                 var departmentItem = _mapper.Map<IEnumerable<SectionItem>>(sectionItems);
                 var departmentSection = new DepartmentSection { DepartmentName = c.Department, DepartmentItem = departmentItem };
 

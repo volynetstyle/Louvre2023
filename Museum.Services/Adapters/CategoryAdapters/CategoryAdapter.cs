@@ -8,7 +8,7 @@ namespace Museum.App.Services.Adapters
 {
     public class CategoryAdapter
     {
-        public int CategoryId { get; set; }
+        public int Category_ID { get; set; }
         public string? CategoryName { get; set; }
         public string? Description { get; set; }
         public string? Keywords { get; set; }

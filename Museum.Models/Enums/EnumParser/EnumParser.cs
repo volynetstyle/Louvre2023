@@ -8,20 +8,23 @@ namespace Museum.Models.Enums.EnumParser
 {
     public static class EnumParser
     {
-        public static bool TryParseRatingType(string input, out RatingType ratingType)
+        public static bool TryParseEnumType<TEnum>(string input, out TEnum enumType) 
+            where TEnum : struct
         {
-            input = input.Trim().ToLower();
-
-            ratingType = input switch
+            if (!Enum.TryParse(input, true, out enumType))
             {
-                "norecommendation" => RatingType.NoRecommendation,
-                "dislike" => RatingType.Dislike,
-                "liked" => RatingType.Liked,
-                "veryliked" => RatingType.VeryLiked,
-                _ => default,
-            };
+                enumType = default;
+                return false;
+            }
 
-            return ratingType != default;
+            return Enum.IsDefined(typeof(RatingType), enumType);
+        }
+
+        public static bool TryParseEnumType<TEnum>(TEnum enumType, out string input)
+            where TEnum : struct
+        {
+            input = enumType.GetType().ToString().Trim().ToLower();
+            return string.IsNullOrWhiteSpace(input);
         }
     }
 }
