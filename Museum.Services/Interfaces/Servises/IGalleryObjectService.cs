@@ -9,9 +9,10 @@ namespace Museum.App.Services.Interfaces.Servises
 {
     public interface IGalleryObjectService
     {
-        public GalleryMainSection GetMainSection();
-        public AccordionItem GetAccordionItem();
+        public bool IsObjectExist(int id);
         public AccordionViewModel CreateSingleAccordion();
-
+        public AccordionItem GetAccordionItem();
+        public GalleryMainSection GetMainSection();
+        public IEnumerable<AccordionViewModel>? AllAccordions();
     }
 }

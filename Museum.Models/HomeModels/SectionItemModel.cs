@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Museum.Models.HomeModels
+﻿namespace Museum.Models.HomeModels
 {
     public class SectionItemModel
     {
+        public int Object_ID { get; set; }
         public string? ImageUrl { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }

@@ -4,7 +4,7 @@ public class HomeViewModel
 {
     public HomeViewModel() { }
 
-    public HomeViewModel(IEnumerable<Section>? exibitSection, IEnumerable<Section>? albumSection, IEnumerable<Section>? gallerySection)
+    public HomeViewModel(IEnumerable<Section>? exibitSection, IEnumerable<Section>? albumSection, IEnumerable<GallerySection>? gallerySection)
     {
         ExibitSection = exibitSection;
         AlbumSection = albumSection;
@@ -14,8 +14,8 @@ public class HomeViewModel
     public HomeViewModel(string? title, 
                          string? description, 
                          IEnumerable<Section>? exibitSection, 
-                         IEnumerable<Section>? albumSection, 
-                         IEnumerable<Section>? gallerySection)
+                         IEnumerable<Section>? albumSection,
+                         IEnumerable<GallerySection>? gallerySection)
         : this(exibitSection, albumSection, gallerySection)
     {
         Title = title;
@@ -26,5 +26,5 @@ public class HomeViewModel
     public string? Description { get; set; }
     public IEnumerable<Section>? ExibitSection { get; set; }
     public IEnumerable<Section>? AlbumSection { get; set; }
-    public IEnumerable<Section>? GallerySection { get; set; }
+    public IEnumerable<GallerySection>? GallerySection { get; set; }
 }

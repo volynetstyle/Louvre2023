@@ -4,7 +4,7 @@ namespace Museum.App
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async void Main(string[] args)
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +25,10 @@ namespace Museum.App
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
+            
             app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.Run();
+
+            await app.RunAsync();
         }
     }
 }

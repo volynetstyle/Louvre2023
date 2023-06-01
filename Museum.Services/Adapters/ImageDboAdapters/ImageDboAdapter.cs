@@ -9,10 +9,10 @@ namespace Museum.App.Services.Adapters
 {
     public class ImageDboAdapter
     {
-        public int ImageID { get; set; }
-        public string? ImageLoc { get; set; }
+        public int Image_ID { get; set; }
+        public string? Image_Loc { get; set; }
         public string? Photographer { get; set; }
-        public DateTime DateTaken { get; set; }
-        public string? AdditionalInfo { get; set; }
+        public DateTime Date_Taken { get; set; }
+        public string? Additional_Info { get; set; }
     }
 }

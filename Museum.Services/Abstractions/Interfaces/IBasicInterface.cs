@@ -13,5 +13,6 @@ namespace Museum.App.Services.Abstractions
         int Count();
         IEnumerable<T> Paginate(int pageNumber, int pageSize);
         IEnumerable<T> GetAll();
+        public bool Any(Expression<Func<T, bool>> predicate);
     }
 }

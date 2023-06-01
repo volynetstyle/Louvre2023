@@ -9,6 +9,7 @@ namespace Museum.App.ViewModels.Home
 {
     public class SectionItem
     {
+        public int Object_ID { get; set; }
         public string? ImageUrl { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }

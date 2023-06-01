@@ -1,26 +1,26 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
 using Museum.App.ViewModels.Home;
-using System.Linq.Expressions;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.Services.Interfaces.Repositories;
-using System.Collections;
 using Museum.Models.TableModels;
 using Museum.App.Services.Adapters;
+using Museum.App.Services.Attributes;
 
 namespace Museum.App.Services.Implementation.Services
 {
+    [Service]
     public class HomeService : IHomeService
     {
         private readonly IMapper _mapper;
         private readonly IBasicService<Categories, CategoryAdapter> _CategoriesRepository;
-        private readonly IBasicService<ImageDboModel, ImageDboAdapter> _ImageDboRepository;
+        private readonly IBasicService<Images, ImageDboAdapter> _ImageDboRepository;
         private readonly IHomeRepository _HomeRepository;
 
         public HomeService(IMapper Mapper,
                            IHomeRepository HomeRepository,
                            IBasicService<Categories, CategoryAdapter> CategoriesRepository,
-                           IBasicService<ImageDboModel, ImageDboAdapter> ImageDboRepository)
+                           IBasicService<Images, ImageDboAdapter> ImageDboRepository)
         {
             _mapper = Mapper;
             _HomeRepository = HomeRepository;
@@ -45,7 +45,13 @@ namespace Museum.App.Services.Implementation.Services
 
         public IEnumerable<GallerySection>? GallerySection()
         {
-            return _ImageDboRepository.GetAll().Select(x => new GallerySection { Title = x.AdditionalInfo, Url = x.ImageLoc });
+            return _ImageDboRepository
+                .GetAll()
+                .Select(x => new GallerySection 
+                { 
+                    Additional_Info = x.Additional_Info, 
+                    Image_Loc = x.Image_Loc 
+                });
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Museum.App.Services.Attributes;
 using Museum.Models.HomeModels;
 using System.Data;
 
 namespace Museum.App.Services.Implementation.Repositories
 {
+    [Repository]
     public class FilterRepository : IFilterRepository
     {
         private readonly string _db;

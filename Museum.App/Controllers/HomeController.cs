@@ -20,7 +20,7 @@ namespace Museum.App.Controllers
         {
             return View(new HomeViewModel(_homeService.ExibitSection(),
                                           null, 
-                                          null));
+                                          _homeService.GallerySection()));
         }
 
         public IActionResult Privacy()

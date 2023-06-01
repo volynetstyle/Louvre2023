@@ -4,9 +4,11 @@ using Museum.App.ViewModels.Home;
 using Microsoft.Data.SqlClient;
 using Museum.App.Services.Interfaces.Repositories;
 using Museum.Models.HomeModels;
+using Museum.App.Services.Attributes;
 
 namespace Museum.App.Services.Implementation.Repositories
 {
+    [Repository]
     public class HomeRepository : IHomeRepository
     {
         private readonly string _db;

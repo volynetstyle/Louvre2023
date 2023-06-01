@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
 using Museum.App.Services.Adapters;
+using Museum.App.Services.Attributes;
 using Museum.App.Services.Implementation.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.Filter;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Museum.App.Services.Implementation.Servises
 {
+    [Service]
     public class FilterService : IFilterService
     {
         private readonly IMapper _mapper;

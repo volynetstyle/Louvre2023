@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
 using Museum.App.Services.Adapters;
+using Museum.App.Services.Attributes;
+using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.GalleryObject;
 using Museum.Models.TableModels;
@@ -12,17 +14,25 @@ using System.Threading.Tasks;
 
 namespace Museum.App.Services.Implementation.Services
 {
+    [Service]
     public class GalleryObjectService : IGalleryObjectService
     {
-        public readonly IMapper _mapper;
-        public readonly IBasicService<GalleryObjectModel, GalleryObjectAdapter> _serviceGallleryObject;
-
+        private readonly IMapper _mapper;
+        private readonly IBasicService<GalleryObjectModel, GalleryObjectAdapter> _serviceGallleryObject;
+        private readonly IGalleryObjectRepository _galleryObjectRepository;
 
         public GalleryObjectService(IMapper mapper, 
-                                    IBasicService<GalleryObjectModel, GalleryObjectAdapter> serviceGallleryObject)
+                                    IBasicService<GalleryObjectModel, GalleryObjectAdapter> serviceGallleryObject
+                                    IGalleryObjectRepository galleryObjectRepository)
         {
             _mapper = mapper;
             _serviceGallleryObject = serviceGallleryObject;
+            _galleryObjectRepository = galleryObjectRepository;
+        }
+
+        public IEnumerable<AccordionViewModel>? AllAccordions()
+        {
+            throw new NotImplementedException();
         }
 
         public AccordionViewModel CreateSingleAccordion()
@@ -37,7 +47,17 @@ namespace Museum.App.Services.Implementation.Services
 
         public GalleryMainSection GetMainSection()
         {
-            throw new NotImplementedException();
+            return new GalleryMainSection
+            {
+                galleryMainSectionImages = _galleryObjectRepository.GetGalleryObjectImages(1),
+                GalleryMainSectionItems 
+                
+            }
+        }
+
+        public bool IsObjectExist(int id)
+        {
+            return _serviceGallleryObject.Any(x => x.GalleryID == id);
         }
     }
 }

@@ -1,11 +1,5 @@
-﻿using Museum.App.ViewModels.GalleryObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Museum.App.ViewModels.Gallery
+﻿
+namespace Museum.App.ViewModels.GalleryObject
 {
     public class GalleryObjectViewModel
     {

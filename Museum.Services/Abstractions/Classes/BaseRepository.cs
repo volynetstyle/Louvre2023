@@ -1,8 +1,8 @@
 ﻿using Dapper;
 using Dommel;
 using Microsoft.Data.SqlClient;
+using Museum.App.Services.Attributes;
 using Museum.Models.Enums;
-using Museum.Models.TableModels;
 using System.Data;
 using System.Linq.Expressions;
 using static Dapper.SqlMapper;
@@ -10,6 +10,7 @@ using static Dommel.DommelMapper;
 
 namespace Museum.App.Services.Abstractions
 {
+    [Repository]
     public class BaseRepository<T> : IBasicRepository<T> where T : class
     {
         private readonly string _db;
@@ -104,7 +105,6 @@ namespace Museum.App.Services.Abstractions
                 _ => "JOIN"
             };
         }
-
 
         public IEnumerable<dynamic> Join<T1, T2>(JoinType join, string splitOn = "Id")
             where T1 : class

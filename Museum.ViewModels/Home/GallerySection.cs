@@ -8,7 +8,8 @@ namespace Museum.App.ViewModels.Home
 {
     public class GallerySection
     {
-        public string? Title { get; set; }
-        public string? Url { get; set; }
+        public string? Image_Loc { get; set; }
+        public string? Additional_Info { get; set; }
+
     }
 }

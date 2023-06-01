@@ -5,8 +5,6 @@ namespace Museum.App.Services.Abstractions
 {
     public interface IBasicRepository<T> : IBasicInterface<T>
     {
-        public bool Any(Expression<Func<T, bool>> predicate);
-
         public Task<IEnumerable<T>> GetAllAsync();
 
         IEnumerable<dynamic> Join<T1, T2>(JoinType join, string splitOn = "Id")

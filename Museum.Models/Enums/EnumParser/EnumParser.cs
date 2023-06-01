@@ -20,11 +20,15 @@ namespace Museum.Models.Enums.EnumParser
             return Enum.IsDefined(typeof(RatingType), enumType);
         }
 
-        public static bool TryParseEnumType<TEnum>(TEnum enumType, out string input)
+        public static bool TryParseEnumTypeBack<TEnum>(this TEnum enumType, out string input)
             where TEnum : struct
         {
-            input = enumType.GetType().ToString().Trim().ToLower();
-            return string.IsNullOrWhiteSpace(input);
+            input = enumType
+                .GetType()
+                .ToString()
+                .Trim()
+                .ToLower();
+            return !string.IsNullOrWhiteSpace(input);
         }
     }
 }

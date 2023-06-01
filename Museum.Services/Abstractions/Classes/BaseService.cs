@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Museum.App.Services.Attributes;
 using System.Linq.Expressions;
 
 namespace Museum.App.Services.Abstractions
 {
+    [Service]
     public class BaseService<TModel, TAdapter> : IBasicService<TModel, TAdapter>
         where TAdapter : class
         where TModel : class
@@ -29,6 +31,12 @@ namespace Museum.App.Services.Abstractions
         public int Count()
         {
             return _repository.Count();
+        }
+
+        public bool Any(Expression<Func<TAdapter, bool>> predicate)
+        {
+            var expression = _mapper.Map<Expression<Func<TModel, bool>>>(predicate);
+            return  _repository.Any(expression);
         }
 
         public void Delete(TAdapter item)

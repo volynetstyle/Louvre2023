@@ -1,8 +1,82 @@
-﻿@{
+﻿@model Museum.App.ViewModels.GalleryObject.GalleryObjectViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Art Gallery
+                </h1>
+                <p class="text-white link-nav"><a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
+                    <a href="GalleryObject.html"> Gallery</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<section class="gallery-area section-gap gallery-page-area pt-4 pb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 align-items-center">
+                <img class="img-fluid" src="@Model.GalleryMainSection.Url" alt="">
+            </div>
+            <div class="col-lg-5">
+                <h1>
+                    @Model.GalleryMainSection.Title
+                </h1>
+                <ul class="list-group sfHover list-group-flush">
+                    @foreach (var item in Model.GalleryMainSection.GalleryMainSectionItems)
+                    {
+                    <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
+                        <strong>@item.Label</strong>:<span>@item.Value</span>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Start gallery Area -->
+<section class="gallery-area section-gap gallery-page-area pt-4 pb-4" id="gallery">
+    <div class="container">
+        <!-- Start Desc Accordion Area -->
+        @foreach (var accordion in Model.AccordionSection)
+        {
+        <div class="accordion" id="accordionExample">
+            @foreach (var item in accordion.accordions)
+            {
+            <div class="accordion-item">
+                <h2 class="accordion-header" 
+                    id="heading-value-@item.HeaderText">
+                    <button class="accordion-button collapsed" 
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-value-@item.HeaderText" 
+                            aria-expanded="false" 
+                            aria-controls="collapse-value-@item.HeaderText">
+                        @item.HeaderText
+                    </button>
+                </h2>
+                <div id="collapse-value-@item.HeaderText" 
+                     class="accordion-collapse collapse" 
+                     aria-labelledby="heading-value-@item.HeaderText"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        @item.CollapseText
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+        <!-- End Desc Accordion Area -->
+    </div>
+</section>
+<!-- End gallery Area -->
+
+

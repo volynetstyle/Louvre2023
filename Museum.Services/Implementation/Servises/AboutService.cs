@@ -1,13 +1,11 @@
-﻿using Museum.App.Services.Interfaces.Servises;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Museum.App.Services.Attributes;
+using Museum.App.Services.Interfaces.Servises;
 
 namespace Museum.App.Services.Implementation.Services
 {
+    [Service]
     public class AboutService : IAboutService
     {
+
     }
 }

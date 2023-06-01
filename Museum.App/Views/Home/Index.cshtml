@@ -76,12 +76,14 @@
                     @foreach (var j in i.CategoryItem)
                     {
                     <div class="single-exibition item">
-                        <img src="@j.ImageUrl" alt="">
+                        <img width="200" height="400" src="@j.ImageUrl" alt="">
                         <ul class="tags">
                             <li><a href="#">Travel</a></li>
                             <li><a href="#">Life style</a></li>
                         </ul>
-                        <a href="/GalleryObject/@j.Title"><h4>@j.Title</h4></a>
+                        <a href="/GalleryObject/@j.Object_ID">
+                            <h4>@j.Title</h4>
+                        </a>
                         <p>
                             @j.Description
                         </p>
@@ -230,19 +232,29 @@
                 <div class="title text-center">
                     <h1 class="mb-10 text-white">Our Exhibition Gallery</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                        labore et dolore magna aliqua.
+                    </p>
                 </div>
             </div>
         </div>
 
         <div id="grid-container" class="row">
-
-            <a class="single-gallery" href="img/g1.jpg"><img class="grid-item" src="img/g1.jpg"></a>
-
+            @foreach (var i in Model.ExibitSection)
+            {
+                @foreach (var j in i.CategoryItem)
+                {
+                <a class="single-gallery" href="/GalleryObject/@j.Title">
+                    <img class="grid-item" src="@j.ImageUrl">
+                </a>
+                }
+            }
         </div>
 
     </div>
 </section>
+
+<table cellpadding="2" cellspacing="2" border="1"><tr><th>Database Table</th><th>Entity Count</th><th>Total Rows</th></tr><tr><td>Artists</td><td>6</td><td>6</td></tr><tr><td>Categories</td><td>5</td><td>5</td></tr><tr><td>CollectionParts</td><td>3</td><td>3</td></tr><tr><td>Collections</td><td>4</td><td>4</td></tr><tr><td>Directors</td><td>2</td><td>2</td></tr><tr><td>filestream_tombstone_2073058421</td><td>10</td><td>10</td></tr><tr><td>filetable_updates_2105058535</td><td>5</td><td>5</td></tr><tr><td>FormatDate</td><td>1</td><td>1</td></tr><tr><td>GalleryObjects</td><td>22</td><td>22</td></tr><tr><td>Histories</td><td>10</td><td>10</td></tr><tr><td>Images</td><td>5</td><td>5</td></tr><tr><td>Literatures</td><td>7</td><td>7</td></tr><tr><td>LouvreMuseumGalleries</td><td>4</td><td>4</td></tr><tr><td>LouvreMuseumLevels</td><td>2</td><td>2</td></tr><tr><td>Museams</td><td>4</td><td>4</td></tr><tr><td>OnDisplayNow</td><td>3</td><td>3</td></tr><tr><td>persistent_version_store</td><td>10</td><td>10</td></tr><tr><td>persistent_version_store_long_term</td><td>10</td><td>10</td></tr><tr><td>plan_persist_context_settings</td><td>13</td><td>13</td></tr><tr><td>plan_persist_plan</td><td>20</td><td>20</td></tr><tr><td>plan_persist_query</td><td>35</td><td>35</td></tr><tr><td>plan_persist_query_hints</td><td>13</td><td>13</td></tr><tr><td>plan_persist_query_template_parameterization</td><td>9</td><td>9</td></tr><tr><td>plan_persist_query_text</td><td>6</td><td>6</td></tr><tr><td>plan_persist_runtime_stats</td><td>72</td><td>72</td></tr><tr><td>plan_persist_runtime_stats_interval</td><td>4</td><td>4</td></tr><tr><td>plan_persist_wait_stats</td><td>11</td><td>11</td></tr><tr><td>queue_messages_1977058079</td><td>16</td><td>16</td></tr><tr><td>queue_messages_2009058193</td><td>16</td><td>16</td></tr><tr><td>queue_messages_2041058307</td><td>16</td><td>16</td></tr><tr><td>Raiting</td><td>4</td><td>4</td></tr><tr><td>sqlagent_job_history</td><td>13</td><td>13</td></tr><tr><td>sqlagent_jobs</td><td>9</td><td>9</td></tr><tr><td>sqlagent_jobsteps</td><td>25</td><td>25</td></tr><tr><td>sqlagent_jobsteps_logs</td><td>4</td><td>4</td></tr><tr><td>sysallocunits</td><td>11</td><td>11</td></tr><tr><td>sysasymkeys</td><td>9</td><td>9</td></tr><tr><td>sysaudacts</td><td>7</td><td>7</td></tr><tr><td>sysbinobjs</td><td>9</td><td>9</td></tr><tr><td>sysbinsubobjs</td><td>6</td><td>6</td></tr><tr><td>sysbrickfiles</td><td>33</td><td>33</td></tr><tr><td>syscerts</td><td>10</td><td>10</td></tr><tr><td>syschildinsts</td><td>8</td><td>8</td></tr><tr><td>sysclones</td><td>9</td><td>9</td></tr><tr><td>sysclsobjs</td><td>8</td><td>8</td></tr><tr><td>syscolpars</td><td>16</td><td>16</td></tr><tr><td>syscommittab</td><td>6</td><td>6</td></tr><tr><td>syscompfragments</td><td>8</td><td>8</td></tr><tr><td>sysconvgroup</td><td>4</td><td>4</td></tr><tr><td>syscscolsegments</td><td>19</td><td>19</td></tr><tr><td>syscsdictionaries</td><td>11</td><td>11</td></tr><tr><td>syscsrowgroups</td><td>15</td><td>15</td></tr><tr><td>sysdbfiles</td><td>4</td><td>4</td></tr><tr><td>sysdbfrag</td><td>6</td><td>6</td></tr><tr><td>sysdbreg</td><td>11</td><td>11</td></tr><tr><td>sysdercv</td><td>27</td><td>27</td></tr><tr><td>sysdesend</td><td>5</td><td>5</td></tr><tr><td>sysdiagrams</td><td>5</td><td>5</td></tr><tr><td>sysendpts</td><td>20</td><td>20</td></tr><tr><td>sysextfileformats</td><td>14</td><td>14</td></tr><tr><td>sysextsources</td><td>13</td><td>13</td></tr><tr><td>sysexttables</td><td>12</td><td>12</td></tr><tr><td>sysfgfrag</td><td>5</td><td>5</td></tr><tr><td>sysfiles1</td><td>4</td><td>4</td></tr><tr><td>sysfoqueues</td><td>5</td><td>5</td></tr><tr><td>sysfos</td><td>12</td><td>12</td></tr><tr><td>sysftinds</td><td>15</td><td>15</td></tr><tr><td>sysftproperties</td><td>6</td><td>6</td></tr><tr><td>sysftsemanticsdb</td><td>5</td><td>5</td></tr><tr><td>sysftstops</td><td>4</td><td>4</td></tr><tr><td>sysguidrefs</td><td>5</td><td>5</td></tr><tr><td>sysidxstats</td><td>11</td><td>11</td></tr><tr><td>sysiscols</td><td>9</td><td>9</td></tr><tr><td>syslnklgns</td><td>6</td><td>6</td></tr><tr><td>sysmultiobjrefs</td><td>6</td><td>6</td></tr><tr><td>sysmultiobjvalues</td><td>8</td><td>8</td></tr><tr><td>sysnsobjs</td><td>8</td><td>8</td></tr><tr><td>sysobjkeycrypts</td><td>6</td><td>6</td></tr><tr><td>sysobjvalues</td><td>6</td><td>6</td></tr><tr><td>sysowners</td><td>10</td><td>10</td></tr><tr><td>sysphfg</td><td>8</td><td>8</td></tr><tr><td>syspriorities</td><td>6</td><td>6</td></tr><tr><td>sysprivs</td><td>7</td><td>7</td></tr><tr><td>syspru</td><td>5</td><td>5</td></tr><tr><td>sysprufiles</td><td>31</td><td>31</td></tr><tr><td>sysqnames</td><td>4</td><td>4</td></tr><tr><td>sysremsvcbinds</td><td>5</td><td>5</td></tr><tr><td>sysrmtlgns</td><td>5</td><td>5</td></tr><tr><td>sysrowsetrefs</td><td>6</td><td>6</td></tr><tr><td>sysrowsets</td><td>18</td><td>18</td></tr><tr><td>sysrscols</td><td>13</td><td>13</td></tr><tr><td>sysrts</td><td>7</td><td>7</td></tr><tr><td>sysscalartypes</td><td>13</td><td>13</td></tr><tr><td>sysschobjs</td><td>12</td><td>12</td></tr><tr><td>sysseobjvalues</td><td>6</td><td>6</td></tr><tr><td>syssingleobjrefs</td><td>6</td><td>6</td></tr><tr><td>syssoftobjrefs</td><td>9</td><td>9</td></tr><tr><td>syssqlguides</td><td>10</td><td>10</td></tr><tr><td>systypedsubobjs</td><td>12</td><td>12</td></tr><tr><td>sysusermsgs</td><td>5</td><td>5</td></tr><tr><td>syswebmethods</td><td>5</td><td>5</td></tr><tr><td>sysxlgns</td><td>10</td><td>10</td></tr><tr><td>sysxmitbody</td><td>3</td><td>3</td></tr><tr><td>sysxmitqueue</td><td>21</td><td>21</td></tr><tr><td>sysxmlcomponent</td><td>12</td><td>12</td></tr><tr><td>sysxmlfacet</td><td>5</td><td>5</td></tr><tr><td>sysxmlplacement</td><td>7</td><td>7</td></tr><tr><td>sysxprops</td><td>5</td><td>5</td></tr><tr><td>sysxsrvs</td><td>10</td><td>10</td></tr><tr><td>Theme_Album</td><td>4</td><td>4</td></tr><tr><td>Users</td><td>5</td><td>5</td></tr><tr><td>Wings_floors</td><td>2</td><td>2</td></tr><tr><td>wpr_bucket_table</td><td>2</td><td>2</td></tr></table>
+
 <!-- End gallery Area -->
 
 
