@@ -10,8 +10,8 @@ namespace Museum.Models.TableModels
     {
         public int ArtistId { get; set; }
         public string? FullName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public DateTime DeathDate { get; set; }
+        public DateTime Birth_Date { get; set; }
+        public DateTime Death_Date { get; set; }
         public string? Style { get; set; }
         public string? Genres { get; set; }
     }

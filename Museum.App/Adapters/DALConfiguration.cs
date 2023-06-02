@@ -40,19 +40,19 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<Categories>(connectionString);
                 services.AddScoped<Collections>(connectionString);
                 services.AddScoped<CollectionParts>(connectionString);
-                services.AddScoped<DirectorModel>(connectionString);
-                services.AddScoped<GalleryModel>(connectionString);
-                services.AddScoped<GalleryObjectModel>(connectionString);
-                services.AddScoped<HistoryModel>(connectionString);
+                services.AddScoped<Directors>(connectionString);
+                services.AddScoped<LouvreMuseumGalleries>(connectionString);
+                services.AddScoped<GalleryObjects>(connectionString);
+                services.AddScoped<Histories>(connectionString);
                 services.AddScoped<Images>(connectionString);
-                services.AddScoped<LevelModel>(connectionString);
-                services.AddScoped<LiteratureModel>(connectionString);
-                services.AddScoped<MuseumModel>(connectionString);
-                services.AddScoped<OnDisplayNowModel>(connectionString);
-                services.AddScoped<RatingModel>(connectionString);
-                services.AddScoped<ThemeAlbumModel>(connectionString);
-                services.AddScoped<UserModel>(connectionString);
-                services.AddScoped<WingsFloorsModel>(connectionString);
+                services.AddScoped<LouvreMuseumLevels>(connectionString);
+                services.AddScoped<Literatures>(connectionString);
+                services.AddScoped<Museams>(connectionString);
+                services.AddScoped<OnDisplayNow>(connectionString);
+                services.AddScoped<Raiting>(connectionString);
+                services.AddScoped<Theme_Album>(connectionString);
+                services.AddScoped<Users>(connectionString);
+                services.AddScoped<Wings_floors>(connectionString);
                 return services;
             }
             else
@@ -76,19 +76,19 @@ namespace Museum.App.Adapters.DALConfiguration
                 cfg.CreateMap<Categories, CategoryAdapter>().ReverseMap();
                 cfg.CreateMap<Collections, CollectionAdapter>().ReverseMap();
                 cfg.CreateMap<CollectionParts, CollectionPartAdapter>().ReverseMap();
-                cfg.CreateMap<DirectorModel, DirectorAdapter>().ReverseMap();
-                cfg.CreateMap<GalleryModel, GalleryAdapter>().ReverseMap();
-                cfg.CreateMap<GalleryObjectModel, GalleryObjectAdapter>().ReverseMap();
-                cfg.CreateMap<HistoryModel, HistoryAdapter>().ReverseMap();
+                cfg.CreateMap<Directors, DirectorAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumGalleries, GalleryAdapter>().ReverseMap();
+                cfg.CreateMap<GalleryObjects, GalleryObjectAdapter>().ReverseMap();
+                cfg.CreateMap<Histories, HistoryAdapter>().ReverseMap();
                 cfg.CreateMap<Images, ImageDboAdapter>().ReverseMap();
-                cfg.CreateMap<LevelModel, LevelAdapter>().ReverseMap();
-                cfg.CreateMap<LiteratureModel, LiteratureAdapter>().ReverseMap();
-                cfg.CreateMap<MuseumModel, MuseumAdapter>().ReverseMap();
-                cfg.CreateMap<OnDisplayNowModel, OnDisplayNowAdapter>().ReverseMap();
-                cfg.CreateMap<RatingModel, RatingAdapter>().ReverseMap();
-                cfg.CreateMap<ThemeAlbumModel, ThemeAlbumAdapter>().ReverseMap();
-                cfg.CreateMap<UserModel, UserAdapter>().ReverseMap();
-                cfg.CreateMap<WingsFloorsModel, WingsFloorsAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumLevels, LevelAdapter>().ReverseMap();
+                cfg.CreateMap<Literatures, LiteratureAdapter>().ReverseMap();
+                cfg.CreateMap<Museams, MuseumAdapter>().ReverseMap();
+                cfg.CreateMap<OnDisplayNow, OnDisplayNowAdapter>().ReverseMap();
+                cfg.CreateMap<Raiting, RatingAdapter>().ReverseMap();
+                cfg.CreateMap<Theme_Album, ThemeAlbumAdapter>().ReverseMap();
+                cfg.CreateMap<Users, UserAdapter>().ReverseMap();
+                cfg.CreateMap<Wings_floors, WingsFloorsAdapter>().ReverseMap();
                 
                 //Secondary map
                 cfg.CreateMap<SectionItem, SectionItemModel>().ReverseMap();

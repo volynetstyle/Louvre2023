@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class GalleryModel
+    public class LouvreMuseumGalleries
     {
-        public int GalleryId { get; set; }
+        public int Gallery_ID { get; set; }
         public string? GalleryNumber { get; set; }
-        public int LevelId { get; set; }
-        public int WfId { get; set; }
+        public int Level_ID { get; set; }
+        public int WF_ID { get; set; }
     }
 
 }

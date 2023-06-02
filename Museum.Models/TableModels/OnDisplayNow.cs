@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class LevelModel
+    public class OnDisplayNow
     {
-        public int LevelId { get; set; }
-        public string? LevelNumber { get; set; }
+        public int DisNow_ID { get; set; }
+        public bool IsDisplayNow { get; set; }
+        public int Object_ID { get; set; }
     }
+
 }

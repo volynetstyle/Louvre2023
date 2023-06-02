@@ -14,5 +14,6 @@ namespace Museum.Models.TableModels
         public string? Photographer { get; set; }
         public DateTime Date_Taken { get; set; }
         public string? Additional_Info { get; set; }
+        public int Object_ID { get; set; }
     }
 }

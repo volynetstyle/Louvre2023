@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class RatingModel
+    public class Raiting
     {
-        public int RatingId { get; set; }
-        public int ObjectId { get; set; }
-        public int UserId { get; set; }
+        public int Rating_ID { get; set; }
+        public int Object_ID { get; set; }
+        public int User_ID { get; set; }
         public int Rating { get; set; }
     }
 

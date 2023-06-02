@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class LiteratureModel
+    public class Literatures
     {
-        public int LiteratureID { get; set; }
+        public int Literature_ID { get; set; }
         public string? Title { get; set; }
         public string? Author { get; set; }
         public string? Publisher { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public DateTime Publication_Date { get; set; }
         public string? ISBN { get; set; }
-        public string? AdditionalInfo { get; set; }
+        public string? Additional_Info { get; set; }
     }
 }

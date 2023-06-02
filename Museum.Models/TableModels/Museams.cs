@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class MuseumModel
+    public class Museams
     {
-        public int MuseumId { get; set; }
+        public int Museum_ID { get; set; }
         public string? MuseumName { get; set; }
         public string? Location { get; set; }
-        public int DirrId { get; set; }
+        public int Dirr_ID { get; set; }
     }
 
 }

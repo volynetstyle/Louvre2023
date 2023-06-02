@@ -3,7 +3,8 @@ namespace Museum.App.ViewModels.GalleryObject
 {
     public class GalleryObjectViewModel
     {
-        public IEnumerable<AccordionViewModel>? AccordionSection { get; set; }
         public GalleryMainSection? GalleryMainSection { get; set; }
+        public GalleryObjectsById? GetObjectsById { get; set; }
+        public IEnumerable<AccordionViewModel>? AccordionSection { get; set; }
     }
 }

@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{95D54A76
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App", "Museum.App\Museum.App.csproj", "{7B94DCB1-6DC8-46B9-A09E-5519334012FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.Services.Test", "MuseumLouvre.Services.Test\Museum.App.Services.Test.csproj", "{990C2088-AC22-47B2-B1DF-AEFFAD53E239}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.Services.Test", "Museum.App.Services.Test\Museum.App.Services.Test.csproj", "{C89B1270-7B19-4922-AF43-793E210ECC7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{7B94DCB1-6DC8-46B9-A09E-5519334012FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B94DCB1-6DC8-46B9-A09E-5519334012FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B94DCB1-6DC8-46B9-A09E-5519334012FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{990C2088-AC22-47B2-B1DF-AEFFAD53E239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{990C2088-AC22-47B2-B1DF-AEFFAD53E239}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{990C2088-AC22-47B2-B1DF-AEFFAD53E239}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{990C2088-AC22-47B2-B1DF-AEFFAD53E239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

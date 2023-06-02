@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class WingsFloorsModel
+    public class Wings_floors
     {
-        public int WfId { get; set; }
+        public int WF_ID { get; set; }
         public string? Name { get; set; }
     }
 

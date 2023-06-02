@@ -4,7 +4,6 @@ using Museum.App.Services.Abstractions;
 using Museum.App.Services.Adapters;
 using Museum.Models.TableModels;
 using Museum.App.ViewModels.GalleryObject;
-using Museum.App.ViewModels.Gallery;
 
 namespace Museum.App.Controllers
 {

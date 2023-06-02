@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Museum.Models.TableModels
 {
-    public class ThemeAlbumModel
+    public class Theme_Album
     {
-        public int AlbumId { get; set; }
+        public int Album_ID { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public int ObjectId { get; set; }
+        public int Object_ID { get; set; }
     }
 
 }
