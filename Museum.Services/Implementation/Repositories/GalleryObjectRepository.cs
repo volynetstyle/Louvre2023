@@ -40,12 +40,19 @@ namespace Museum.App.Services.Implementation.Repositories
         public GalleryMainSectionImages GetGalleryObjectImages(int Object_ID)
         {
             using var sql = new SqlConnection(_connection);
-            return sql.QuerySingleOrDefault<GalleryMainSectionImages>("GetGalleryObjectImages", new {Object_ID = Object_ID}, commandType: CommandType.StoredProcedure);
+            return sql.QuerySingleOrDefault<GalleryMainSectionImages>(
+                "GetGalleryObjectImages", 
+                new { Object_ID }, 
+                commandType: CommandType.StoredProcedure);
         }
 
-        public Categories SingleCategory(int id)
+        public GalleryUlViewModel GetGalleryUl(int Object_ID)
         {
-            throw new NotImplementedException();
+            using var sql = new SqlConnection(_connection);
+            return sql.QuerySingleOrDefault<GalleryUlViewModel>(
+                "GetGalleryObjectDescByID",
+                new { Object_ID }, 
+                commandType: CommandType.StoredProcedure);
         }
     }
 }

@@ -83,7 +83,7 @@ public class Program
         ImageData imageData = JsonConvert.DeserializeObject<ImageData>(json);
 
         // Perform mapping
-        var imagesList = mapper.Map<List<Ima>(imageData.Images);
+        var imagesList = mapper.Map<List<Images>(imageData.Images);
 
         // Output mapped data
         foreach (Images image in imagesList)

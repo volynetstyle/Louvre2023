@@ -1,5 +1,8 @@
 ﻿@model Museum.App.ViewModels.GalleryObject.GalleryObjectViewModel
 @{
+    var GalleryMainSectionImages = Model.GalleryMainSection?.galleryMainSectionImages;
+    var GalleryMainSectionItems = Model.GalleryMainSection?.GalleryMainSectionItems;
+
     ViewData["Title"] = "Home Page";
 }
 
@@ -24,19 +27,28 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 align-items-center">
-                <img class="img-fluid" src="@Model.GalleryMainSection.Url" alt="">
+                <img class="img-fluid" src="@GalleryMainSectionImages?.Url" alt="">
             </div>
             <div class="col-lg-5">
                 <h1>
-                    @Model.GalleryMainSection.Title
+                    @GalleryMainSectionImages?.Title
                 </h1>
                 <ul class="list-group sfHover list-group-flush">
-                    @foreach (var item in Model.GalleryMainSection.GalleryMainSectionItems)
-                    {
                     <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
-                        <strong>@item.Label</strong>:<span>@item.Value</span>
+                        <strong>Title</strong>: <span>@GalleryMainSectionItems?.Title</span>
                     </li>
-                    }
+                    <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
+                        <strong>Creation Date</strong>: <span>@GalleryMainSectionItems?.Create_Date</span>
+                    </li>
+                    <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
+                        <strong>Location</strong>: <span>@GalleryMainSectionItems?.Location</span>
+                    </li>
+                    <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
+                        <strong>Depositary</strong>: <span>@GalleryMainSectionItems?.Depositary</span>
+                    </li>
+                    <li class="list-group-flush p-1 mt-2 bdr-btm-gray text-black">
+                        <strong>Description</strong>: <span>@GalleryMainSectionItems?.Description</span>
+                    </li>
                 </ul>
             </div>
         </div>
