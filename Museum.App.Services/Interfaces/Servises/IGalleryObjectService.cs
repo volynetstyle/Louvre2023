@@ -12,7 +12,7 @@ namespace Museum.App.Services.Interfaces.Servises
         public bool IsObjectExist(int id);
         public AccordionViewModel CreateSingleAccordion();
         public AccordionItemViewModel GetAccordionItem();
-        public GalleryMainSectionViewModel GetMainSection();
+        public GalleryMainSectionViewModel GetMainSection(int id);
         public IEnumerable<AccordionViewModel>? AllAccordions();
     }
 }

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.Services", "Museum.Services\Museum.App.Services.csproj", "{52647BDA-125E-4B02-9770-2E84775C9A9A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.ViewModels", "Museum.ViewModels\Museum.App.ViewModels.csproj", "{C08F30D8-DCA9-4639-B87F-2F41740799CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.Packages", "Museum.Package\Museum.Packages.csproj", "{850B2410-EE07-41F0-9C59-3076B5552ACF}"
@@ -19,16 +17,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App", "Museum.App\Mu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.Services.Test", "Museum.App.Services.Test\Museum.App.Services.Test.csproj", "{C89B1270-7B19-4922-AF43-793E210ECC7A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Museum.App.Services", "Museum.App.Services\Museum.App.Services.csproj", "{F8CB3BB3-FABB-4DF8-B06B-7437ACBC9963}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{52647BDA-125E-4B02-9770-2E84775C9A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52647BDA-125E-4B02-9770-2E84775C9A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52647BDA-125E-4B02-9770-2E84775C9A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52647BDA-125E-4B02-9770-2E84775C9A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C08F30D8-DCA9-4639-B87F-2F41740799CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C08F30D8-DCA9-4639-B87F-2F41740799CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C08F30D8-DCA9-4639-B87F-2F41740799CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +49,10 @@ Global
 		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C89B1270-7B19-4922-AF43-793E210ECC7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CB3BB3-FABB-4DF8-B06B-7437ACBC9963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CB3BB3-FABB-4DF8-B06B-7437ACBC9963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CB3BB3-FABB-4DF8-B06B-7437ACBC9963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CB3BB3-FABB-4DF8-B06B-7437ACBC9963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

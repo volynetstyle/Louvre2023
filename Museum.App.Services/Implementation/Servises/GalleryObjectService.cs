@@ -6,16 +6,12 @@ using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.GalleryObject;
 using Museum.Models.TableModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Museum.App.Services.Implementation.Services
 {
     [Service]
-    public class GalleryObjectService : IGalleryObjectService
+    public class GalleryObjectService  : IGalleryObjectService
     {
         private readonly IMapper _mapper;
         private readonly IGalleryObjectRepository _galleryObjectRepository;
@@ -68,43 +64,42 @@ namespace Museum.App.Services.Implementation.Services
             throw new NotImplementedException();
         }
 
-        public AccordionItemViewModel GetAccordionItem()
-        {
-            throw new NotImplementedException();
-        }
 
-        public GalleryMainSectionViewModel GetMainSection()
+        public GalleryMainSectionViewModel GetMainSection(int id)
         {
             return new GalleryMainSectionViewModel
             {
-                galleryMainSectionImages = _galleryObjectRepository.GetGalleryObjectImages(1),
-                GalleryMainSectionItems = _galleryObjectRepository.GetGalleryUl(1)
+                galleryMainSectionImages = _galleryObjectRepository.GetGalleryObjectImages(id),
+                GalleryMainSectionItems = _galleryObjectRepository.GetGalleryUl(id)
             };
         }
 
         private GalleryObjectsByIdViewModel? GalleryObjectsById(int _id)
         {
             var id = _serviceGallleryObject.GetById(_id);
-            if (IsObjectExist(_id))
-            {
+            
                 return new GalleryObjectsByIdViewModel
                 {
-                    categoryAdapter = id.CategoryID.HasValue ? _categoryService.GetById(id.CategoryID.Value) : null,
-                    artistAdapter = id.ArtistID.HasValue ? _artistService.GetById(id.ArtistID.Value) : null,
-                    galleryAdapter = id.GalleryID.HasValue ? _galleryService.GetById(id.GalleryID.Value) : null,
-                    collectionAdapter = id.CollectionID.HasValue ? _collectionService.GetById(id.CollectionID.Value) : null,
-                    museumAdapter = id.MuseamID.HasValue ? _museumService.GetById(id.MuseamID.Value) : null,
-                    partAdapter = id.PartID.HasValue ? _partService.GetById(id.PartID.Value) : null,
-                    historyAdapter = id.HistoryID.HasValue ? _historyService.GetById(id.HistoryID.Value) : null,
+                    categoryAdapter = id.Category_ID.HasValue ? _categoryService.GetById(id.Category_ID.Value) : null,
+                    artistAdapter = id.Artist_ID.HasValue ? _artistService.GetById(id.Artist_ID.Value) : null,
+                    galleryAdapter = id.Gallery_ID.HasValue ? _galleryService.GetById(id.Gallery_ID.Value) : null,
+                    collectionAdapter = id.Collection_ID.HasValue ? _collectionService.GetById(id.Collection_ID.Value) : null,
+                    museumAdapter = id.Museam_ID.HasValue ? _museumService.GetById(id.Museam_ID.Value) : null,
+                    partAdapter = id.Part_ID.HasValue ? _partService.GetById(id.Part_ID.Value) : null,
+                    historyAdapter = id.History_ID.HasValue ? _historyService.GetById(id.History_ID.Value) : null,
                     literatureAdapter = id.LiteratureID.HasValue ? _literatureService.GetById(id.LiteratureID.Value) : null
                 };
-            }
-            return null;
+            
         }
 
         public bool IsObjectExist(int id)
         {
-            return _serviceGallleryObject.Any(x => x.GalleryID == id);
+            return _serviceGallleryObject.Any(x => x.Gallery_ID == id);
+        }
+
+        public AccordionItemViewModel GetAccordionItem()
+        {
+            throw new NotImplementedException();
         }
     }
 }

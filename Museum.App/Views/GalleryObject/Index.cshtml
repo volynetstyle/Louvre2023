@@ -17,7 +17,7 @@
                 </h1>
                 <p class="text-white link-nav"><a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
                     <a href="GalleryObject.html"> Gallery</a></p>
-            </div>
+            </div> 
         </div>
     </div>
 </section>
@@ -26,10 +26,10 @@
 <section class="gallery-area section-gap gallery-page-area pt-4 pb-4">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-7 align-items-center">
-                <img class="img-fluid" src="@GalleryMainSectionImages?.Url" alt="">
+            <div class="col-lg-6">
+                <img min-height="480" min-width="329" class="img-fluid" src="@GalleryMainSectionImages?.Url" alt="">
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <h1>
                     @GalleryMainSectionImages?.Title
                 </h1>
@@ -58,7 +58,7 @@
 <section class="gallery-area section-gap gallery-page-area pt-4 pb-4" id="gallery">
     <div class="container">
         <!-- Start Desc Accordion Area -->
-        @foreach (var accordion in Model.AccordionSection)
+      @*  @foreach (var accordion in Model.AccordionSection)
         {
         <div class="accordion" id="accordionExample">
             @foreach (var item in accordion.accordions)
@@ -85,7 +85,7 @@
             </div>
             }
         </div>
-        }
+        }*@
         <!-- End Desc Accordion Area -->
     </div>
 </section>

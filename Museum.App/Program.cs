@@ -4,7 +4,7 @@ namespace Museum.App
 {
     public class Program
     {
-        public static async void Main(string[] args)
+        public static void Main(string[] args)
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +28,7 @@ namespace Museum.App
             
             app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            await app.RunAsync();
+            app.Run();
         }
     }
 }

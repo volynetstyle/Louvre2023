@@ -22,21 +22,17 @@ namespace Museum.App.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 
+        [HttpGet]
+        [Route("/GalleryObject")]
         public IActionResult CatchObjectId(int Object_ID)
         {
-            if(_galleryObjectService.IsObjectExist(Object_ID))
+            return View("Index", new GalleryObjectViewModel
             {
-                return View(new GalleryObjectViewModel
-                {
-                    GalleryMainSection = _galleryObjectService.GetMainSection(),
-                    AccordionSection = _galleryObjectService.AllAccordions()
-                });
-            }
-            return View();
+                GalleryMainSection = _galleryObjectService.GetMainSection(Object_ID)
+            });
         }
     }
 }
