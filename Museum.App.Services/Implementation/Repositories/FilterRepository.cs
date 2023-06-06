@@ -19,7 +19,8 @@ namespace Museum.App.Services.Implementation.Repositories
         public IEnumerable<SectionItemModel> GetGalleryObjectsByCollectionID(int collectionID)
         {
             using var conn = new SqlConnection(_db);
-            return conn.Query<SectionItemModel>("GetGalleryObjectsByCollectionID",
+            return conn.Query<SectionItemModel>(
+                "GetGalleryObjectsByCollectionID",
                 new { CollectionID = collectionID },
                 commandType: CommandType.StoredProcedure);
         }
@@ -27,7 +28,8 @@ namespace Museum.App.Services.Implementation.Repositories
         public async Task<IEnumerable<SectionItemModel>> GetGalleryObjectsByCollectionIDAsync(int collectionID)
         {
             using var conn = new SqlConnection(_db);
-            return await conn.QueryAsync<SectionItemModel>("GetGalleryObjectsByCollectionID",
+            return await conn.QueryAsync<SectionItemModel>(
+                "GetGalleryObjectsByCollectionID",
                 new { CollectionID = collectionID },
                 commandType: CommandType.StoredProcedure);
         }

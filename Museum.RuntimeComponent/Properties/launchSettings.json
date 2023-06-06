@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Museum.RuntimeComponent": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:56411;http://localhost:56415"
+    }
+  }
+}

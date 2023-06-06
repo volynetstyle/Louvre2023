@@ -6,14 +6,19 @@ namespace Museum.App
     {
         public static void Main(string[] args)
         {
-            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
-
             builder.Services.AddSingleton(DALConfiguration.ConfigureMapper().CreateMapper());
+
             DALConfiguration.ConfigureDALServices(builder.Services, builder.Configuration);
 
-            WebApplication app = builder.Build();
+            InitilizeComponent(builder).Run();
+        }
+
+        private static WebApplication InitilizeComponent(WebApplicationBuilder Builder)
+        {
+            var app = Builder.Build();
 
             if (!app.Environment.IsDevelopment())
             {
@@ -25,10 +30,11 @@ namespace Museum.App
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
-            
-            app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name: "default", 
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.Run();
+            return app;
         }
     }
 }

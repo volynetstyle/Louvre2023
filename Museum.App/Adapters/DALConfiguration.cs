@@ -1,15 +1,15 @@
-﻿using Museum.App.Services.Abstractions;
-using Museum.App.Services.Adapters;
+﻿using Museum.App.Services.Adapters;
 using AutoMapper;
-using Museum.App.Services.Implementation.Services;
-using Museum.App.Services.Interfaces.Servises;
 using Museum.Models.HomeModels;
 using Museum.App.ViewModels.Home;
-using Museum.App.Services.Interfaces.Repositories;
-using Museum.App.Services.Implementation.Repositories;
 using Museum.Models.TableModels;
+using Museum.App.Services.Interfaces.Servises;
+using Museum.App.Services.Implementation.Services;
+using Museum.App.Services.Implementation.Repositories;
+using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Implementation.Servises;
-
+using Museum.App.Services.Abstractions;
+using Museum.App.Services.Implementation.Servises.Other;
 
 namespace Museum.App.Adapters.DALConfiguration
 {

@@ -4,9 +4,16 @@ public class HomeViewModel
 {
     public HomeViewModel() { }
 
-    public HomeViewModel(IEnumerable<Section>? exibitSection, IEnumerable<Section>? albumSection, IEnumerable<GallerySection>? gallerySection)
+    public HomeViewModel(IEnumerable<Section>? exibitSection)
     {
         ExibitSection = exibitSection;
+    }
+
+    public HomeViewModel(IEnumerable<Section>? exibitSection, 
+                         IEnumerable<Section>? albumSection, 
+                         IEnumerable<GallerySection>? gallerySection)
+        : this(exibitSection)
+    {
         AlbumSection = albumSection;
         GallerySection = gallerySection;
     }

@@ -17,18 +17,20 @@ namespace Museum.App.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var DepartmentCollection = _filterService.GetDepartmentSection();
+
+            var filterViewModel = new FilterViewModel(null, DepartmentCollection, null, null, null, null);
+
+            return View("Index", filterViewModel);
         }
 
-        //public IActionResult Filter(FilterViewModel viewModel)
-        //{
-        //    var DepartmentCollection = _filterService.DepartmentFilter(viewModel.DepartmentCollection);
-        //    var CategoryCollection = _filterService.CategoryFilter(viewModel.CategoryCollection);
-        //    var ArtistCollection = _filterService.ArtistFilter(viewModel.ArtistCollection);
+        public IActionResult Filter(FilterViewModel viewModel)
+        {
+            var DepartmentCollection = _filterService.GetDepartmentSection();
 
-        //    var filterViewModel = new FilterViewModel(DepartmentCollection, CategoryCollection, ArtistCollection);
+            var filterViewModel = new FilterViewModel(null, DepartmentCollection, null, null,null,null);
 
-        //    return View("FilterPage", filterViewModel);
-        //} 
+            return View("Index", filterViewModel);
+        }
     }
 }

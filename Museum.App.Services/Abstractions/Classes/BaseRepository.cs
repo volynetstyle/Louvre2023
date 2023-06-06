@@ -2,9 +2,11 @@
 using Dommel;
 using Microsoft.Data.SqlClient;
 using Museum.App.Services.Attributes;
+using Museum.App.Services.Utilites;
 using Museum.Models.Enums;
 using Museum.Models.Enums.EnumParser;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 using static Dapper.SqlMapper;
@@ -89,8 +91,20 @@ namespace Museum.App.Services.Abstractions
             where T1 : class
             where T2 : class
         {
-            throw new NotImplementedException();
+            using var sql = new SqlConnection(_db);
+            string joinSql = BaseRepository<T>.GetJoinSql(join);
 
+            var keys = ModelReflectionHelper.GetKeyProperties<T1>();
+            var foreignKeys = ModelReflectionHelper.GetForeignKeyProperties<T2>(typeof(T1).Name);
+
+            string query = $@"SELECT * " +
+                           $@"FROM {GetTableName<T1>(sql)} f {joinSql} " +
+                           $@"JOIN {GetTableName<T2>(sql)} s " +
+                           $@"ON f.{keys.First().Name} = s.{foreignKeys.First().Name}";
+
+            return sql.Query<dynamic, dynamic, dynamic>(
+                query, 
+                (f, s) => new { T1 = f, T2 = s });
         }
 
         public IEnumerable<dynamic> Join<T1, T2, T3>(JoinType join, T1 firstModel, T2 secondModel, T3 thirdModel, string splitOn = "Id")
@@ -175,7 +189,7 @@ namespace Museum.App.Services.Abstractions
         {
             using var sql = new SqlConnection(_db);
             string joinSql = BaseRepository<T>.GetJoinSql(join);
-            string query = $@"SELECT *FROM {GetTableName<T1>(sql)} AS T1{joinSql}{GetTableName<T2>(sql)} AS T2 ON T1.Id = T2.T1Id";
+            string query = $@"SELECT * FROM {GetTableName<T1>(sql)} AS T1{joinSql}{GetTableName<T2>(sql)} AS T2 ON T1.Id = T2.T1Id";
 
             return await sql.QueryAsync<dynamic, dynamic, dynamic>(
                 query,

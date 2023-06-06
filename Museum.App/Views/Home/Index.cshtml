@@ -60,43 +60,48 @@
                 </div>
                 <div class="search-widget">
                     <form class="example" action="#">
-                        <input type="text" placeholder="Search Posts" name="search2">
+                        <input type="text" placeholder="Search Posts" id="search">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </div>
         </div>
-        @if(Model.ExibitSection != null)
-            @foreach(var i in Model.ExibitSection)
-            {
-                @if(i.CategoryItem != null)
-                    @if (i.CategoryItem.Count() > 0)
+
+        <div id="root" >
+            <div id="root-item">
+                @if(Model.ExibitSection != null)
+                    @foreach(var i in Model.ExibitSection)
                     {
-                    <div class="pb-20">
-                        <h1 class="mb-10">@i.CategoryName</h1>
-                        <p>@i.CategoryDescription</p>
-                        <div class="row">
-                            <div class="active-exibition-carusel">
-                                @foreach (var j in i.CategoryItem)
-                                {
-                                <div class="single-exibition item">
-                                    <img width="200" height="400" src="@j.ImageUrl" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="/GalleryObject?Object_ID=@j.Object_ID">
-                                        <h4>@j.Title</h4>
-                                    </a>
-                                    <p>@j.Description</p>
-                                    <h6 class="date">@j.Date</h6>
+                        @if(i.CategoryItem != null)
+                            @if (i.CategoryItem.Count() > 0)
+                            {
+                            <div class="pb-20">
+                                <h1 class="mb-10">@i.CategoryName</h1>
+                                <p>@i.CategoryDescription</p>
+                                <div class="row">
+                                    <div class="active-exibition-carusel">
+                                        @foreach (var j in i.CategoryItem)
+                                        {
+                                        <div class="single-exibition item">
+                                            <img width="200" height="400" src="@j.ImageUrl" alt="">
+                                            <ul class="tags">
+                                                <li><a href="#">Travel</a></li>
+                                                <li><a href="#">Life style</a></li>
+                                            </ul>
+                                            <a href="/GalleryObject?Object_ID=@j.Object_ID">
+                                                <h4>@j.Title</h4>
+                                            </a>
+                                            <p>@j.Description</p>
+                                            <h6 class="date">@j.Date</h6>
+                                        </div>
+                                        }
+                                    </div>
                                 </div>
-                                }
                             </div>
-                        </div>
-                    </div>
+                            }
                     }
-            }
+            </div>
+        </div>
     </div>
 </section>
 <!-- End exibition Area -->
@@ -261,3 +266,13 @@
 <!-- End gallery Area -->
 
 
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#search").keyup(function(){
+                var data = { searchString: $(this).val() };
+                $("#root > #root-item").load("/Home/ViewCategory #root > #root-item", data);
+            });
+        });
+    </script>

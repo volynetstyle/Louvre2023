@@ -24,7 +24,6 @@ namespace Museum.Models.Enums.EnumParser
             where TEnum : struct
         {
             input = enumType
-                .GetType()
                 .ToString()
                 .Trim()
                 .ToLower();
