@@ -9,5 +9,6 @@ namespace Museum.App.Services.Interfaces.Servises
         public IEnumerable<Section>? ExibitSection();
         public IEnumerable<Section>? AlbumSection();
         public IEnumerable<GallerySection>? GallerySection();
+        public IEnumerable<Section> SearchExibitSection(string searchString);
     }
 }

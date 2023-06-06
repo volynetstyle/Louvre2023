@@ -53,5 +53,40 @@ namespace Museum.App.Services.Implementation.Services
                     Image_Loc = x.Image_Loc 
                 });
         }
+
+        public IEnumerable<Section> SearchExibitSection(string searchString)
+        {
+            var exibitSections = ExibitSection();
+
+            if (exibitSections == null || string.IsNullOrEmpty(searchString))
+            {
+                return Enumerable.Empty<Section>();
+            }
+            else
+            {
+                var filteredSections = new List<Section>();
+
+                foreach (var exibitSection in exibitSections)
+                {
+                    if (exibitSection != null && exibitSection.CategoryItem != null)
+                    {
+                        var filteredCategoryItems = exibitSection.CategoryItem
+                            ?.Where(item => item?.Title?.Contains(searchString) == true)
+                            .ToList();
+
+                        if (filteredCategoryItems != null && filteredCategoryItems.Count != 0)
+                        {
+                            filteredSections.Add(new Section
+                            {
+                                CategoryName = exibitSection.CategoryName,
+                                CategoryDescription = exibitSection.CategoryDescription,
+                                CategoryItem = filteredCategoryItems
+                            });
+                        }
+                    }
+                }
+                return filteredSections;
+            }
+        }
     }
 }

@@ -1,7 +1,8 @@
 ﻿@if (Model.ExibitSection != null)
+{
     @foreach (var i in Model.ExibitSection)
     {
-        @if (i.CategoryItem != null && i.CategoryItem.Count() > 0)
+        @if (i.CategoryItem != null && i.CategoryItem.Count > 0)
         {
                         <div class="pb-20">
                             <h1 class="mb-10">@i.CategoryName</h1>
@@ -28,3 +29,4 @@
                         </div>
         }
     }
+}

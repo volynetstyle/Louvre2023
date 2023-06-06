@@ -25,30 +25,38 @@ namespace Museum.App.Controllers
                                           null, 
                                           _homeService.GallerySection()));
         }
-  
-        //[HttpPost]
-        //public JsonResult SearchAction(string customerName)
-        //{
-        //    var searchItem = _homeService?.ExibitSection()?.Where(x => x.CategoryName.Contains(customerName));
-        //    return Json(searchItem);
-        //}
 
-        public ActionResult ViewCategory(string searchString) 
+        //public JsonResult ViewCategory(string searchString)
+        //{
+        //    if (string.IsNullOrWhiteSpace(searchString))
+        //    {
+        //        var viewModel = new HomeViewModel(
+        //            _homeService.ExibitSection(),
+        //            null,
+        //            _homeService.GallerySection());
+
+        //        return Json(viewModel);
+        //    }
+        //    else
+        //    {
+        //        var searchItem = _homeService.SearchExibitSection(searchString);
+        //        var viewModel = new HomeViewModel(searchItem);
+
+        //        return Json(viewModel);
+        //    }
+        //}
+        public IActionResult ViewCategory(string searchString)
         {
             if (string.IsNullOrWhiteSpace(searchString))
             {
-                return View("Index", new HomeViewModel(_homeService.ExibitSection(),
-                                          null,
-                                          _homeService.GallerySection()));
+                return View("Index", new HomeViewModel(
+                    _homeService.ExibitSection(),
+                    null,                   
+                    _homeService.GallerySection()));
             }
             else
             {
-                var searchItem = _homeService?.ExibitSection()?.Where(x => x.CategoryName.Contains(searchString));
-
-                //if (Request.IsAjaxRequest()) 
-                //    return PartialView(searchItem);
-
-                return View("Index", new HomeViewModel(searchItem));
+                return View("Index", new HomeViewModel(_homeService.SearchExibitSection(searchString)));
             }
         }
 
