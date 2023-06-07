@@ -8,7 +8,6 @@ namespace Museum.App.Services.Interfaces.Servises
     public interface IFilterService
     {
         public IEnumerable<DepartmentSection>? GetDepartmentSection();
-        public Task<IEnumerable<DepartmentSection>> SearchActionAsync(string? pattern = null);
 
         public IEnumerable<DepartmentSection>? Filter(FilterViewModel viewModel);
         public IEnumerable<CategoryAdapter> GetCategories();

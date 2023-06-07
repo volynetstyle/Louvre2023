@@ -11,14 +11,17 @@ namespace Museum.App.Behaviors
             {
                 if (IsAjaxRequest(context.Request))
                 {
-                    string jsonResponse = JsonConvert.SerializeObject(new
-                    {
-                        status = context.Response.StatusCode,
-                        headers = new
+                    string jsonResponse = JsonConvert.SerializeObject(
+                        new
                         {
-                            location = context.RedirectUri
-                        }
-                    }, Formatting.None);
+                            status = context.Response.StatusCode,
+                            headers = 
+                            new 
+                            { 
+                                location = context.RedirectUri 
+                            }
+                        },
+                        Formatting.None);
 
                     context.Response.StatusCode = 200;
                     context.Response.Headers.Append("X-Responded-JSON", jsonResponse);

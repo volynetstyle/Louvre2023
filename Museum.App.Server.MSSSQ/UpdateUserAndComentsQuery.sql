@@ -1,4 +1,5 @@
-﻿
+﻿use LouvreDatabase
+
 CREATE TABLE [dbo].[ApplicationRole]
 (
 	[ApplicationRole_ID] INT NOT NULL PRIMARY KEY IDENTITY,
@@ -12,6 +13,7 @@ CREATE INDEX [IX_ApplicationRole_NormalizedName] ON [dbo].[ApplicationRole] ([No
 CREATE TABLE [dbo].[ApplicationUser]
 (
 	[ApplicationUser_ID] INT NOT NULL PRIMARY KEY IDENTITY,
+	[UserAvatar] NVARCHAR (256) NULL,
     [UserName] NVARCHAR(256) NOT NULL,
     [NormalizedUserName] NVARCHAR(256) NOT NULL,
     [Email] NVARCHAR(256) NULL,
@@ -33,11 +35,11 @@ CREATE INDEX [IX_ApplicationUser_NormalizedEmail] ON [dbo].[ApplicationUser] ([N
 
 CREATE TABLE [dbo].[ApplicationUserRole]
 (
-	[UserId] INT NOT NULL,
-	[RoleId] INT NOT NULL
-    PRIMARY KEY ([UserId], [RoleId]),
-    CONSTRAINT [FK_ApplicationUserRole_User] FOREIGN KEY ([UserId]) REFERENCES [ApplicationUser]([Id]),
-    CONSTRAINT [FK_ApplicationUserRole_Role] FOREIGN KEY ([RoleId]) REFERENCES [ApplicationRole]([Id])
+	[User_ID] INT NOT NULL,
+	[Role_ID] INT NOT NULL
+    PRIMARY KEY ([User_ID], [Role_ID]),
+    CONSTRAINT[FK_ApplicationUserRole_User] FOREIGN KEY ([User_ID]) REFERENCES [ApplicationUser]([ApplicationUser_ID]),
+    CONSTRAINT[FK_ApplicationUserRole_Role] FOREIGN KEY ([Role_ID]) REFERENCES [ApplicationRole]([ApplicationRole_ID])
 )
 
 select * from ApplicationRole
@@ -46,15 +48,26 @@ select * from ApplicationUserRole
 
 
 CREATE TABLE Comments (
-    [CommentReplies_ID] INT NOT NULL PRIMARY KEY IDENTITY,
-    CommentId INT PRIMARY KEY,
-    CommentText VARCHAR(255)
+    Comment_ID INT NOT NULL PRIMARY KEY IDENTITY,
+    CommentText VARCHAR(255),
+	[User_ID] INT NOT NULL,
+	CONSTRAINT[FK_ApplicationUserRole_User_Comment] FOREIGN KEY ([User_ID]) REFERENCES [ApplicationUser]([ApplicationUser_ID]),
+
 );
 
 CREATE TABLE CommentReplies (
-    ParentCommentId INT,
-    ReplyCommentId INT,
-    PRIMARY KEY ([ParentCommentIdd], [ReplyCommentId]),
-    FOREIGN KEY (ParentCommentId) REFERENCES Comments(CommentId),
-    FOREIGN KEY (ReplyCommentId) REFERENCES Comments(CommentId)
+    ParentComment_ID INT,
+    ReplyComment_ID INT,
+    PRIMARY KEY ([ParentComment_ID], [ReplyComment_ID]),
+    FOREIGN KEY (ParentComment_ID) REFERENCES Comments(Comment_ID),
+    FOREIGN KEY (ReplyComment_ID) REFERENCES Comments(Comment_ID)
 );
+
+
+drop table CommentReplies
+drop table  Comments
+
+ALTER TABLE Raiting
+ADD ApplicationUser_ID INT NOT NULL
+ALTER TABLE Raiting
+ADD CONSTRAINT FK_Raiting_User FOREIGN KEY (ApplicationUser_ID) REFERENCES ApplicationUser(ApplicationUser_ID);

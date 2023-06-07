@@ -1,54 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Museum.App.Services.Abstractions.BaseRepository&lt;T&gt;" BaseTypeListCollapsed="true">
-    <Position X="1.75" Y="5.75" Width="1.5" />
+    <Position X="6.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAYAgAAAAAAAAAAAAAAAAAQAAAEIAAAAAgAAAAAACIA=</HashCode>
+      <HashCode>IEcAgAAAAAAAAAgAAAACCAUECAEIAAgAAgEAAEAAKIA=</HashCode>
       <FileName>Abstractions\Classes\BaseRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Museum.App.Services.Abstractions.BaseService&lt;TModel, TAdapter&gt;" BaseTypeListCollapsed="true">
-    <Position X="4" Y="5.75" Width="1.5" />
+    <Position X="8.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAABAAAAAAAABAAQAAAEIAAAAAgAAAAAACIA=</HashCode>
+      <HashCode>IEcAAAAAAABAAAAAAAABCAUACAEIAAgAAgAAAEAAKIA=</HashCode>
       <FileName>Abstractions\Classes\BaseService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Museum.App.Services.Implementation.Servises.HomeService">
-    <Position X="6.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Implementation\HomeService.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Interface Name="Museum.App.Services.Abstractions.IBasicInterface&lt;T&gt;">
-    <Position X="4" Y="1.25" Width="1.5" />
+    <Position X="3" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAAAAAAAAAAAAAAQAAAEIAAAAAgAAAAAACIA=</HashCode>
+      <HashCode>IEcAAAAAAAAAAAAAAAAACAUACAEIAAgAAgAAAEAAKIA=</HashCode>
       <FileName>Abstractions\Interfaces\IBasicInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Museum.App.Services.Abstractions.IBasicRepository&lt;T&gt;">
-    <Position X="1.75" Y="4.25" Width="1.5" />
+    <Position X="1.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Abstractions\Interfaces\IBasicRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Museum.App.Services.Abstractions.IBasicService&lt;TModel, TAdapter&gt;">
-    <Position X="4" Y="4.25" Width="1.5" />
+    <Position X="4" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Abstractions\Interfaces\IBasicService.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Museum.App.Services.Interfaces.IHomeService">
-    <Position X="6.25" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\IHomeService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
