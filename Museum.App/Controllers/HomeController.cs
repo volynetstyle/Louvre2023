@@ -45,6 +45,7 @@ namespace Museum.App.Controllers
         //        return Json(viewModel);
         //    }
         //}
+
         public IActionResult ViewCategory(string searchString)
         {
             if (string.IsNullOrWhiteSpace(searchString))
