@@ -5,6 +5,7 @@ using Museum.App.Services.Attributes;
 using Museum.App.Services.Implementation.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.Filter;
+using Museum.App.ViewModels.FilterViewModels;
 using Museum.App.ViewModels.Home;
 using Museum.Models.TableModels;
 using System;
@@ -13,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Dommel.Json.JsonParsers;
 
 namespace Museum.App.Services.Implementation.Servises
 {
@@ -38,62 +41,67 @@ namespace Museum.App.Services.Implementation.Servises
             _filterRepository = filterRepository;
         }
 
-        public IEnumerable<DepartmentSection>? GetDepartmentSection()
-        {
-            return _collectionService.GetAll().Select(c => new DepartmentSection
-            {
-                DepartmentName = c.Department,
-                DepartmentItem = _mapper.Map<IEnumerable<SectionItem>>(_filterRepository.GetGalleryObjectsByCollectionID(c.Collection_ID))
-            });
-        }
-
         public IEnumerable<ArtistAdapter> GetArtists() => _artistService.GetAll();
 
         public IEnumerable<CategoryAdapter> GetCategories() => _categoryService.GetAll();
 
         public IEnumerable<CollectionAdapter> GetDepartmens() => _collectionService.GetAll();
 
-        public IEnumerable<Section> SearchExibitSection(string searchString)
+        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage()
         {
-            var exibitSections = ExibitSection();
+            return _mapper.Map<IEnumerable<FilterSectionViewModel>>(_filterRepository.GetGalleryObjectsAsFilterPage());
+        }
 
-            if (exibitSections == null || string.IsNullOrEmpty(searchString))
+        public IEnumerable<SideBarCollection> GetSideBarCollections()
+        {
+            List<FilterSideBarParams> items= new List<FilterSideBarParams>
             {
-                return Enumerable.Empty<Section>();
-            }
-            else
-            {
-                var filteredSections = new List<Section>();
-
-                foreach (var exibitSection in exibitSections)
+                new FilterSideBarParams
                 {
-                    if (exibitSection != null && exibitSection.CategoryItem != null)
-                    {
-                        var filteredCategoryItems = exibitSection.CategoryItem
-                            ?.Where(item => item?.Title?.Contains(searchString) == true)
-                            .ToList();
-
-                        if (filteredCategoryItems != null && filteredCategoryItems.Count != 0)
-                        {
-                            filteredSections.Add(new Section
-                            {
-                                CategoryName = exibitSection.CategoryName,
-                                CategoryDescription = exibitSection.CategoryDescription,
-                                CategoryItem = filteredCategoryItems
-                            });
-                        }
-                    }
+                    tableName = "Collections",
+                    labelName = "department",
+                    tablePK = "Collection_ID",
+                    GalleryObjectFK = "Collection_ID"
+                },
+                new FilterSideBarParams
+                {
+                    tableName = "Artists",
+                    labelName = "FullName",
+                    tablePK = "Artist_ID",
+                    GalleryObjectFK = "Artist_ID"
+                },
+                new FilterSideBarParams
+                {
+                    tableName = "Categories",
+                    labelName = "CategoryName",
+                    tablePK = "Category_ID",
+                    GalleryObjectFK = "Category_ID"
+                },
+                new FilterSideBarParams
+                {
+                    tableName = "CollectionParts",
+                    labelName = "PartName",
+                    tablePK = "Part_ID",
+                    GalleryObjectFK = "Collection_ID"
                 }
-                return filteredSections;
+            }; 
+
+            if (items != null)
+            {
+                List<SideBarCollection> sideBars = new();
+
+                foreach (var item in items)
+                {
+                    sideBars.Add(new SideBarCollection
+                    {
+                        Title = item.tableName,
+                        Collection = _filterRepository.GetFilterSideBarCollection(item)
+                    });
+                }
+                return sideBars;
             }
+            return Enumerable.Empty<SideBarCollection>();
         }
-        public IEnumerable<DepartmentSection>? Filter(FilterViewModel viewModel)
-        {
-            var coll = GetDepartmens();
 
-            //viewModel.DepartmentCollection.Selec)
-
-            throw new NotImplementedException();
-        }
     }
 }

@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Museum.Models\Museum.Models.csproj" />
+    <ProjectReference Include="..\Museum.RuntimeComponent\Museum.RuntimeComponent.csproj" />
     <ProjectReference Include="..\Museum.ViewModels\Museum.App.ViewModels.csproj" />
   </ItemGroup>
 

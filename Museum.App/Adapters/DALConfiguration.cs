@@ -10,6 +10,8 @@ using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Implementation.Servises;
 using Museum.App.Services.Abstractions;
 using Museum.App.Services.Implementation.Servises.Other;
+using Museum.App.ViewModels.FilterViewModels;
+using Museum.Models.FilterModels;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
@@ -90,6 +92,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 cfg.CreateMap<Theme_Album, ThemeAlbumAdapter>().ReverseMap();
                 cfg.CreateMap<Users, UserAdapter>().ReverseMap();
                 cfg.CreateMap<Wings_floors, WingsFloorsAdapter>().ReverseMap();
+                cfg.CreateMap<FilterSectionModel, FilterSectionViewModel>().ReverseMap();
                 
                 //Secondary map
                 cfg.CreateMap<SectionItem, SectionItemModel>().ReverseMap();

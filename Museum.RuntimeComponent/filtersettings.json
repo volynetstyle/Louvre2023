@@ -1,0 +1,26 @@
+﻿[
+  {
+    "tableName": "Collections",
+    "labelName": "department",
+    "tablePK": "Collection_ID",
+    "GalleryObjectFK": "Collection_ID"
+  },
+  {
+    "tableName": "Artists",
+    "labelName": "FullName",
+    "tablePK": "Artist_ID",
+    "GalleryObjectFK": "Artist_ID"
+  },
+  {
+    "tableName": "Categories",
+    "labelName": "CategoryName",
+    "tablePK": "Category_ID",
+    "GalleryObjectFK": "Category_ID"
+  },
+  {
+    "tableName": "CollectionParts",
+    "labelName": "PartName",
+    "tablePK": "Part_ID",
+    "GalleryObjectFK": "Collection_ID"
+  }
+]

@@ -32,7 +32,6 @@ namespace Museum.App.Behaviors
                 }
             };
 
-
         public static bool IsAjaxRequest(this HttpRequest request)
         {
             if (request == null)
