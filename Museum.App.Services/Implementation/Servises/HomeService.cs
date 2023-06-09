@@ -4,8 +4,8 @@ using Museum.App.ViewModels.Home;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.Services.Interfaces.Repositories;
 using Museum.Models.TableModels;
-using Museum.App.Services.Adapters;
 using Museum.App.Services.Attributes;
+using Museum.Models.Adapters;
 
 namespace Museum.App.Services.Implementation.Services
 {
@@ -13,14 +13,14 @@ namespace Museum.App.Services.Implementation.Services
     public class HomeService : IHomeService
     {
         private readonly IMapper _mapper;
-        private readonly IBasicService<Categories, CategoryAdapter> _CategoriesRepository;
-        private readonly IBasicService<Images, ImageDboAdapter> _ImageDboRepository;
+        private readonly IBasicService<Categories, CategoriesAdapter> _CategoriesRepository;
+        private readonly IBasicService<Images, ImagesAdapter> _ImageDboRepository;
         private readonly IHomeRepository _HomeRepository;
 
         public HomeService(IMapper Mapper,
                            IHomeRepository HomeRepository,
-                           IBasicService<Categories, CategoryAdapter> CategoriesRepository,
-                           IBasicService<Images, ImageDboAdapter> ImageDboRepository)
+                           IBasicService<Categories, CategoriesAdapter> CategoriesRepository,
+                           IBasicService<Images, ImagesAdapter> ImageDboRepository)
         {
             _mapper = Mapper;
             _HomeRepository = HomeRepository;

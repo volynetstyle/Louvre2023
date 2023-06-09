@@ -10,8 +10,7 @@ namespace Museum.Models.TableModels
     {
         public int Rating_ID { get; set; }
         public int Object_ID { get; set; }
-        public int User_ID { get; set; }
         public int Rating { get; set; }
+        public int ApplicationUser_ID { get; set; }
     }
-
 }

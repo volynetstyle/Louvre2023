@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
-using Museum.App.Services.Adapters;
 using Museum.App.Services.Attributes;
 using Museum.App.Services.Implementation.Repositories;
 using Museum.App.Services.Interfaces.Servises;
@@ -16,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Dommel.Json.JsonParsers;
+using Museum.Models.Adapters;
 
 namespace Museum.App.Services.Implementation.Servises
 {
@@ -23,15 +23,15 @@ namespace Museum.App.Services.Implementation.Servises
     public class FilterService : IFilterService
     {
         private readonly IMapper _mapper;
-        private readonly IBasicService<Artists ,ArtistAdapter> _artistService;
-        private readonly IBasicService<Categories, CategoryAdapter> _categoryService;
-        private readonly IBasicService<Collections, CollectionAdapter> _collectionService;
+        private readonly IBasicService<Artists ,ArtistsAdapter> _artistService;
+        private readonly IBasicService<Categories, CategoriesAdapter> _categoryService;
+        private readonly IBasicService<Collections, CollectionsAdapter> _collectionService;
         private readonly IFilterRepository _filterRepository;
 
         public FilterService(IMapper mapper, 
-                             IBasicService<Artists, ArtistAdapter> artistService,
-                             IBasicService<Categories, CategoryAdapter> categoryService,
-                             IBasicService<Collections, CollectionAdapter> collectionService,
+                             IBasicService<Artists, ArtistsAdapter> artistService,
+                             IBasicService<Categories, CategoriesAdapter> categoryService,
+                             IBasicService<Collections, CollectionsAdapter> collectionService,
                              IFilterRepository filterRepository)
         {
             _mapper = mapper;
@@ -41,11 +41,11 @@ namespace Museum.App.Services.Implementation.Servises
             _filterRepository = filterRepository;
         }
 
-        public IEnumerable<ArtistAdapter> GetArtists() => _artistService.GetAll();
+        public IEnumerable<ArtistsAdapter> GetArtists() => _artistService.GetAll();
 
-        public IEnumerable<CategoryAdapter> GetCategories() => _categoryService.GetAll();
+        public IEnumerable<CategoriesAdapter> GetCategories() => _categoryService.GetAll();
 
-        public IEnumerable<CollectionAdapter> GetDepartmens() => _collectionService.GetAll();
+        public IEnumerable<CollectionsAdapter> GetDepartmens() => _collectionService.GetAll();
 
         public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage()
         {

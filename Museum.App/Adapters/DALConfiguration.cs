@@ -1,5 +1,4 @@
-﻿using Museum.App.Services.Adapters;
-using AutoMapper;
+﻿using AutoMapper;
 using Museum.Models.HomeModels;
 using Museum.App.ViewModels.Home;
 using Museum.Models.TableModels;
@@ -12,6 +11,7 @@ using Museum.App.Services.Abstractions;
 using Museum.App.Services.Implementation.Servises.Other;
 using Museum.App.ViewModels.FilterViewModels;
 using Museum.Models.FilterModels;
+using Museum.Models.Adapters;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
@@ -45,7 +45,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<CollectionParts>(connectionString);
                 services.AddScoped<Directors>(connectionString);
                 services.AddScoped<LouvreMuseumGalleries>(connectionString);
-                services.AddScoped<GalleryObjects>(connectionString);
+                services.AddScoped<GalleryObjectsAdapter>(connectionString);
                 services.AddScoped<Histories>(connectionString);
                 services.AddScoped<Images>(connectionString);
                 services.AddScoped<LouvreMuseumLevels>(connectionString);
@@ -75,23 +75,27 @@ namespace Museum.App.Adapters.DALConfiguration
             MapperConfiguration mapperConfiguration = new(cfg =>
             {
                 //Main configuration 
-                cfg.CreateMap<Artists, ArtistAdapter>().ReverseMap();
-                cfg.CreateMap<Categories, CategoryAdapter>().ReverseMap();
-                cfg.CreateMap<Collections, CollectionAdapter>().ReverseMap();
-                cfg.CreateMap<CollectionParts, CollectionPartAdapter>().ReverseMap();
-                cfg.CreateMap<Directors, DirectorAdapter>().ReverseMap();
-                cfg.CreateMap<LouvreMuseumGalleries, GalleryAdapter>().ReverseMap();
-                cfg.CreateMap<GalleryObjects, GalleryObjectAdapter>().ReverseMap();
-                cfg.CreateMap<Histories, HistoryAdapter>().ReverseMap();
-                cfg.CreateMap<Images, ImageDboAdapter>().ReverseMap();
-                cfg.CreateMap<LouvreMuseumLevels, LevelAdapter>().ReverseMap();
-                cfg.CreateMap<Literatures, LiteratureAdapter>().ReverseMap();
-                cfg.CreateMap<Museams, MuseumAdapter>().ReverseMap();
+                cfg.CreateMap<ApplicationUser, ApplicationUserAdapter>().ReverseMap();
+                cfg.CreateMap<ApplicationRole, ApplicationRoleAdapter>().ReverseMap();
+                cfg.CreateMap<Comments, CommentsAdapter>().ReverseMap();
+                cfg.CreateMap<CommentReplies, CommentRepliesAdapter>().ReverseMap();
+                cfg.CreateMap<Artists, ArtistsAdapter>().ReverseMap();
+                cfg.CreateMap<Categories, CategoriesAdapter>().ReverseMap();
+                cfg.CreateMap<Collections, CollectionsAdapter>().ReverseMap();
+                cfg.CreateMap<CollectionParts, CollectionPartsAdapter>().ReverseMap();
+                cfg.CreateMap<Directors, DirectorsAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumGalleries, LouvreMuseumGalleriesAdapter>().ReverseMap();
+                cfg.CreateMap<GalleryObjects, GalleryObjectsAdapter>().ReverseMap();
+                cfg.CreateMap<Histories, HistoriesAdapter>().ReverseMap();
+                cfg.CreateMap<Images, ImagesAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumLevels, LouvreMuseumLevelsAdapter>().ReverseMap();
+                cfg.CreateMap<Literatures, LiteraturesAdapter>().ReverseMap();
+                cfg.CreateMap<Museams, MuseamsAdapter>().ReverseMap();
                 cfg.CreateMap<OnDisplayNow, OnDisplayNowAdapter>().ReverseMap();
-                cfg.CreateMap<Raiting, RatingAdapter>().ReverseMap();
-                cfg.CreateMap<Theme_Album, ThemeAlbumAdapter>().ReverseMap();
-                cfg.CreateMap<Users, UserAdapter>().ReverseMap();
-                cfg.CreateMap<Wings_floors, WingsFloorsAdapter>().ReverseMap();
+                cfg.CreateMap<Raiting, RaitingAdapter>().ReverseMap();
+                cfg.CreateMap<Theme_Album, Theme_AlbumAdapter>().ReverseMap();
+                cfg.CreateMap<Users, UsersAdapter>().ReverseMap();
+                cfg.CreateMap<Wings_floors, Wings_floorsAdapter>().ReverseMap();
                 cfg.CreateMap<FilterSectionModel, FilterSectionViewModel>().ReverseMap();
                 
                 //Secondary map

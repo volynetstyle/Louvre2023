@@ -1,8 +1,4 @@
-﻿using Museum.App.Services.Adapters;
-using Museum.App.ViewModels.Filter;
-using Museum.App.ViewModels.FilterViewModels;
-using Museum.App.ViewModels.Home;
-using Museum.Models.FilterModels;
+﻿using Museum.App.ViewModels.FilterViewModels;
 
 namespace Museum.App.Services.Interfaces.Servises
 {

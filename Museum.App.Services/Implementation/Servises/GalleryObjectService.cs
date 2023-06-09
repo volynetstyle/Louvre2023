@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
-using Museum.App.Services.Adapters;
 using Museum.App.Services.Attributes;
 using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.GalleryObject;
+using Museum.Models.Adapters;
 using Museum.Models.TableModels;
 
 
@@ -16,28 +16,28 @@ namespace Museum.App.Services.Implementation.Services
         private readonly IMapper _mapper;
         private readonly IGalleryObjectRepository _galleryObjectRepository;
 
-        private readonly IBasicService<GalleryObjects, GalleryObjectAdapter> _serviceGallleryObject;
-        private readonly IBasicService<Categories, CategoryAdapter> _categoryService;
-        private readonly IBasicService<Artists, ArtistAdapter> _artistService;
-        private readonly IBasicService<LouvreMuseumGalleries, GalleryAdapter> _galleryService;
-        private readonly IBasicService<Collections, CollectionAdapter> _collectionService;
-        private readonly IBasicService<LouvreMuseumLevels, MuseumAdapter> _museumService;
-        private readonly IBasicService<CollectionParts, CollectionPartAdapter> _partService;
-        private readonly IBasicService<Histories, HistoryAdapter> _historyService;
-        private readonly IBasicService<Literatures, LiteratureAdapter> _literatureService;
+        private readonly IBasicService<GalleryObjects, GalleryObjectsAdapter> _serviceGallleryObject;
+        private readonly IBasicService<Categories, CategoriesAdapter> _categoryService;
+        private readonly IBasicService<Artists, ArtistsAdapter> _artistService;
+        private readonly IBasicService<LouvreMuseumGalleries, LouvreMuseumGalleriesAdapter> _galleryService;
+        private readonly IBasicService<Collections, CollectionsAdapter> _collectionService;
+        private readonly IBasicService<LouvreMuseumLevels, LouvreMuseumLevelsAdapter> _museumService;
+        private readonly IBasicService<CollectionParts, CollectionPartsAdapter> _partService;
+        private readonly IBasicService<Histories, HistoriesAdapter> _historyService;
+        private readonly IBasicService<Literatures, LiteraturesAdapter> _literatureService;
 
 
         public GalleryObjectService(IMapper mapper,
                                     IGalleryObjectRepository galleryObjectRepository,
-                                    IBasicService<GalleryObjects, GalleryObjectAdapter> serviceGallleryObject,
-                                    IBasicService<Categories, CategoryAdapter> categoryService,
-                                    IBasicService<Artists, ArtistAdapter> artistService,
-                                    IBasicService<LouvreMuseumGalleries, GalleryAdapter> galleryService,
-                                    IBasicService<Collections, CollectionAdapter> collectionService,
-                                    IBasicService<LouvreMuseumLevels, MuseumAdapter> museumService,
-                                    IBasicService<CollectionParts, CollectionPartAdapter> partService,
-                                    IBasicService<Histories, HistoryAdapter> historyService,
-                                    IBasicService<Literatures, LiteratureAdapter> literatureService
+                                    IBasicService<GalleryObjects, GalleryObjectsAdapter> serviceGallleryObject,
+                                    IBasicService<Categories, CategoriesAdapter> categoryService,
+                                    IBasicService<Artists, ArtistsAdapter> artistService,
+                                    IBasicService<LouvreMuseumGalleries, LouvreMuseumGalleriesAdapter> galleryService,
+                                    IBasicService<Collections, CollectionsAdapter> collectionService,
+                                    IBasicService<LouvreMuseumLevels, LouvreMuseumLevelsAdapter> museumService,
+                                    IBasicService<CollectionParts, CollectionPartsAdapter> partService,
+                                    IBasicService<Histories, HistoriesAdapter> historyService,
+                                    IBasicService<Literatures, LiteraturesAdapter> literatureService
                                     )
         {
             _mapper = mapper;
@@ -77,19 +77,8 @@ namespace Museum.App.Services.Implementation.Services
         private GalleryObjectsByIdViewModel? GalleryObjectsById(int _id)
         {
             var id = _serviceGallleryObject.GetById(_id);
-            
-                return new GalleryObjectsByIdViewModel
-                {
-                    categoryAdapter = id.Category_ID.HasValue ? _categoryService.GetById(id.Category_ID.Value) : null,
-                    artistAdapter = id.Artist_ID.HasValue ? _artistService.GetById(id.Artist_ID.Value) : null,
-                    galleryAdapter = id.Gallery_ID.HasValue ? _galleryService.GetById(id.Gallery_ID.Value) : null,
-                    collectionAdapter = id.Collection_ID.HasValue ? _collectionService.GetById(id.Collection_ID.Value) : null,
-                    museumAdapter = id.Museam_ID.HasValue ? _museumService.GetById(id.Museam_ID.Value) : null,
-                    partAdapter = id.Part_ID.HasValue ? _partService.GetById(id.Part_ID.Value) : null,
-                    historyAdapter = id.History_ID.HasValue ? _historyService.GetById(id.History_ID.Value) : null,
-                    literatureAdapter = id.LiteratureID.HasValue ? _literatureService.GetById(id.LiteratureID.Value) : null
-                };
-            
+
+            return new GalleryObjectsByIdViewModel();
         }
 
         public bool IsObjectExist(int id)
