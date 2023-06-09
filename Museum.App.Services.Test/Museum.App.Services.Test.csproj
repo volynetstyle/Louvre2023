@@ -10,7 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Museum.App.Services\Museum.App.Services.csproj" />
     <ProjectReference Include="..\Museum.Models\Museum.Models.csproj" />
-    <ProjectReference Include="..\Museum.Services\Museum.App.Services.csproj" />
   </ItemGroup>
 
 </Project>

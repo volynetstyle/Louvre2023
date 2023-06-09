@@ -7,7 +7,7 @@ namespace Museum.App.ViewModels.Filter
     public class FilterViewModel
     {
         public FilterViewModel() { }
-        public string? SearchPattern { get; set; }
+        public int pageSize { get; set; }
         public IEnumerable<FilterSectionViewModel>? FilterSections { get; set; }
         public IEnumerable<SideBarCollection>? FilterSideBarCollection { get; set; }
 
@@ -20,7 +20,7 @@ namespace Museum.App.ViewModels.Filter
 
             FilterViewModel other = (FilterViewModel)obj;
 
-            return SearchPattern == other.SearchPattern
+            return pageSize == other.pageSize
                 && AreFilterSectionsEqual(FilterSections, other.FilterSections)
                 && AreFilterSideBarCollectionsEqual(FilterSideBarCollection, other.FilterSideBarCollection);
         }
@@ -30,7 +30,7 @@ namespace Museum.App.ViewModels.Filter
             unchecked
             {
                 int hash = 17;
-                hash = hash * 23 + (SearchPattern != null ? SearchPattern.GetHashCode() : 0);
+                hash = hash * 23 + pageSize.GetHashCode();
                 hash = hash * 23 + (FilterSections != null ? GetEnumerableHashCode(FilterSections) : 0);
                 hash = hash * 23 + (FilterSideBarCollection != null ? GetEnumerableHashCode(FilterSideBarCollection) : 0);
                 return hash;
