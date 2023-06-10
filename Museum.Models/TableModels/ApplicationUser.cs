@@ -27,5 +27,6 @@ namespace Museum.Models.TableModels
         public bool PhoneNumberConfirmed { get; set; }
 
         public bool TwoFactorEnabled { get; set; }
+        public string AuthenticatorKey { get; set; }
     }
 }

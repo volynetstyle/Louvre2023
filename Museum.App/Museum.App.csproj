@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Museum.RuntimeComponent\Museum.RuntimeComponent.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\_templates\tests\" />
+  </ItemGroup>
+
 </Project>

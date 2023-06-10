@@ -26,31 +26,66 @@ namespace Museum.App.Services.Implementation.Servises
         private readonly IBasicService<Artists ,ArtistsAdapter> _artistService;
         private readonly IBasicService<Categories, CategoriesAdapter> _categoryService;
         private readonly IBasicService<Collections, CollectionsAdapter> _collectionService;
+        private readonly IBasicService<Raitings, RaitingAdapter> _raitingService;
+        private readonly IBasicService<Comments, CommentsAdapter> _commentsService;
+        private readonly IBasicRepository<Raitings> _raitingRepo;
+        private readonly IBasicRepository<Comments> _commentsRepo;
         private readonly IFilterRepository _filterRepository;
 
         public FilterService(IMapper mapper, 
                              IBasicService<Artists, ArtistsAdapter> artistService,
                              IBasicService<Categories, CategoriesAdapter> categoryService,
                              IBasicService<Collections, CollectionsAdapter> collectionService,
-                             IFilterRepository filterRepository)
+                             IBasicService<Raitings, RaitingAdapter> raitingService,
+                             IBasicService<Comments, CommentsAdapter> commentsService,
+                             IFilterRepository filterRepository,
+                             IBasicRepository<Raitings> raitingRepo,
+                             IBasicRepository<Comments> commentsRepo)
         {
             _mapper = mapper;
             _artistService = artistService;
             _categoryService = categoryService;
             _collectionService = collectionService;
+            _raitingService = raitingService;
+            _commentsService = commentsService;
             _filterRepository = filterRepository;
+            _raitingRepo = raitingRepo;
+            _commentsRepo = commentsRepo;
         }
 
-        public IEnumerable<ArtistsAdapter> GetArtists() => _artistService.GetAll();
+        public IEnumerable<ArtistsAdapter> GetArtists() 
+            => _artistService.GetAll();
 
-        public IEnumerable<CategoriesAdapter> GetCategories() => _categoryService.GetAll();
+        public IEnumerable<CategoriesAdapter> GetCategories() 
+            => _categoryService.GetAll();
 
-        public IEnumerable<CollectionsAdapter> GetDepartmens() => _collectionService.GetAll();
+        public IEnumerable<CollectionsAdapter> GetDepartmens() 
+            => _collectionService.GetAll();
 
-        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage()
-        {
-            return _mapper.Map<IEnumerable<FilterSectionViewModel>>(_filterRepository.GetGalleryObjectsAsFilterPage());
-        }
+        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage() 
+            => _mapper.Map<IEnumerable<FilterSectionViewModel>>(_filterRepository.GetGalleryObjectsAsFilterPage());
+
+        public async Task AddVote(VoteViewModel voteView) 
+            => await _raitingService.AddAsync(_mapper.Map<RaitingAdapter>(voteView));
+
+        public async Task RemoveVote(VoteViewModel vote) 
+            => await _raitingService.DeleteAsync(_mapper.Map<RaitingAdapter>(vote));
+
+        public async Task<bool> IsVoteExistForUser(int userId) 
+            => await _raitingRepo.AnyAsync(x => x.Object_ID == userId);
+
+        public async Task<int> GetLikeCount(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId);
+
+        public async Task<int> GetDislikeCount(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId);
+
+        /// <summary>
+        ///  TODO: This is the wrong implementation of comment counter for single post, update it
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> GetCommentsCount(int objectId) =>
+            await _commentsService.CountAsync();
 
         public IEnumerable<SideBarCollection> GetSideBarCollections()
         {
@@ -102,6 +137,5 @@ namespace Museum.App.Services.Implementation.Servises
             }
             return Enumerable.Empty<SideBarCollection>();
         }
-
     }
 }

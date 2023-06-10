@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore;
+using Museum.App.Adapters;
 using Museum.App.Adapters.DALConfiguration;
 
 namespace Museum.App

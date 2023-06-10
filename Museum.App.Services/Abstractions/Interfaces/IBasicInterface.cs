@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Collections;
+using static Dapper.SqlMapper;
 
 namespace Museum.App.Services.Abstractions
 { 
@@ -23,7 +24,9 @@ namespace Museum.App.Services.Abstractions
         Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
 
         int Count();
+        int CountBy(Expression<Func<T, bool>> predicate);
         Task<int> CountAsync();
+        Task<int> CountByAsync(Expression<Func<T, bool>> predicate);
 
         IEnumerable<T> Paginate(int pageNumber, int pageSize);
         Task<IEnumerable<T>> PaginateAsync(int pageNumber, int pageSize);

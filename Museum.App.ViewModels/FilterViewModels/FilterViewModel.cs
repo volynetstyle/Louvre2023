@@ -10,6 +10,7 @@ namespace Museum.App.ViewModels.Filter
         public int pageSize { get; set; }
         public IEnumerable<FilterSectionViewModel>? FilterSections { get; set; }
         public IEnumerable<SideBarCollection>? FilterSideBarCollection { get; set; }
+        public VoteViewModel? VoteViewModel { get; set; }
 
         public override bool Equals(object? obj)
         {

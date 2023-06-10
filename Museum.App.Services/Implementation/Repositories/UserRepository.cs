@@ -10,12 +10,10 @@ namespace Museum.App.Services.Implementation.Repositories
     public class UserRepository : IUserRepository<ApplicationUser>
     {
         private readonly string _connectionString;
-        private readonly IBasicRepository<ApplicationUser> _userRepository;
 
-        public UserRepository(string connectionString, IBasicRepository<ApplicationUser> userRepository)
+        public UserRepository(string connectionString)
         {
             _connectionString = connectionString;
-            _userRepository = userRepository;
         }
 
         public async Task<IdentityResult> CreateAsync(ApplicationUser user, CancellationToken cancellationToken)
@@ -43,8 +41,7 @@ namespace Museum.App.Services.Implementation.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync(cancellationToken);
-                await _userRepository.DeleteAsync(user);
-                //await connection.ExecuteAsync($"DELETE FROM [ApplicationUser] WHERE [ApplicationUser_ID] = @{nameof(ApplicationUser.ApplicationUser_ID)}", user);
+                await connection.ExecuteAsync($"DELETE FROM [ApplicationUser] WHERE [ApplicationUser_ID] = @{nameof(ApplicationUser.ApplicationUser_ID)}", user);
             }
 
             return IdentityResult.Success;
@@ -231,8 +228,8 @@ namespace Museum.App.Services.Implementation.Repositories
                     roleId = await connection.ExecuteAsync($"INSERT INTO [ApplicationRole]([Name], [NormalizedName]) VALUES(@{nameof(roleName)}, @{nameof(normalizedName)})",
                         new { roleName, normalizedName });
 
-                await connection.ExecuteAsync($"IF NOT EXISTS(SELECT 1 FROM [ApplicationUserRole] WHERE [UserId] = @userId AND [RoleId] = @{nameof(roleId)}) " +
-                    $"INSERT INTO [ApplicationUserRole]([UserId], [RoleId]) VALUES(@userId, @{nameof(roleId)})",
+                await connection.ExecuteAsync($"IF NOT EXISTS(SELECT 1 FROM [ApplicationUserRole] WHERE [User_ID] = @userId AND [] = @{nameof(roleId)}) " +
+                    $"INSERT INTO [ApplicationUserRole]([User_ID], [Role_ID]) VALUES(@userId, @{nameof(roleId)})",
                     new { userId = user.ApplicationUser_ID, roleId });
             }
         }
@@ -246,7 +243,7 @@ namespace Museum.App.Services.Implementation.Repositories
                 await connection.OpenAsync(cancellationToken);
                 var roleId = await connection.ExecuteScalarAsync<int?>("SELECT [ApplicationUser_ID] FROM [ApplicationRole] WHERE [NormalizedName] = @normalizedName", new { normalizedName = roleName.ToUpper() });
                 if (!roleId.HasValue)
-                    await connection.ExecuteAsync($"DELETE FROM [ApplicationUserRole] WHERE [UserId] = @userId AND [RoleId] = @{nameof(roleId)}", new { userId = user.ApplicationUser_ID, roleId });
+                    await connection.ExecuteAsync($"DELETE FROM [ApplicationUserRole] WHERE [User_ID] = @userId AND [Role_ID] = @{nameof(roleId)}", new { userId = user.ApplicationUser_ID, roleId });
             }
         }
 
@@ -257,8 +254,8 @@ namespace Museum.App.Services.Implementation.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync(cancellationToken);
-                var queryResults = await connection.QueryAsync<string>("SELECT r.[Name] FROM [ApplicationRole] r INNER JOIN [ApplicationUserRole] ur ON ur.[RoleId] = r.ApplicationUser_ID " +
-                    "WHERE ur.UserId = @userId", new { userId = user.ApplicationUser_ID });
+                var queryResults = await connection.QueryAsync<string>("SELECT r.[Name] FROM [ApplicationRole] r INNER JOIN [ApplicationUserRole] ur ON ur.[Role_ID] = r.ApplicationRole_ID " +
+                    "WHERE ur.User_ID = @userId", new { userId = user.ApplicationUser_ID });
 
                 return queryResults.ToList();
             }
@@ -272,7 +269,7 @@ namespace Museum.App.Services.Implementation.Repositories
             {
                 var roleId = await connection.ExecuteScalarAsync<int?>("SELECT [ApplicationUser_ID] FROM [ApplicationRole] WHERE [NormalizedName] = @normalizedName", new { normalizedName = roleName.ToUpper() });
                 if (roleId == default(int)) return false;
-                var matchingRoles = await connection.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM [ApplicationUserRole] WHERE [UserId] = @userId AND [RoleId] = @{nameof(roleId)}",
+                var matchingRoles = await connection.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM [ApplicationUserRole] WHERE [User_ID] = @userId AND [Role_ID] = @{nameof(roleId)}",
                     new { userId = user.ApplicationUser_ID, roleId });
 
                 return matchingRoles > 0;
@@ -296,6 +293,17 @@ namespace Museum.App.Services.Implementation.Repositories
         public void Dispose()
         {
             // Nothing to dispose.
+        }
+
+        public Task SetAuthenticatorKeyAsync(ApplicationUser user, string key, CancellationToken cancellationToken)
+        {
+            user.AuthenticatorKey = key;
+            return Task.CompletedTask;
+        }
+
+        public Task<string> GetAuthenticatorKeyAsync(ApplicationUser user, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(user.AuthenticatorKey);
         }
     }
 }

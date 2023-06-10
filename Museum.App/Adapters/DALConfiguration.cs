@@ -12,11 +12,27 @@ using Museum.App.Services.Implementation.Servises.Other;
 using Museum.App.ViewModels.FilterViewModels;
 using Museum.Models.FilterModels;
 using Museum.Models.Adapters;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNet.Identity;
+using Museum.App.ViewModels.Filter;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
     public static class DALConfiguration
     {
+        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
+
+            services.AddTransient<Microsoft.AspNetCore.Identity.IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+            services.AddTransient<Microsoft.AspNetCore.Identity.IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddDefaultTokenProviders();
+
+            services.AddMvc();
+        }
+
         public static IServiceCollection ConfigureDALServices(IServiceCollection services, IConfiguration configuration)
         {
             string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
@@ -35,6 +51,8 @@ namespace Museum.App.Adapters.DALConfiguration
 
                 services.AddScoped<IEmailSenderService, EmailSenderService>();
 
+                //services.AddScoped<IUserRepository<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+
                 services.AddScoped<IFilterRepository, FilterRepository>(provider => new FilterRepository(connectionString));
                 services.AddScoped<IHomeRepository, HomeRepository>(provider => new HomeRepository(connectionString));
                 services.AddScoped<IGalleryObjectRepository, GalleryObjectRepository>(provider => new GalleryObjectRepository(connectionString));
@@ -45,17 +63,25 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<CollectionParts>(connectionString);
                 services.AddScoped<Directors>(connectionString);
                 services.AddScoped<LouvreMuseumGalleries>(connectionString);
-                services.AddScoped<GalleryObjectsAdapter>(connectionString);
+                services.AddScoped<GalleryObjects>(connectionString);
                 services.AddScoped<Histories>(connectionString);
                 services.AddScoped<Images>(connectionString);
                 services.AddScoped<LouvreMuseumLevels>(connectionString);
                 services.AddScoped<Literatures>(connectionString);
                 services.AddScoped<Museams>(connectionString);
                 services.AddScoped<OnDisplayNow>(connectionString);
-                services.AddScoped<Raiting>(connectionString);
+                services.AddScoped<Raitings>(connectionString);
                 services.AddScoped<Theme_Album>(connectionString);
                 services.AddScoped<Users>(connectionString);
                 services.AddScoped<Wings_floors>(connectionString);
+                services.AddScoped<Comments>(connectionString);
+
+
+                services.AddTransient<Microsoft.AspNetCore.Identity.IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+                services.AddTransient<Microsoft.AspNetCore.Identity.IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
+
+                services.AddIdentity<ApplicationUser, ApplicationRole>().AddDefaultTokenProviders();
+
                 return services;
             }
             else
@@ -92,7 +118,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 cfg.CreateMap<Literatures, LiteraturesAdapter>().ReverseMap();
                 cfg.CreateMap<Museams, MuseamsAdapter>().ReverseMap();
                 cfg.CreateMap<OnDisplayNow, OnDisplayNowAdapter>().ReverseMap();
-                cfg.CreateMap<Raiting, RaitingAdapter>().ReverseMap();
+                cfg.CreateMap<Raitings, RaitingAdapter>().ReverseMap();
                 cfg.CreateMap<Theme_Album, Theme_AlbumAdapter>().ReverseMap();
                 cfg.CreateMap<Users, UsersAdapter>().ReverseMap();
                 cfg.CreateMap<Wings_floors, Wings_floorsAdapter>().ReverseMap();
@@ -101,6 +127,17 @@ namespace Museum.App.Adapters.DALConfiguration
                 //Secondary map
                 cfg.CreateMap<SectionItem, SectionItemModel>().ReverseMap();
                 //Another one ... like New...Adapter
+
+                cfg.CreateMap<FilterViewModel, VoteViewModel>()
+                    .ForMember(dest => dest.Raiting, opt => opt.MapFrom(src => src.VoteViewModel.Raiting))
+                    .ForMember(dest => dest.Object_ID, opt => opt.MapFrom(src => src.VoteViewModel.Object_ID));
+
+                cfg.CreateMap<VoteViewModel, RaitingAdapter>()
+                    .ForMember(dest => dest.Rating, opt => opt.MapFrom(src => src.Raiting))
+                    .ForMember(dest => dest.Object_ID, opt => opt.MapFrom(src => src.Object_ID))
+                    .ForMember(dest => dest.ApplicationUser_ID, opt => opt.MapFrom(src => src.ApplicationUser_ID));
+
+
             });
 
             mapperConfiguration.CreateMapper();

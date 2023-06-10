@@ -123,5 +123,15 @@ namespace Museum.App.Services.Abstractions
             var expression = _mapper.Map<Expression<Func<TModel, bool>>>(predicate);
             return await _repository.AnyAsync(expression);
         }
+
+        public int CountBy(Expression<Func<TAdapter, bool>> predicate)
+        {
+            return _repository.CountBy(_mapper.Map<Expression<Func<TModel, bool>>>(predicate));
+        }
+
+        public async Task<int> CountByAsync(Expression<Func<TAdapter, bool>> predicate)
+        {
+            return await _repository.CountByAsync(_mapper.Map<Expression<Func<TModel, bool>>>(predicate));
+        }
     }
 }

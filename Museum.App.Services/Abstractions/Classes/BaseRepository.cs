@@ -224,5 +224,19 @@ namespace Museum.App.Services.Abstractions
         {
             return join.TryParseEnumTypeBack(out string val) ? val.ToUpper() : "JOIN";
         }
+
+        public int CountBy(Expression<Func<T, bool>> predicate)
+        {
+            using var sql = new SqlConnection(_db);
+            var val = sql.Count<T>();
+            return int.TryParse(val.ToString(), out int res) ? res : 0;
+        }
+
+        public async Task<int> CountByAsync(Expression<Func<T, bool>> predicate)
+        {
+            using var sql = new SqlConnection(_db);
+            var val = await sql.CountAsync(predicate);
+            return int.TryParse(val.ToString(), out int res) ? res : 0;
+        }
     }
 }
