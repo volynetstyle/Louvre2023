@@ -14,6 +14,11 @@ namespace Museum.App.ViewModels.FilterViewModels
         public string? Title { get; set; }
         public string? Description { get; set; }
 
+        public int LikeCount { get; set; }
+        public int DislikeCount { get; set; }
+        public int CommentsCount { get; set; }
+
+        
         public override bool Equals(object? obj)
         {
             if (obj == null || GetType() != obj.GetType())

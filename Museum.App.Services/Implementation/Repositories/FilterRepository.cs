@@ -41,6 +41,13 @@ namespace Museum.App.Services.Implementation.Repositories
                 "SELECT * FROM GetGalleryObjectsAsFilterPage");
         }
 
+        public async Task<IEnumerable<FilterSectionModel>> GetGalleryObjectsAsFilterPageAsync()
+        {
+            using var conn = new SqlConnection(_db);
+            return await conn.QueryAsync<FilterSectionModel>(
+                "SELECT * FROM GetGalleryObjectsAsFilterPage");
+        }
+
         public IEnumerable<SectionItemModel> GetGalleryObjectsByCollectionID(int collectionID)
         {
             using var conn = new SqlConnection(_db);

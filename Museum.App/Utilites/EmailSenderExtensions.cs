@@ -1,7 +1,12 @@
-﻿using Museum.App.Services.Interfaces.Servises;
+using Museum.App.Services.Interfaces.Servises;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+using WebApp.Services;
 
-namespace Museum.App.Services.Extensions
+namespace WebApp.Services
 {
     public static class EmailSenderExtensions
     {

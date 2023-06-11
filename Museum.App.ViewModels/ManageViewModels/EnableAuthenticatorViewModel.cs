@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApp.Models.ManageViewModels
+namespace Museum.App.ViewModels.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

@@ -1,15 +1,20 @@
-﻿using Museum.App.Services.Adapters;
-using Museum.App.ViewModels.Filter;
-using Museum.App.ViewModels.FilterViewModels;
-using Museum.App.ViewModels.Home;
-using Museum.Models.FilterModels;
+﻿using Museum.App.ViewModels.FilterViewModels;
 
 namespace Museum.App.Services.Interfaces.Servises
 {
     public interface IFilterService
     {
-        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage();
         public IEnumerable<SideBarCollection> GetSideBarCollections();
+
+        public Task<IEnumerable<FilterSectionViewModel>> GetGalleryObjectsAsFilterPageAsync();
+
+        public Task AddVoteAsync(VoteViewModel vote);
+        public Task RemoveVoteAsync(VoteViewModel vote);
+        public Task<bool> IsVoteExistForUserAsync(int userId);
+
+        public Task<int> GetLikeCountAsync(int objectId);
+        public Task<int> GetDislikeCountAsync(int objectId);
+        public Task<int> GetCommentsCountAsync(int objectId);
 
     }
 }

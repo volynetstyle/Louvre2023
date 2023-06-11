@@ -134,19 +134,6 @@ IsOpen bit,
 
 );
 
-/* Update */
-CREATE TABLE Histories (
-History_ID INT IDENTITY(1,1) PRIMARY KEY,
-Previous_Owner VARCHAR(255),
-Acquisition_Date DATE,
-Acquisition_Mode VARCHAR(255),
-Acquisition_Owner VARCHAR(255),
-Location VARCHAR(255),
-Depositary VARCHAR(255),
-Inscription_Signature VARCHAR(255),
-Historical_Notes TEXT,
-Additional_Info TEXT
-);
 
 CREATE TABLE Images (
 Image_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -166,6 +153,8 @@ Publisher VARCHAR(255),
 Publication_Date DATE,
 ISBN VARCHAR(255),
 Additional_Info TEXT
+Object_ID int
+CONSTRAINT fk_images FOREIGN KEY (Object_ID) REFERENCES GalleryObjects(Object_ID)
 );
 
 

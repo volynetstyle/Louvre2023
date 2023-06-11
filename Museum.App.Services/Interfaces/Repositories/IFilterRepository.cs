@@ -10,5 +10,8 @@ namespace Museum.App.Services.Implementation.Repositories
         public Task<IEnumerable<SectionItemModel>> GetGalleryObjectsByCollectionIDAsync(int collectionID);
         public IEnumerable<FilterSectionModel> GetGalleryObjectsAsFilterPage();
         public IEnumerable<CheckboxViewModel> GetFilterSideBarCollection(FilterSideBarParams _params);
+
+        public Task<IEnumerable<FilterSectionModel>> GetGalleryObjectsAsFilterPageAsync();
+
     }
 }

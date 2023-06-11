@@ -1,5 +1,4 @@
-﻿using Museum.App.Services.Adapters;
-using AutoMapper;
+﻿using AutoMapper;
 using Museum.Models.HomeModels;
 using Museum.App.ViewModels.Home;
 using Museum.Models.TableModels;
@@ -12,11 +11,27 @@ using Museum.App.Services.Abstractions;
 using Museum.App.Services.Implementation.Servises.Other;
 using Museum.App.ViewModels.FilterViewModels;
 using Museum.Models.FilterModels;
+using Museum.Models.Adapters;
+using Microsoft.AspNetCore.Identity;
+using Museum.App.ViewModels.Filter;
 
 namespace Museum.App.Adapters.DALConfiguration
 {
     public static class DALConfiguration
     {
+        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
+
+            services.AddTransient<Microsoft.AspNetCore.Identity.IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+            services.AddTransient<Microsoft.AspNetCore.Identity.IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddDefaultTokenProviders();
+
+            services.AddMvc();
+        }
+
         public static IServiceCollection ConfigureDALServices(IServiceCollection services, IConfiguration configuration)
         {
             string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
@@ -28,12 +43,13 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped(typeof(IBasicService<,>), typeof(BaseService<,>));
 
                 services.AddScoped<IHomeService, HomeService>();
-                services.AddScoped<ICategoryService, CategoryService>();
                 services.AddScoped<IAboutService, AboutService>();
                 services.AddScoped<IGalleryObjectService, GalleryObjectService>();
                 services.AddScoped<IFilterService, FilterService>();
 
                 services.AddScoped<IEmailSenderService, EmailSenderService>();
+
+                //services.AddScoped<IUserRepository<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
 
                 services.AddScoped<IFilterRepository, FilterRepository>(provider => new FilterRepository(connectionString));
                 services.AddScoped<IHomeRepository, HomeRepository>(provider => new HomeRepository(connectionString));
@@ -52,10 +68,18 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<Literatures>(connectionString);
                 services.AddScoped<Museams>(connectionString);
                 services.AddScoped<OnDisplayNow>(connectionString);
-                services.AddScoped<Raiting>(connectionString);
+                services.AddScoped<Raitings>(connectionString);
                 services.AddScoped<Theme_Album>(connectionString);
                 services.AddScoped<Users>(connectionString);
                 services.AddScoped<Wings_floors>(connectionString);
+                services.AddScoped<Comments>(connectionString);
+
+
+                services.AddTransient<IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+                services.AddTransient<IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
+
+                services.AddIdentity<ApplicationUser, ApplicationRole>().AddDefaultTokenProviders();
+
                 return services;
             }
             else
@@ -75,28 +99,43 @@ namespace Museum.App.Adapters.DALConfiguration
             MapperConfiguration mapperConfiguration = new(cfg =>
             {
                 //Main configuration 
-                cfg.CreateMap<Artists, ArtistAdapter>().ReverseMap();
-                cfg.CreateMap<Categories, CategoryAdapter>().ReverseMap();
-                cfg.CreateMap<Collections, CollectionAdapter>().ReverseMap();
-                cfg.CreateMap<CollectionParts, CollectionPartAdapter>().ReverseMap();
-                cfg.CreateMap<Directors, DirectorAdapter>().ReverseMap();
-                cfg.CreateMap<LouvreMuseumGalleries, GalleryAdapter>().ReverseMap();
-                cfg.CreateMap<GalleryObjects, GalleryObjectAdapter>().ReverseMap();
-                cfg.CreateMap<Histories, HistoryAdapter>().ReverseMap();
-                cfg.CreateMap<Images, ImageDboAdapter>().ReverseMap();
-                cfg.CreateMap<LouvreMuseumLevels, LevelAdapter>().ReverseMap();
-                cfg.CreateMap<Literatures, LiteratureAdapter>().ReverseMap();
-                cfg.CreateMap<Museams, MuseumAdapter>().ReverseMap();
+                cfg.CreateMap<ApplicationUser, ApplicationUserAdapter>().ReverseMap();
+                cfg.CreateMap<ApplicationRole, ApplicationRoleAdapter>().ReverseMap();
+                cfg.CreateMap<Comments, CommentsAdapter>().ReverseMap();
+                cfg.CreateMap<CommentReplies, CommentRepliesAdapter>().ReverseMap();
+                cfg.CreateMap<Artists, ArtistsAdapter>().ReverseMap();
+                cfg.CreateMap<Categories, CategoriesAdapter>().ReverseMap();
+                cfg.CreateMap<Collections, CollectionsAdapter>().ReverseMap();
+                cfg.CreateMap<CollectionParts, CollectionPartsAdapter>().ReverseMap();
+                cfg.CreateMap<Directors, DirectorsAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumGalleries, LouvreMuseumGalleriesAdapter>().ReverseMap();
+                cfg.CreateMap<GalleryObjects, GalleryObjectsAdapter>().ReverseMap();
+                cfg.CreateMap<Histories, HistoriesAdapter>().ReverseMap();
+                cfg.CreateMap<Images, ImagesAdapter>().ReverseMap();
+                cfg.CreateMap<LouvreMuseumLevels, LouvreMuseumLevelsAdapter>().ReverseMap();
+                cfg.CreateMap<Literatures, LiteraturesAdapter>().ReverseMap();
+                cfg.CreateMap<Museams, MuseamsAdapter>().ReverseMap();
                 cfg.CreateMap<OnDisplayNow, OnDisplayNowAdapter>().ReverseMap();
-                cfg.CreateMap<Raiting, RatingAdapter>().ReverseMap();
-                cfg.CreateMap<Theme_Album, ThemeAlbumAdapter>().ReverseMap();
-                cfg.CreateMap<Users, UserAdapter>().ReverseMap();
-                cfg.CreateMap<Wings_floors, WingsFloorsAdapter>().ReverseMap();
+                cfg.CreateMap<Raitings, RaitingAdapter>().ReverseMap();
+                cfg.CreateMap<Theme_Album, Theme_AlbumAdapter>().ReverseMap();
+                cfg.CreateMap<Users, UsersAdapter>().ReverseMap();
+                cfg.CreateMap<Wings_floors, Wings_floorsAdapter>().ReverseMap();
                 cfg.CreateMap<FilterSectionModel, FilterSectionViewModel>().ReverseMap();
                 
                 //Secondary map
                 cfg.CreateMap<SectionItem, SectionItemModel>().ReverseMap();
                 //Another one ... like New...Adapter
+
+                cfg.CreateMap<FilterViewModel, VoteViewModel>()
+                    .ForMember(dest => dest.Raiting, opt => opt.MapFrom(src => src.VoteViewModel.Raiting))
+                    .ForMember(dest => dest.Object_ID, opt => opt.MapFrom(src => src.VoteViewModel.Object_ID));
+
+                cfg.CreateMap<VoteViewModel, RaitingAdapter>()
+                    .ForMember(dest => dest.Rating, opt => opt.MapFrom(src => src.Raiting))
+                    .ForMember(dest => dest.Object_ID, opt => opt.MapFrom(src => src.Object_ID))
+                    .ForMember(dest => dest.ApplicationUser_ID, opt => opt.MapFrom(src => src.ApplicationUser_ID));
+
+
             });
 
             mapperConfiguration.CreateMapper();

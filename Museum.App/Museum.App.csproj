@@ -21,9 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Museum.App.Services.Test\Museum.App.Services.Test.csproj" />
     <ProjectReference Include="..\Museum.App.Services\Museum.App.Services.csproj" />
     <ProjectReference Include="..\Museum.App.ViewModels\Museum.App.ViewModels.csproj" />
     <ProjectReference Include="..\Museum.Models\Museum.Models.csproj" />
+    <ProjectReference Include="..\Museum.Package\Museum.Packages.csproj" />
+    <ProjectReference Include="..\Museum.RuntimeComponent\Museum.RuntimeComponent.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\_templates\tests\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Museum.App.Services.Abstractions;
-using Museum.App.Services.Adapters;
 using Museum.App.Services.Attributes;
 using Museum.App.Services.Implementation.Repositories;
 using Museum.App.Services.Interfaces.Servises;
@@ -16,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Dommel.Json.JsonParsers;
+using Museum.Models.Adapters;
 
 namespace Museum.App.Services.Implementation.Servises
 {
@@ -23,34 +23,84 @@ namespace Museum.App.Services.Implementation.Servises
     public class FilterService : IFilterService
     {
         private readonly IMapper _mapper;
-        private readonly IBasicService<Artists ,ArtistAdapter> _artistService;
-        private readonly IBasicService<Categories, CategoryAdapter> _categoryService;
-        private readonly IBasicService<Collections, CollectionAdapter> _collectionService;
+        private readonly IBasicService<Artists ,ArtistsAdapter> _artistService;
+        private readonly IBasicService<Categories, CategoriesAdapter> _categoryService;
+        private readonly IBasicService<Collections, CollectionsAdapter> _collectionService;
+        private readonly IBasicService<Raitings, RaitingAdapter> _raitingService;
+        private readonly IBasicService<Comments, CommentsAdapter> _commentsService;
+        private readonly IBasicRepository<Raitings> _raitingRepo;
+        private readonly IBasicRepository<Comments> _commentsRepo;
         private readonly IFilterRepository _filterRepository;
 
         public FilterService(IMapper mapper, 
-                             IBasicService<Artists, ArtistAdapter> artistService,
-                             IBasicService<Categories, CategoryAdapter> categoryService,
-                             IBasicService<Collections, CollectionAdapter> collectionService,
-                             IFilterRepository filterRepository)
+                             IBasicService<Artists, ArtistsAdapter> artistService,
+                             IBasicService<Categories, CategoriesAdapter> categoryService,
+                             IBasicService<Collections, CollectionsAdapter> collectionService,
+                             IBasicService<Raitings, RaitingAdapter> raitingService,
+                             IBasicService<Comments, CommentsAdapter> commentsService,
+                             IFilterRepository filterRepository,
+                             IBasicRepository<Raitings> raitingRepo,
+                             IBasicRepository<Comments> commentsRepo)
         {
             _mapper = mapper;
             _artistService = artistService;
             _categoryService = categoryService;
             _collectionService = collectionService;
+            _raitingService = raitingService;
+            _commentsService = commentsService;
             _filterRepository = filterRepository;
+            _raitingRepo = raitingRepo;
+            _commentsRepo = commentsRepo;
         }
 
-        public IEnumerable<ArtistAdapter> GetArtists() => _artistService.GetAll();
+        public IEnumerable<ArtistsAdapter> GetArtists() 
+            => _artistService.GetAll();
 
-        public IEnumerable<CategoryAdapter> GetCategories() => _categoryService.GetAll();
+        public IEnumerable<CategoriesAdapter> GetCategories() 
+            => _categoryService.GetAll();
 
-        public IEnumerable<CollectionAdapter> GetDepartmens() => _collectionService.GetAll();
+        public IEnumerable<CollectionsAdapter> GetDepartmens() 
+            => _collectionService.GetAll();
 
-        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage()
+        public async Task<IEnumerable<FilterSectionViewModel>> GetGalleryObjectsAsFilterPageAsync()
         {
-            return _mapper.Map<IEnumerable<FilterSectionViewModel>>(_filterRepository.GetGalleryObjectsAsFilterPage());
+            List<FilterSectionViewModel> filterSections = new();
+
+            foreach (var item in await _filterRepository.GetGalleryObjectsAsFilterPageAsync())
+            {
+                var tmp = _mapper.Map<FilterSectionViewModel>(item);
+
+                tmp.LikeCount = await GetLikeCountAsync(tmp.OBJECT_ID);
+                tmp.DislikeCount = await GetDislikeCountAsync(tmp.OBJECT_ID);
+                tmp.CommentsCount = await GetCommentsCountAsync(tmp.OBJECT_ID);
+
+                filterSections.Add(tmp);
+            }
+
+            return filterSections;
         }
+
+        public async Task AddVoteAsync(VoteViewModel voteView) 
+            => await _raitingService.AddAsync(_mapper.Map<RaitingAdapter>(voteView));
+
+        public async Task RemoveVoteAsync(VoteViewModel vote) 
+            => await _raitingService.DeleteAsync(_mapper.Map<RaitingAdapter>(vote));
+
+        public async Task<bool> IsVoteExistForUserAsync(int userId) 
+            => await _raitingRepo.AnyAsync(x => x.Object_ID == userId);
+
+        public async Task<int> GetLikeCountAsync(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId && x.Rating > 0);
+
+        public async Task<int> GetDislikeCountAsync(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId && x.Rating < 0);
+
+        /// <summary>
+        ///  TODO: This is the wrong implementation of comment counter for single post, update it
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> GetCommentsCountAsync(int objectId) =>
+            await _commentsService.CountAsync();
 
         public IEnumerable<SideBarCollection> GetSideBarCollections()
         {
@@ -102,6 +152,5 @@ namespace Museum.App.Services.Implementation.Servises
             }
             return Enumerable.Empty<SideBarCollection>();
         }
-
     }
 }

@@ -52,7 +52,6 @@ CREATE TABLE Comments (
     CommentText VARCHAR(255),
 	[User_ID] INT NOT NULL,
 	CONSTRAINT[FK_ApplicationUserRole_User_Comment] FOREIGN KEY ([User_ID]) REFERENCES [ApplicationUser]([ApplicationUser_ID]),
-
 );
 
 CREATE TABLE CommentReplies (
@@ -71,3 +70,12 @@ ALTER TABLE Raiting
 ADD ApplicationUser_ID INT NOT NULL
 ALTER TABLE Raiting
 ADD CONSTRAINT FK_Raiting_User FOREIGN KEY (ApplicationUser_ID) REFERENCES ApplicationUser(ApplicationUser_ID);
+
+CREATE TABLE Comments (
+    Comment_ID INT NOT NULL PRIMARY KEY IDENTITY,
+    CommentText VARCHAR(255),
+    [User_ID] INT NOT NULL,
+    ParentComment_ID INT,
+    CONSTRAINT [FK_ApplicationUserRole_User_Comment] FOREIGN KEY ([User_ID]) REFERENCES [ApplicationUser]([ApplicationUser_ID]),
+    CONSTRAINT [FK_Comments_ParentComment] FOREIGN KEY (ParentComment_ID) REFERENCES Comments(Comment_ID)
+);

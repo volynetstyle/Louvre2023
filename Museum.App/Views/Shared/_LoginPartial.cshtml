@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@using Museum.Models.TableModels
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+<li class="menu-has-children"><a href="">Account</a>
+    <ul>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+            <li>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+            </li>
+        </form>
+   </ul>
+</li>
+}
+else
+{
+ <li class="menu-has-children"><a href="">Sing in/out</a>
+    <ul>
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+    </ul>
+</li>
+}
+

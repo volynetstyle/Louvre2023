@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Museum.App.Services.Abstractions.BaseRepository&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEcAgAAAAAAAAAgAAAACCAUECAMIAAgAAgEAAEAAKKA=</HashCode>
+      <FileName>Abstractions\Classes\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Abstractions.BaseService&lt;TModel, TAdapter&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEcAAAAAAABAAAAAAAABCAUACAMIAAgAAgAAAEAAKKA=</HashCode>
+      <FileName>Abstractions\Classes\BaseService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Attributes.RepositoryAttribute" Collapsed="true">
+    <Position X="17.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Attributes\RepositoryAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Attributes.ServiceAttribute" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Attributes\ServiceAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.JsonParsers.JsonParser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json.Parser\JsonParser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Exeptions.EmptyValue" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exeptions\EmptyValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Exeptions.ModelNullExeption" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exeptions\NullModelExeption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Extensions.EmailSenderExtensions" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\EmailSenderExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.RoleRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAIAAAAAAAIAAAAAAACAgKEAABAIAAAIA=</HashCode>
+      <FileName>Implementation\Repositories\UserRepository\RoleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.UserRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAAAACACAAAMRABMZAIAAEAAAgCAiIFAQA4IggAOI=</HashCode>
+      <FileName>Implementation\Repositories\UserRepository\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.AboutRepository" Collapsed="true">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Repositories\AboutRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.FilterRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAEAIAAAAAAAAAAAACAAAAAAAAAw=</HashCode>
+      <FileName>Implementation\Repositories\FilterRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.GalleryObjectRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Implementation\Repositories\GalleryObjectRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Repositories.HomeRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Implementation\Repositories\HomeRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Servises.Other.EmailSenderService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Implementation\Servises\UserService\EmailSenderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Services.AboutService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Servises\AboutService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Services.GalleryObjectService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IDAAACAAAAAAYAAACAABBAAAEABAAFAAAhgAAEAAAAA=</HashCode>
+      <FileName>Implementation\Servises\GalleryObjectService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Services.HomeService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAABKAoEAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Implementation\Servises\HomeService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Implementation.Servises.FilterService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAACAAAABAYAAAAAABQAAgBQAAAAAACAGAEFAAKAQ=</HashCode>
+      <FileName>Implementation\Servises\FilterService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Museum.App.Services.Utilites.ModelReflectionHelper" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAACAAIAAIgAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Utilites\ModelReflectionHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Museum.App.Services.Utilites.StrongPasswordChecker" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAQAAAAAoAAAAAIAAAgAAAAAAAAAAggAAAAA=</HashCode>
+      <FileName>Utilites\StrongPasswordChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.DommelMapper" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Il0CEsAoDRkY4QhoAAFDCC3mggGcDEmIGoFDZQICRYk=</HashCode>
+      <FileName>DataBuilder\Dommel\Any.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.ColumnPropertyInfo" Collapsed="true">
+    <Position X="19" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>DataBuilder\Dommel\ColumnPropertyInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.DefaultColumnNameResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultColumnNameResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultForeignKeyPropertyResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultForeignKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultKeyPropertyResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.DefaultPropertyResolver" Collapsed="true">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.DefaultTableNameResolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\DefaultTableNameResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.IgnoreAttribute" Collapsed="true">
+    <Position X="17.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IgnoreAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.MySqlSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\MySqlSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.PostgresSqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\PostgresSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Resolvers" Collapsed="true">
+    <Position X="19" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQAAAAAAAgBAQAAAAAAAAAAQAQAAEAADAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\Resolvers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.SqlExpression&lt;TEntity&gt;" Collapsed="true">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAKAAAQAoAUBAAFAQAEIBAiQEEAAIwCABDAQAgASKQ=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.SqliteSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqliteSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.SqlServerCeSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlServerCeSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.SqlServerSqlBuilder" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\SqlServerSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.DommelJsonMapper" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\DommelJsonMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.DommelJsonOptions" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\DommelJsonOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.SqlServerSqlBuilder" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.MySqlSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.PostgresSqlBuilder" Collapsed="true">
+    <Position X="3.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.SqliteSqlBuilder" Collapsed="true">
+    <Position X="6.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.SqlServerCeSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dommel.Json.JsonDataAttribute" Collapsed="true">
+    <Position X="19" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonDataAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.JsonObjectTypeHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonObjectTypeHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dommel.Json.JsonPropertyResolver" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAQAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dommel.Json.JsonSqlExpression&lt;T&gt;" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\JsonSqlExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Museum.App.Services.Abstractions.IBasicInterface&lt;T&gt;" Collapsed="true">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEcAAAAAAAAAAAAAAAAACAUACAMIAAgAAgAAAEAAKKA=</HashCode>
+      <FileName>Abstractions\Interfaces\IBasicInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Abstractions.IBasicRepository&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstractions\Interfaces\IBasicRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Abstractions.IBasicService&lt;TModel, TAdapter&gt;" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstractions\Interfaces\IBasicService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.Json.JsonParsers.IJsonParser" Collapsed="true">
+    <Position X="12" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json.Parser\IJsonParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Repositories.IAboutRepository" Collapsed="true">
+    <Position X="12" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Repositories\IAboutRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Repositories.IGalleryObjectRepository" Collapsed="true">
+    <Position X="15.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Repositories\IGalleryObjectRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Repositories.IHomeRepository" Collapsed="true">
+    <Position X="19" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Interfaces\Repositories\IHomeRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Repositories.IUserRepository&lt;TUser&gt;" Collapsed="true">
+    <Position X="19" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Repositories\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Implementation.Repositories.IFilterRepository" Collapsed="true">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAIAAAAAAAAAAAACAAAAAAAAAw=</HashCode>
+      <FileName>Interfaces\Repositories\IFilterRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.IAboutService" Collapsed="true">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Servises\IAboutService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.ICategoryService" Collapsed="true">
+    <Position X="15.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Servises\ICategoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.IEmailSenderService" Collapsed="true">
+    <Position X="19" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Interfaces\Servises\IEmailSenderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.IFilterService" Collapsed="true">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAIAAAAAAAAAAgAAAAAAAACACAEEAAIAA=</HashCode>
+      <FileName>Interfaces\Servises\IFilterService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.IGalleryObjectService" Collapsed="true">
+    <Position X="17.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABgAAEAAAAA=</HashCode>
+      <FileName>Interfaces\Servises\IGalleryObjectService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Museum.App.Services.Interfaces.Servises.IHomeService" Collapsed="true">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAACAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Servises\IHomeService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IColumnNameResolver" Collapsed="true">
+    <Position X="17.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IColumnNameResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IForeignKeyPropertyResolver" Collapsed="true">
+    <Position X="13.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IForeignKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IKeyPropertyResolver" Collapsed="true">
+    <Position X="13.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IKeyPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.IPropertyResolver" Collapsed="true">
+    <Position X="15.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\IPropertyResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.ISqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAwAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ISqlBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.ITableNameResolver" Collapsed="true">
+    <Position X="17.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ITableNameResolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dommel.Json.IJsonSqlBuilder" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DataBuilder\Dommel.Json\IJsonSqlBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Dommel.QueryCacheType" Collapsed="true">
+    <Position X="13.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAEAAAAAAAABgAAAACAQAAAUAAAAAAgAABAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\Cache.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Dommel.ForeignKeyRelation" Collapsed="true">
+    <Position X="12" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataBuilder\Dommel\ForeignKeyRelation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
