@@ -13,7 +13,6 @@ using Museum.App.ViewModels.FilterViewModels;
 using Museum.Models.FilterModels;
 using Museum.Models.Adapters;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNet.Identity;
 using Museum.App.ViewModels.Filter;
 
 namespace Museum.App.Adapters.DALConfiguration
@@ -44,7 +43,6 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped(typeof(IBasicService<,>), typeof(BaseService<,>));
 
                 services.AddScoped<IHomeService, HomeService>();
-                services.AddScoped<ICategoryService, CategoryService>();
                 services.AddScoped<IAboutService, AboutService>();
                 services.AddScoped<IGalleryObjectService, GalleryObjectService>();
                 services.AddScoped<IFilterService, FilterService>();
@@ -77,8 +75,8 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<Comments>(connectionString);
 
 
-                services.AddTransient<Microsoft.AspNetCore.Identity.IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
-                services.AddTransient<Microsoft.AspNetCore.Identity.IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
+                services.AddTransient<IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
+                services.AddTransient<IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
 
                 services.AddIdentity<ApplicationUser, ApplicationRole>().AddDefaultTokenProviders();
 

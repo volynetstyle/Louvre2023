@@ -67,7 +67,7 @@
                                                 <form method="post" action="/Filter/Vote" name=voteId>
                                                     <input type="hidden" name="VoteViewModel.Object_ID" value="@post.OBJECT_ID"> <!-- Идентификатор объекта -->
                                                     <input type="hidden" name="VoteViewModel.Raiting" value="1"> <!-- Значение голоса -->                                                    
-                                                    <button type="submit" class="btn-link">
+                                                        <button type="submit" class="btn btn-outline-success">
                                                         <span>
                                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                                 fill="currentColor" class="bi bi-hand-thumbs-up"
@@ -83,7 +83,7 @@
                                                 <form method="post" action="/Filter/Vote" name=voteId>
                                                     <input type="hidden" name="VoteViewModel.Object_ID" value="@post.OBJECT_ID"> <!-- Идентификатор объекта -->
                                                     <input type="hidden" name="VoteViewModel.Raiting" value="1"> <!-- Значение голоса -->                                                  
-                                                    <button type="submit" class="btn-link">
+                                                    <button type="submit" class="btn btn-outline-danger">
                                                         <span>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" class="bi bi-hand-thumbs-down"
@@ -99,7 +99,8 @@
                                     </div>
                                     <div class="comment-wrap col-lg-6 float-right">
                                         <ul>
-                                            <li><a href="/GalleryObject/?OBJECT_ID=@post.OBJECT_ID">@post.CommentsCount Comments</a></li>
+                                                    <li><a class="btn btn-outline-light text-dark" 
+                                                href="/GalleryObject/?OBJECT_ID=@post.OBJECT_ID">@post.CommentsCount Comments</a></li>
                                         </ul>
                                     </div>
                                 </div>

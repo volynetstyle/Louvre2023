@@ -32,8 +32,6 @@ namespace Museum.App.Controllers
             _userManager = userManager;
         }
 
-        public int PageCount => _filterService.GetGalleryObjectsAsFilterPage().Count() / pageSize;
-
         public IActionResult Index(int page = 1)
         {
             var filterViewModel = new FilterViewModel
@@ -41,8 +39,8 @@ namespace Museum.App.Controllers
                 pageSize = pageSize,
 
                 FilterSections = _filterService
-                    .GetGalleryObjectsAsFilterPage()
-                    .Pagination(page, pageSize),
+                    .GetGalleryObjectsAsFilterPageAsync()
+                    .Result.Pagination(page, pageSize),
 
                 FilterSideBarCollection = _filterService
                     .GetSideBarCollections()
@@ -62,24 +60,30 @@ namespace Museum.App.Controllers
             return await ProcessVote(viewModel);
         }
 
+        private async void GroupByKey()
+        {
+
+        }
+
         private async Task<IActionResult> ProcessVote(FilterViewModel viewModel)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 if (int.TryParse(_userManager.GetUserId(User), out int ApplicationUser_ID))
                 {
-                    bool IsVoteExistForUser = await _filterService.IsVoteExistForUser(viewModel.VoteViewModel.Object_ID);
+                    bool IsVoteExistForUser = await _filterService.IsVoteExistForUserAsync(viewModel.VoteViewModel.Object_ID);
 
                     var voteViewModel = _mapper.Map<VoteViewModel>(viewModel);
                     voteViewModel.ApplicationUser_ID = ApplicationUser_ID;
 
                     if (!IsVoteExistForUser)
                     {
-                        await _filterService.AddVote(voteViewModel);
+                        await _filterService.AddVoteAsync(voteViewModel);
                     }
                     else
                     {
-                        await _filterService.RemoveVote(voteViewModel);
+                        // TODO:
+                        await _filterService.RemoveVoteAsync(voteViewModel);
                     }
                 }
 
@@ -87,6 +91,13 @@ namespace Museum.App.Controllers
             }
 
             return Ok();
+        }
+
+        private async Task<int> GetPageCountAsync()
+        {
+            var galleryObjects = await _filterService.GetGalleryObjectsAsFilterPageAsync();
+            int totalCount = galleryObjects.Count();
+            return totalCount / pageSize;
         }
     }
 }

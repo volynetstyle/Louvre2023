@@ -62,29 +62,44 @@ namespace Museum.App.Services.Implementation.Servises
         public IEnumerable<CollectionsAdapter> GetDepartmens() 
             => _collectionService.GetAll();
 
-        public IEnumerable<FilterSectionViewModel> GetGalleryObjectsAsFilterPage() 
-            => _mapper.Map<IEnumerable<FilterSectionViewModel>>(_filterRepository.GetGalleryObjectsAsFilterPage());
+        public async Task<IEnumerable<FilterSectionViewModel>> GetGalleryObjectsAsFilterPageAsync()
+        {
+            List<FilterSectionViewModel> filterSections = new();
 
-        public async Task AddVote(VoteViewModel voteView) 
+            foreach (var item in await _filterRepository.GetGalleryObjectsAsFilterPageAsync())
+            {
+                var tmp = _mapper.Map<FilterSectionViewModel>(item);
+
+                tmp.LikeCount = await GetLikeCountAsync(tmp.OBJECT_ID);
+                tmp.DislikeCount = await GetDislikeCountAsync(tmp.OBJECT_ID);
+                tmp.CommentsCount = await GetCommentsCountAsync(tmp.OBJECT_ID);
+
+                filterSections.Add(tmp);
+            }
+
+            return filterSections;
+        }
+
+        public async Task AddVoteAsync(VoteViewModel voteView) 
             => await _raitingService.AddAsync(_mapper.Map<RaitingAdapter>(voteView));
 
-        public async Task RemoveVote(VoteViewModel vote) 
+        public async Task RemoveVoteAsync(VoteViewModel vote) 
             => await _raitingService.DeleteAsync(_mapper.Map<RaitingAdapter>(vote));
 
-        public async Task<bool> IsVoteExistForUser(int userId) 
+        public async Task<bool> IsVoteExistForUserAsync(int userId) 
             => await _raitingRepo.AnyAsync(x => x.Object_ID == userId);
 
-        public async Task<int> GetLikeCount(int objectId) =>
-            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId);
+        public async Task<int> GetLikeCountAsync(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId && x.Rating > 0);
 
-        public async Task<int> GetDislikeCount(int objectId) =>
-            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId);
+        public async Task<int> GetDislikeCountAsync(int objectId) =>
+            await _raitingRepo.CountByAsync(x => x.Object_ID == objectId && x.Rating < 0);
 
         /// <summary>
         ///  TODO: This is the wrong implementation of comment counter for single post, update it
         /// </summary>
         /// <returns></returns>
-        public async Task<int> GetCommentsCount(int objectId) =>
+        public async Task<int> GetCommentsCountAsync(int objectId) =>
             await _commentsService.CountAsync();
 
         public IEnumerable<SideBarCollection> GetSideBarCollections()
