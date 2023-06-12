@@ -2,19 +2,20 @@
 {
     public static class EnumerableHelper
     {
-        public static IEnumerable<TSource> 
-            Pagination<TSource>(this IEnumerable<TSource> source, int page, int pageSize)
+        public static IEnumerable<TSource> Pagination<TSource>(this IEnumerable<TSource> source, int page, int pageSize)
         {
-            return source.Skip((page - 1) * pageSize).Take(pageSize);
+            int startIndex = (page - 1) * pageSize;
+            return source.Take(startIndex..(startIndex + pageSize));
         }
 
-        public static async Task<IEnumerable<TSource>> PaginationAsync<TSource>(
-        this IEnumerable<TSource> source, int page, int pageSize)
+        public static async Task<IEnumerable<TSource>> PaginationAsync<TSource>(this IEnumerable<TSource> source, int page, int pageSize)
         {
             return await Task.Run(() =>
             {
-                return source.Skip((page - 1) * pageSize).Take(pageSize);
+                int startIndex = (page - 1) * pageSize;
+                return source.Take(startIndex..(startIndex + pageSize));
             });
         }
+
     }
 }
