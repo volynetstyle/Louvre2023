@@ -7,10 +7,10 @@ namespace Museum.App.Services.Interfaces.Repositories
 {
     public interface IGalleryObjectRepository
     {
+        public IEnumerable<DefinitionModel> GetLouvreObjectDetailsAsDefinitiong(int Object_ID);
         public GalleryMainSectionImages GetGalleryObjectImages(int Object_ID);
         public GalleryUlModel GetGalleryUl(int Object_ID);
-        public ObjectDetailsModel GetGalleryDecsAsTable(int Object_ID);
-        public string GetGalleryDecsAsString(int Object_ID);
-
+        public DescStringModel GetGalleryDecsAsString(int Object_ID);
+        public IEnumerable<Literatures> GetLiteratures(int Object_ID);
     }
 }

@@ -4,6 +4,7 @@ using Museum.App.Services.Attributes;
 using Museum.App.Services.Interfaces.Repositories;
 using Museum.App.Services.Interfaces.Servises;
 using Museum.App.ViewModels.GalleryObject;
+using Museum.App.ViewModels.GalleryObjectViewModels;
 using Museum.Models.Adapters;
 using Museum.Models.TableModels;
 
@@ -70,7 +71,10 @@ namespace Museum.App.Services.Implementation.Services
             return new GalleryMainSectionViewModel
             {
                 galleryMainSectionImages = _galleryObjectRepository.GetGalleryObjectImages(id),
-                GalleryMainSectionItems = _galleryObjectRepository.GetGalleryUl(id)
+                GalleryMainSectionItems = _mapper.Map<GalleryUlViewModel>(_galleryObjectRepository.GetGalleryUl(id)),
+                Details = _galleryObjectRepository.GetGalleryDecsAsString(id).Description,
+                Definitions = _mapper.Map<IEnumerable<DefinitonViewModel>>(_galleryObjectRepository.GetLouvreObjectDetailsAsDefinitiong(id)),
+                Literatures = _mapper.Map<IEnumerable<LiteraturesAdapter>>(_galleryObjectRepository.GetLiteratures(id))
             };
         }
 
