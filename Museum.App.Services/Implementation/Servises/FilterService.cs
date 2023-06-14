@@ -80,6 +80,71 @@ namespace Museum.App.Services.Implementation.Servises
             return filterSections;
         }
 
+        public IEnumerable<FilterSectionViewModel> SearchExibitSection(string searchString)
+        {
+            var filterSections = GetGalleryObjectsAsFilterPageAsync().Result;
+
+            if (filterSections == null || string.IsNullOrEmpty(searchString))
+            {
+                return Enumerable.Empty<FilterSectionViewModel>();
+            }
+            else
+            {
+                var filteredSections = new List<FilterSectionViewModel>();
+
+                searchString = searchString.ToLower(); 
+
+                foreach (var filterSection in filterSections)
+                {
+                    if (filterSection != null && filterSection.Title != null)
+                    {
+                        var lowerTitle = filterSection.Title.ToLower(); 
+                        var lowerTags = filterSection.Tags?.ToLower(); 
+                        var lowerDescription = filterSection.Description?.ToLower(); 
+
+                        if (lowerTitle.Contains(searchString) ||
+                            (lowerTags != null && lowerTags.Contains(searchString)) ||
+                            (lowerDescription != null && lowerDescription.Contains(searchString)))
+                        {
+                            filteredSections.Add(filterSection);
+                        }
+                    }
+                }
+
+                return filteredSections;
+            }
+        }
+
+        public async Task<IEnumerable<FilterSectionViewModel>> SearchExibitSectionAsync(string searchString)
+        {
+            var filterSections = await GetGalleryObjectsAsFilterPageAsync();
+
+            if (filterSections == null || string.IsNullOrEmpty(searchString))
+            {
+                return Enumerable.Empty<FilterSectionViewModel>();
+            }
+            else
+            {
+                var filteredSections = new List<FilterSectionViewModel>();
+
+                foreach (var filterSection in filterSections)
+                {
+                    if (filterSection != null && filterSection.Title != null)
+                    {
+                        if (filterSection.Title.Contains(searchString) &&
+                            (searchString == null || filterSection.Tags.Contains(searchString)) &&
+                            (searchString == null || filterSection.Title.Contains(searchString)) &&
+                            (searchString == null || filterSection.Description.Contains(searchString)))
+                        {
+                            filteredSections.Add(filterSection);
+                        }
+                    }
+                }
+
+                return filteredSections;
+            }
+        }
+
         public async Task AddVoteAsync(VoteViewModel voteView) 
             => await _raitingService.AddAsync(_mapper.Map<RaitingAdapter>(voteView));
 

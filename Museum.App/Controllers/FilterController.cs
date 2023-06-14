@@ -49,6 +49,78 @@ namespace Museum.App.Controllers
             return View("Index", filterViewModel);
         }
 
+        [HttpPost]
+        public PartialViewResult Action(string filterItemTitle, string itemLabel, bool isChecked)
+        {
+            var allData = _filterService.GetGalleryObjectsAsFilterPageAsync().Result;
+
+            if (isChecked)
+            {
+                var filteredData = allData.Where(filterItem => filterItem.Title == filterItemTitle);
+
+                return PartialView("_single-post", new FilterViewModel
+                {
+                    pageSize = pageSize,
+                    FilterSections = filteredData.Pagination(1, pageSize)
+                });
+            }
+            else
+            {
+                // Выполнить другие действия для снятого чекбокса в указанной категории
+                // Дополнительные действия с данными
+
+                // Возвращайте частичное представление с обновленными данными
+                return PartialView("_YourPartialView", allData);
+            }
+        }
+
+        public PartialViewResult ApplyFilter(string filter)
+        {
+            //A-Z, Z-A, RatingAsc, RatingDesc
+            var allData = _filterService.GetGalleryObjectsAsFilterPageAsync().Result;
+            var sortingData = filter switch
+            {
+                "A-Z" => allData.OrderBy(d => d.Title),
+                "Z-A" => allData.OrderByDescending(d => d.Title),
+                "RatingAsc" => allData.OrderByDescending(d => d.LikeCount),
+                "RatingDesc" => allData.OrderByDescending(d => d.DislikeCount),
+                _ => allData
+            };
+
+            return PartialView("_single-post", new FilterViewModel 
+            { 
+                pageSize = pageSize, 
+                FilterSections = sortingData.Pagination(1, pageSize) 
+            });
+        }
+
+        public PartialViewResult ViewCategory(string searchString)
+        {
+            int page = 1;
+            if (string.IsNullOrWhiteSpace(searchString))
+            {
+                return PartialView("_single-post", new FilterViewModel
+                {
+                    pageSize = pageSize,
+
+                    FilterSections = _filterService
+                        .GetGalleryObjectsAsFilterPageAsync()
+                        .Result.Pagination(page, pageSize)
+                });
+            }
+            else
+            {
+                return PartialView("_single-post", new FilterViewModel
+                {
+                    pageSize = pageSize,
+
+                    FilterSections = _filterService
+                        .SearchExibitSection(searchString)
+                        .Pagination(page, pageSize)
+                });
+            }
+        }
+
         public IActionResult Page(int page)
         {
             return Index(page);
@@ -60,11 +132,13 @@ namespace Museum.App.Controllers
             return await ProcessVote(viewModel);
         }
 
+        #region private section
         private async void GroupByKey()
         {
 
         }
 
+        
         private async Task<IActionResult> ProcessVote(FilterViewModel viewModel)
         {
             if (_signInManager.IsSignedIn(User))
@@ -99,5 +173,6 @@ namespace Museum.App.Controllers
             int totalCount = galleryObjects.Count();
             return totalCount / pageSize;
         }
+        #endregion
     }
 }

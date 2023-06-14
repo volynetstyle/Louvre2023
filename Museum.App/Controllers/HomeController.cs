@@ -46,18 +46,15 @@ namespace Museum.App.Controllers
         //    }
         //}
 
-        public IActionResult ViewCategory(string searchString)
+        public PartialViewResult ViewCategory(string searchString)
         {
             if (string.IsNullOrWhiteSpace(searchString))
             {
-                return View("Index", new HomeViewModel(
-                    _homeService.ExibitSection(),
-                    null,                   
-                    _homeService.GallerySection()));
+                return PartialView("_SearchResults", new HomeViewModel(_homeService.ExibitSection()));
             }
             else
             {
-                return View("Index", new HomeViewModel(_homeService.SearchExibitSection(searchString)));
+                return PartialView("_SearchResults", new HomeViewModel(_homeService.SearchExibitSection(searchString)));
             }
         }
 
