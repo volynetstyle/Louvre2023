@@ -26,19 +26,6 @@ namespace Museum.App.Adapters.DALConfiguration
 {
     public static class DALConfiguration
     {
-        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
-        {
-            string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
-
-            services.AddTransient<Microsoft.AspNetCore.Identity.IUserStore<ApplicationUser>, UserRepository>(provider => new UserRepository(connectionString));
-            services.AddTransient<Microsoft.AspNetCore.Identity.IRoleStore<ApplicationRole>, RoleRepository>(provider => new RoleRepository(connectionString));
-
-            services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddDefaultTokenProviders();
-
-            services.AddMvc();
-        }
-
         public static IServiceCollection ConfigureDALServices(IServiceCollection services, IConfiguration configuration)
         {
             string? connectionString = configuration.GetConnectionString(ConfigConstants.ConnectionStringName);
@@ -61,6 +48,7 @@ namespace Museum.App.Adapters.DALConfiguration
                 services.AddScoped<IFilterRepository, FilterRepository>(provider => new FilterRepository(connectionString));
                 services.AddScoped<IHomeRepository, HomeRepository>(provider => new HomeRepository(connectionString));
                 services.AddScoped<IGalleryObjectRepository, GalleryObjectRepository>(provider => new GalleryObjectRepository(connectionString));
+                services.AddScoped<IAdminRepository, AdminRepository>(provider => new AdminRepository(connectionString));
 
                 services.AddScoped<Artists>(connectionString);
                 services.AddScoped<Categories>(connectionString);

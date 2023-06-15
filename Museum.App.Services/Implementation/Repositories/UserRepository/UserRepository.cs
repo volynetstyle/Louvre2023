@@ -267,7 +267,7 @@ namespace Museum.App.Services.Implementation.Repositories
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                var roleId = await connection.ExecuteScalarAsync<int?>("SELECT [ApplicationUser_ID] FROM [ApplicationRole] WHERE [NormalizedName] = @normalizedName", new { normalizedName = roleName.ToUpper() });
+                var roleId = await connection.ExecuteScalarAsync<int?>("SELECT [ApplicationRole_ID] FROM [ApplicationRole] WHERE [NormalizedName] = @normalizedName", new { normalizedName = roleName.ToUpper() });
                 if (roleId == default(int)) return false;
                 var matchingRoles = await connection.ExecuteScalarAsync<int>($"SELECT COUNT(*) FROM [ApplicationUserRole] WHERE [User_ID] = @userId AND [Role_ID] = @{nameof(roleId)}",
                     new { userId = user.ApplicationUser_ID, roleId });

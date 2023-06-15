@@ -133,12 +133,6 @@ namespace Museum.App.Controllers
         }
 
         #region private section
-        private async void GroupByKey()
-        {
-
-        }
-
-        
         private async Task<IActionResult> ProcessVote(FilterViewModel viewModel)
         {
             if (_signInManager.IsSignedIn(User))
