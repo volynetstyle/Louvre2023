@@ -12,9 +12,7 @@ namespace Museum.App
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton(DALConfiguration.ConfigureMapper().CreateMapper());
-
             DALConfiguration.ConfigureDALServices(builder.Services, builder.Configuration);
-
             InitilizeComponent(builder).Run();
         }
 

@@ -11,6 +11,8 @@ namespace Museum.Models.TableModels
 {
     public class GalleryObjects
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Object_ID { get; set; }
         public int? Category_ID { get; set; }
         public int? Artist_ID { get; set; }
@@ -18,8 +20,6 @@ namespace Museum.Models.TableModels
         public int? Collection_ID { get; set; }
         public int? Museam_ID { get; set; }
         public int? Part_ID { get; set; }
-        public int? History_ID { get; set; }
-        public int? LiteratureID { get; set; }
 
         public string? title { get; set; }
         public DateTime? creation_date { get; set; }

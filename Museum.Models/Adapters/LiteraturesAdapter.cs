@@ -16,5 +16,6 @@ namespace Museum.Models.Adapters
         public DateTime Publication_Date { get; set; }
         public string? ISBN { get; set; }
         public string? Additional_Info { get; set; }
+        public int Object_ID { get; set; }
     }
 }

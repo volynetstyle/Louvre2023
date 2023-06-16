@@ -26,10 +26,10 @@
 <section class="gallery-area section-gap gallery-page-area pt-4 pb-4">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <img min-height="480" min-width="329" class="img-fluid" src="@GalleryMainSectionImages?.Url" alt="">
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <h1>
                     @GalleryMainSectionImages?.Title
                 </h1>
@@ -50,47 +50,136 @@
                         <strong>Description</strong>: <span>@GalleryMainSectionItems?.Description</span>
                     </li>
                 </ul>
+                <p class="sample-text pt-3 pb-3">
+                    @Model.GalleryMainSection.Details
+                </p>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Start gallery Area -->
 <section class="gallery-area section-gap gallery-page-area pt-4 pb-4" id="gallery">
     <div class="container">
         <!-- Start Desc Accordion Area -->
-      @*  @foreach (var accordion in Model.AccordionSection)
-        {
-        <div class="accordion" id="accordionExample">
-            @foreach (var item in accordion.accordions)
-            {
-            <div class="accordion-item">
-                <h2 class="accordion-header" 
-                    id="heading-value-@item.HeaderText">
-                    <button class="accordion-button collapsed" 
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-value-@item.HeaderText" 
-                            aria-expanded="false" 
-                            aria-controls="collapse-value-@item.HeaderText">
-                        @item.HeaderText
+        <div class="accordion mt-2">
+            <div class="accordion-item ">
+                <h2 class="accordion-header" id="heading-value-0">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-value-0" aria-expanded="false" aria-controls="collapse-value-0">
+                        Description
                     </button>
                 </h2>
-                <div id="collapse-value-@item.HeaderText" 
-                     class="accordion-collapse collapse" 
-                     aria-labelledby="heading-value-@item.HeaderText"
-                     data-bs-parent="#accordionExample">
+
+                <div id="collapse-value-0" class="accordion-collapse collapse" aria-labelledby="heading-value-0">
                     <div class="accordion-body">
-                        @item.CollapseText
+
+                        <div class="section-top-border p-0">
+                            <div class="row">
+                                @foreach (var item in Model.GalleryMainSection.Definitions)
+                                {
+                                    if(!string.IsNullOrWhiteSpace(item.Value)){      
+                                    <div class="col-md-4">
+                                        <div class="single-defination">
+                                            <h4 class="mb-20">@item.Definition:</h4>
+                                            <p>@item.Value</p>
+                                            <blockquote class="generic-blockquote">“@item.Description”</blockquote>
+                                        </div>
+                                    </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
+
             </div>
-            }
         </div>
-        }*@
-        <!-- End Desc Accordion Area -->
+        <div class="accordion mt-2">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-value-1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-value-1" aria-expanded="false" aria-controls="collapse-value-1">
+                        Category
+                    </button>
+                </h2>
+
+                <div id="collapse-value-1" class="accordion-collapse collapse" aria-labelledby="heading-value-1">
+                    <div class="accordion-body">
+                        <h3 class="mb-10">Category Name</h3>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <p class="text-right">Over time, even the most sophisticated, memory packed computer can
+                                    begin to
+                                    run slow if we don’t do something to prevent it. The reason why has less to do with
+                                    how
+                                    computers are made and how they age and more to do with the way we use them. You
+                                    see, all of the
+                                    daily tasks that we do on our PC from running programs to downloading and deleting
+                                    software can
+                                    make our computer sluggish. To keep this from happening, you need to understand the
+                                    reasons why
+                                    your PC is getting slower and do something to keep your PC running at its best. You
+                                    can do this
+                                    through regular maintenance and PC performance optimization programs</p>
+                                <p class="text-right">Before we discuss all of the things that could be affecting your
+                                    PC’s
+                                    performance, let’s talk a little about what symptoms</p>
+                            </div>
+                            <div class="col-md-3">
+                                <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="p-10">
+                            <blockquote class="generic-blockquote">
+                                “Recently, the US Federal government banned online casinos from operating in America
+                                by
+                                making
+                                it illegal to transfer money to them through any US bank or payment system. As a
+                                result
+                                of this”
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="accordion mt-2">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-value-2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-value-2" aria-expanded="false" aria-controls="collapse-value-2">
+                        Bibliography
+                    </button>
+                </h2>
+
+                <div id="collapse-value-2" class="accordion-collapse collapse" aria-labelledby="heading-value-2">
+
+                    <div class="accordion-body">
+                        <div class="">
+                            <ol class="ordered-list">
+                                @foreach (var item in @Model.GalleryMainSection.Literatures)
+                                {
+                                <li><span>@item.Title, @item.Author, @item.Publisher, @item.Publication_Date, @item.ISBN, @item.Additional_Info</span></li>  
+                                }
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Desc Accordion Area -->
     </div>
 </section>
 <!-- End gallery Area -->
-
 
 <!-- Start blog Area -->
 <section class="blog-area section-gap" id="blog">
@@ -182,7 +271,50 @@
                             <div class="col">
                                 <div class="main-comment-area">
 
-                                    
+                                    <div class="single-comment">
+                                        <div class="d-flex flex-start mt-4">
+                                            <!-- Icon -->
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                                 alt="avatar"
+                                                 width="50"
+                                                 height="50"/>
+
+                                            <div class="flex-grow-1 flex-shrink-1">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-1">
+                                                            <!-- NAME -->
+                                                            Maria Smantha
+                                                            <span class="small">
+                                                        <!-- Date of comment-->
+                                                        - 2 hours ago
+                                                    </span>
+                                                        </p>
+                                                        <a href="#!" class="btn">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                 height="16" fill="currentColor"
+                                                                 class="bi bi-reply-all-fill" viewBox="0 0 16 16">
+                                                                <path d="M8.021 11.9 3.453 8.62a.719.719 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                                                                <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945a.5.5 0 0 1-.042.028.147.147 0 0 0 0 .252.503.503 0 0 1 .042.028l4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106z"/>
+                                                            </svg>
+                                                            <span class="small"> reply</span>
+                                                        </a>
+                                                    </div>
+                                                    <p class="small mb-0">
+                                                        <!-- Comment text -->
+                                                        text
+                                                    </p>
+                                                </div>
+
+                                                <!-- Replies Area -->
+                                                <div class="comment-replies-area">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -194,4 +326,3 @@
         </div>
     </div>
 </section>
-
